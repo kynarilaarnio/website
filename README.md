@@ -8,7 +8,7 @@
 
 ## Development environment, project structure, workflow ##
 
-* `client/` contains angular app and scss files for theme styling
+* `client/` contains angular app and scss files for styling
 * `server/` contains backend
 * Use scss for styling
 * Skeleton provides responsive grid and other stuff, [see documentation here](http://getskeleton.com/)
