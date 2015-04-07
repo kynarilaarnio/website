@@ -1,0 +1,8 @@
+node_modules/
+bower_components/
+.sass-cache/
+.tmp/
+_DS_Store
+DS_Store
+.Trash/
+_static/

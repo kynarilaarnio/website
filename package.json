@@ -1,0 +1,35 @@
+{
+  "name": "kynarilaarnio",
+  "version": "0.0.0",
+  "dependencies": {
+    "express": "^4.12.3",
+    "mongoose-q": "0.0.17"
+  },
+  "devDependencies": {
+    "body-parser": "^1.12.2",
+    "gulp": "^3.8.11",
+    "gulp-concat": "^2.5.2",
+    "gulp-concat-css": "^2.1.2",
+    "gulp-jshint": "^1.9.4",
+    "gulp-jsonlint": "^1.0.2",
+    "gulp-karma": "0.0.4",
+    "gulp-livereload": "^3.8.0",
+    "gulp-load-plugins": "^0.9.0",
+    "gulp-mocha": "^2.0.1",
+    "gulp-ng-html2js": "^0.2.0",
+    "gulp-nodemon": "^2.0.2",
+    "gulp-plumber": "^1.0.0",
+    "gulp-sass": "^1.3.3",
+    "gulp-sourcemaps": "^1.5.1",
+    "gulp-wrap": "^0.11.0",
+    "jasmine-core": "^2.2.0",
+    "jshint-stylish": "^1.0.1",
+    "karma": "^0.12.31",
+    "karma-jasmine": "^0.3.5",
+    "karma-junit-reporter": "^0.2.2",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "morgan": "^1.5.2",
+    "tiny-lr": "^0.1.5",
+    "wiredep": "^2.2.2"
+  }
+}
