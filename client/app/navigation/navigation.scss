@@ -1,0 +1,92 @@
+$navigation-foreground:   #333333;
+$navigation-background:   #ffffff;
+$navigation-highlight:    #2E0A5D;
+
+.header {
+  padding-top: 1rem;
+
+  .title {
+    text-transform: uppercase;
+  }
+
+  .user {
+    margin-top: 1rem;
+
+    a {
+      text-transform: uppercase;
+      text-decoration: none;
+      color: $navigation-foreground;
+      font-size: 1.3rem;
+      font-weight: 600;
+
+      &:hover {
+        color: $navigation-highlight;
+      }
+    }
+  }
+}
+
+.navigation {
+  > .container {
+    width: 100%;
+  }
+
+  .navigation-list {
+    display: flex;
+    justify-content: space-between;
+
+    padding-top: 1rem;
+    border-top: 1px solid $navigation-foreground;
+
+    .navigation-item {
+      display: inline;
+      list-style: none;
+
+      a {
+        font-size: 1.5rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        text-decoration: none;
+        letter-spacing: -0.1rem;
+        color: $navigation-foreground;
+        &:hover {
+          color: $navigation-highlight;
+        }
+      }
+    }
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    margin: auto;
+    height: 1px;
+    width: 0px;
+    background: transparent;
+    transition: width .4s ease;
+  }
+
+  &.docked {
+    > .container {
+      width: 80%;
+    }
+
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 50px;
+    background-color: $navigation-background;
+
+    .navigation-list {
+      border-top: 0px;
+      margin: 1px auto;
+    }
+
+    &:after {
+      width: 100%;
+      background: $navigation-foreground;
+    }
+  }
+}

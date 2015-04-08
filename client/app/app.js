@@ -15,6 +15,7 @@ var m = angular.module('app', [
   'app.partials',
 
   // Features
+  'app.navigation',
   'app.main'
 ]);
 

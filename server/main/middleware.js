@@ -13,7 +13,7 @@ module.exports = exports = {
     next();
   },
 
-  handleError: function (err, req, res) {
+  handleError: function (err, req, res, next) {
     if (err) {
       res.send(err, 500);
     }

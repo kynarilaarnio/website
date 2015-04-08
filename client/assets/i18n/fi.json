@@ -1,5 +1,16 @@
 {
   "global": {
-    "title": "Otsikko"
+    "title": "Kynärin yliopistoturnaus",
+
+    "login": "Steam-kirjautuminen",
+
+    "navigation": {
+      "main": "Yleistä",
+      "schedule": "Aikataulu",
+      "teams": "Joukkueet",
+      "groups": "Lohkot",
+      "brackets": "Pudotuspelit",
+      "rules": "Säännöt"
+    }
   }
 }
