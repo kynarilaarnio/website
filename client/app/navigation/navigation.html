@@ -3,7 +3,21 @@
     <h4 translate>global.title</h4>
   </div>
   <div class="three columns user">
-    <a href class="pull-right"><span class="fa fa-steam"></span> <span translate>global.login</span></a>
+    <div ng-hide="account">
+      <a href class="pull-right" ng-click="account = true">
+        <span class="fa fa-steam"></span> <span translate>global.login</span>
+      </a>
+    </div>
+
+    <div ng-show="account">
+      <a href class="pull-right logout" ng-click="account = false">
+        <span class="fa fa-sign-out"></span>
+      </a>
+
+      <a href class="pull-right">
+        <span class="fa fa-user"></span> <span translate>global.my_profile</span>
+      </a>
+    </div>
   </div>
 </div>
 

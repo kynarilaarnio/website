@@ -3,6 +3,8 @@
     "title": "Kynärin yliopistoturnaus",
 
     "login": "Steam-kirjautuminen",
+    "logout": "Kirjaudu ulos",
+    "my_profile": "Oma tili",
 
     "navigation": {
       "main": "Yleistä",
