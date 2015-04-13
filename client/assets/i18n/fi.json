@@ -14,5 +14,21 @@
       "brackets": "Pudotuspelit",
       "rules": "Säännöt"
     }
+  },
+
+  "main": {
+    "wat": {
+      "title": "Mikä?",
+      "content": "No menokynyy! TiTen vanhat ja nuoremmat kynärijanarit pistää kuudentoista joukkueen kynäriturnauksen pystyyn. Pelit alkaa toukokuussa ja offline-finaalit pelataan Tampereella syksyllä."
+    },
+    "news": {
+      "title": "Tiedotteet"
+    },
+    "latest_matches": {
+      "title": "Viimeisimmät matsit"
+    },
+    "next_event": {
+      "title": "Seuraava tapahtuma"
+    }
   }
 }
