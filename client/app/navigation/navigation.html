@@ -1,46 +1,92 @@
+<div class="row header mobile" ng-init="mobileOpen = false" ng-click="mobileOpen = !mobileOpen">
+  <div class="twelve columns">
+    <div class="container">
+      <div class="title">
+        <h4 class="title-short" translate>global.title_short</h4>
+      </div>
+
+      <div class="navicon">
+        <button class="lines-button x pull-right" ng-class="{ 'open' : mobileOpen  }" type="button" role="button">
+          <span class="lines"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="row header">
   <div class="nine columns title">
-    <h4 translate>global.title</h4>
+    <h4 class="title-full" translate>global.title</h4>
   </div>
-  <div class="three columns user">
-    <div ng-hide="account">
-      <a href class="pull-right" ng-click="account = true">
-        <span class="fa fa-steam"></span> <span translate>global.login</span>
-      </a>
-    </div>
 
-    <div ng-show="account">
-      <a href class="pull-right logout" ng-click="account = false">
-        <span class="fa fa-sign-out"></span>
-      </a>
+  <div class="three columns">
+    <div class="user pull-right">
+      <div ng-hide="account">
+        <span class="pull-right header-link" ng-click="account = true">
+          <span class="fa fa-steam"></span> <span translate>global.login</span>
+        </span>
+      </div>
 
-      <a href class="pull-right">
-        <span class="fa fa-user"></span> <span translate>global.my_profile</span>
-      </a>
+      <div ng-show="account">
+        <span class="pull-right header-link logout" ng-click="account = false">
+          <span class="fa fa-sign-out"></span>
+        </span>
+
+        <span class="pull-right header-link">
+          <span class="fa fa-user"></span> <span translate>global.my_profile</span>
+        </span>
+      </div>
     </div>
   </div>
 </div>
 
 <div class="navigation" navigation-dock>
   <div class="container">
-    <ul class="navigation-list">
-      <li class="navigation-item">
-        <a href translate>global.navigation.main</a>
+    <ul class="navigation-list" ng-class="{ 'open': mobileOpen }">
+      <li class="navigation-item navigation-link">
+        <div class="container">
+          <span translate>global.navigation.main</span>
+        </div>
       </li>
-      <li class="navigation-item">
-        <a href translate>global.navigation.schedule</a>
+      <li class="navigation-item navigation-link">
+        <div class="container">
+          <span translate>global.navigation.schedule</span>
+        </div>
       </li>
-      <li class="navigation-item">
-        <a href translate>global.navigation.teams</a>
+      <li class="navigation-item navigation-link">
+        <div class="container">
+          <span translate>global.navigation.teams</span>
+        </div>
       </li>
-      <li class="navigation-item">
-        <a href translate>global.navigation.groups</a>
+      <li class="navigation-item navigation-link">
+        <div class="container">
+          <span translate>global.navigation.groups</span>
+        </div>
       </li>
-      <li class="navigation-item">
-        <a href translate>global.navigation.brackets</a>
+      <li class="navigation-item navigation-link">
+        <div class="container">
+          <span translate>global.navigation.brackets</span>
+        </div>
       </li>
-      <li class="navigation-item">
-        <a href translate>global.navigation.rules</a>
+      <li class="navigation-item navigation-link">
+        <div class="container">
+          <span translate>global.navigation.rules</span>
+        </div>
+      </li>
+      <li class="navigation-item navigation-link user" ng-show="account">
+        <div class="container">
+          <span translate>global.my_profile</span>
+        </div>
+      </li>
+      <li class="navigation-item navigation-link user" ng-hide="account">
+        <div class="container">
+          <span ng-click="account = true" translate>global.login</span>
+       </div>
+      </li>
+      <li class="navigation-item navigation-link user" ng-show="account">
+        <div class="container">
+          <span class="logout" ng-click="account = false" translate>global.logout</span>
+        </div>
       </li>
     </ul>
   </div>

@@ -1,12 +1,44 @@
-$navigation-foreground:   #333333;
-$navigation-background:   #ffffff;
-$navigation-highlight:    #2E0A5D;
+$navigation-foreground:           #333333;
+$navigation-background:           #ffffff;
+$navigation-highlight:            #2E0A5D;
+$docked-navigation-height:        50px;
+$mobile-menu-max-width:           750px;
+$mobile-header-height:            50px;
+$mobile-navigation-item-height:   50px;
+$mobile-navigation-item-padding:  5px;
+
+.navigation-link, .header-link {
+  cursor: pointer;
+
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: -0.1rem;
+  color: $navigation-foreground;
+
+  &:hover {
+    color: $navigation-highlight;
+  }
+}
 
 .header {
   padding-top: 1rem;
 
   .title {
     text-transform: uppercase;
+
+    .title-full {
+      display: block;
+    }
+
+    .title-short {
+      display: none;
+    }
+  }
+
+  .navicon {
+    display: none;
   }
 
   .user {
@@ -36,61 +68,143 @@ $navigation-highlight:    #2E0A5D;
   }
 
   .navigation-list {
-    display: flex;
-    justify-content: space-between;
-
-    padding-top: 1rem;
-    border-top: 1px solid $navigation-foreground;
-
     .navigation-item {
-      display: inline;
       list-style: none;
+    }
+  }
+}
 
-      a {
-        font-size: 1.5rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        text-decoration: none;
-        letter-spacing: -0.1rem;
-        color: $navigation-foreground;
-        &:hover {
-          color: $navigation-highlight;
+
+@media screen and (min-width: $mobile-menu-max-width) {
+  .navigation {
+    > .container {
+      width: 100%;
+    }
+
+    .navigation-list {
+      display: flex;
+      justify-content: space-between;
+
+      padding-top: 1rem;
+      border-top: 1px solid $navigation-foreground;
+
+      .navigation-item {
+        display: inline;
+
+        > .container {
+          width: 100%;
+        }
+
+        &.user {
+          display: none;
         }
       }
     }
-  }
 
-  &:after {
-    content: '';
-    display: block;
-    margin: auto;
-    height: 1px;
-    width: 0px;
-    background: transparent;
-    transition: width .4s ease;
-  }
-
-  &.docked {
-    > .container {
-      width: 80%;
+    &:after {
+      content: '';
+      display: block;
+      margin: auto;
+      height: 1px;
+      width: 0px;
+      background: transparent;
+      transition: width .4s ease;
     }
 
-    display: block;
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    height: 50px;
-    background-color: $navigation-background;
+    &.docked {
+      > .container {
+        width: 80%;
+      }
+
+      display: block;
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: $docked-navigation-height;
+      background-color: $navigation-background;
+
+
+      .navigation-list {
+        border-top: 0px;
+        margin: 1px auto;
+      }
+
+      &:after {
+        width: 100%;
+        background: $navigation-foreground;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $mobile-menu-max-width) {
+  .navigation {
+    .navigation-list {
+      display: none;
+
+      > .container {
+        width: 80%;
+      }
+
+      &.open {
+        display: block;
+        position: fixed;
+        top: $mobile-header-height + $mobile-navigation-item-padding;
+        left: 0;
+        right: 0;
+        padding-top: $mobile-navigation-item-padding;
+        height: $mobile-navigation-item-height;
+        line-height: $mobile-navigation-item-height;
+      }
+
+      .navigation-item {
+        border-bottom: 1px solid $navigation-foreground;
+        background-color: $navigation-background;
+        margin: 0;
+      }
+    }
 
     .navigation-list {
       border-top: 0px;
       margin: 1px auto;
     }
+  }
 
-    &:after {
-      width: 100%;
-      background: $navigation-foreground;
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 500;
+
+    &.mobile {
+      border-bottom: 1px solid $navigation-foreground;
+      height: $mobile-header-height;
     }
+
+    .title {
+      display: inline;
+
+      .title-short {
+        display: inline;
+      }
+
+      .title-full {
+        display: none;
+      }
+    }
+
+    .navicon {
+      display: inline;
+    }
+
+    .user {
+      display: none;
+    }
+  }
+
+  #main {
+    margin-top: $mobile-header-height + 20px;
   }
 }

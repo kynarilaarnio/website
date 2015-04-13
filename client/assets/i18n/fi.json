@@ -1,6 +1,7 @@
 {
   "global": {
     "title": "Akateeminen kynäriliiga",
+    "title_short": "AKL",
 
     "login": "Steam-kirjautuminen",
     "logout": "Kirjaudu ulos",
