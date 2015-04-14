@@ -16,7 +16,10 @@ var m = angular.module('app', [
 
   // Features
   'app.navigation',
-  'app.main'
+  'app.main',
+  'app.newssheet',
+  'app.team',
+  'app.player'
 ]);
 
 m.config(function ($stateProvider, $urlRouterProvider) {
