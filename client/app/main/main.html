@@ -7,7 +7,9 @@
 
     <div class="six columns">
       <h5 translate>main.news.title</h5>
-      <p></p>
+      <div ng-repeat="newsheet in newssheets">
+        <newssheet ng-attr-content="newsheet"></newssheet>
+      </div>
     </div>
   </div>
 

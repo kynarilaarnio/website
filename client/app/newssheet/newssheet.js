@@ -17,3 +17,16 @@ m.config(function ($stateProvider) {
 
 m.controller('NewssheetArticleController', function ($scope) {
 });
+
+// Unnecessary directive probably(?!)
+// Can be replaced with repeating ng-include template
+// Pending further specification / implementation
+m.directive('newssheet', function () {
+  return {
+    restrict: 'E',
+    scope: {
+      content: '='
+    },
+    templateUrl: 'newssheet/newssheet-mini.html',
+  }
+});
