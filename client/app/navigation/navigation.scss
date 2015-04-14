@@ -177,6 +177,8 @@ $mobile-navigation-item-padding:  5px;
     left: 0;
     right: 0;
     z-index: 500;
+    background-color: $navigation-background;
+
 
     &.mobile {
       border-bottom: 1px solid $navigation-foreground;
