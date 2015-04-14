@@ -53,5 +53,30 @@ m.controller('MainController', function ($scope) {
     }
   ];
 
-  console.log($scope.newssheets);
+  $scope.matches = [
+    {
+      away: {
+        name: 'Tommi Sotkan Penis'
+      },
+      home: {
+        name: 'Digit 1'
+      }
+    },
+    {
+      away: {
+        name: 'Digit 2'
+      },
+      home: {
+        name: 'TiK'
+      }
+    },
+    {
+      away: {
+        name: 'Cluster 1'
+      },
+      home: {
+        name: 'Cluster 2'
+      }
+    }
+  ];
 });

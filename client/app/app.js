@@ -19,7 +19,8 @@ var m = angular.module('app', [
   'app.main',
   'app.newssheet',
   'app.team',
-  'app.player'
+  'app.player',
+  'app.match'
 ]);
 
 m.config(function ($stateProvider, $urlRouterProvider) {
