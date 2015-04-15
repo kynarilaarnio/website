@@ -7,7 +7,7 @@ var mongoose    = require('mongoose'),
 
 var guild = require('../guild/guild.controllers.js');
 
-mongoose.connect(process.env.DB_URL || 'mongodb://localhost/kynarilaarnio');
+mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost/kynarilaarnio');
 /*
  * Include all your global env variables here.
 */
