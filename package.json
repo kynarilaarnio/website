@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "dependencies": {
     "express": "^4.12.3",
-    "mongoose-q": "0.0.17"
+    "mongoose": "^4.0.1",
+    "mongoose-q": "0.0.17",
+    "q": "^1.2.0"
   },
   "devDependencies": {
     "body-parser": "^1.12.2",
