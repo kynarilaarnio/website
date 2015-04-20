@@ -1,1 +1,1 @@
-web: ./dokku.sh
+web: node server/server.js
