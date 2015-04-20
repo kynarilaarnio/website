@@ -13,8 +13,7 @@ gulp.task('install:client:css', function () {
     .pipe($.sass())
     .pipe($.sourcemaps.write())
     .pipe($.concatCss('style.css'))
-    .pipe(gulp.dest(config.frontendTarget.css))
-    .pipe($.livereload(tinyLr));
+    .pipe(gulp.dest(config.frontendTarget.css));
 });
 
 gulp.task('install:client:partials', function () {
@@ -24,8 +23,7 @@ gulp.task('install:client:partials', function () {
       moduleName: 'app.partials'
     }))
     .pipe($.concat('partials.js'))
-    .pipe(gulp.dest(config.frontendTarget.js))
-    .pipe($.livereload(tinyLr));
+    .pipe(gulp.dest(config.frontendTarget.js));
 });
 
 gulp.task('install:client:code', function () {
@@ -35,15 +33,13 @@ gulp.task('install:client:code', function () {
     .pipe($.sourcemaps.init())
     .pipe($.concat('scripts.js'))
     .pipe($.sourcemaps.write())
-    .pipe(gulp.dest(config.frontendTarget.js))
-    .pipe($.livereload(tinyLr));
+    .pipe(gulp.dest(config.frontendTarget.js));
 });
 
 gulp.task('install:client:assets', function () {
   return gulp.src(config.frontendSource.assets)
     .pipe($.plumber())
-    .pipe(gulp.dest(config.frontendTarget.assets))
-    .pipe($.livereload(tinyLr));
+    .pipe(gulp.dest(config.frontendTarget.assets));
 });
 
 gulp.task('install:client:html', function () {
@@ -52,8 +48,7 @@ gulp.task('install:client:html', function () {
     .pipe(wiredep({
       ignorePath: '.' + config.frontendTarget.html
     }))
-    .pipe(gulp.dest(config.frontendTarget.html))
-    .pipe($.livereload(tinyLr))
+    .pipe(gulp.dest(config.frontendTarget.html));
 });
 
 gulp.task('client:test', [ 'install' ], function () {
