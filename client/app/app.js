@@ -23,7 +23,7 @@ var m = angular.module('app', [
   'app.match'
 ]);
 
-m.config(function ($stateProvider, $urlRouterProvider) {
+m.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
   $stateProvider
     .state('kynarilaarnio', {
       url: '/',
@@ -31,4 +31,19 @@ m.config(function ($stateProvider, $urlRouterProvider) {
     });
 
   $urlRouterProvider.otherwise('/main');
+
+  $httpProvider.interceptors.push(function ($q, $location) {
+    return {
+      response: function (response) {
+        return response;
+      },
+      responseError: function (response) {
+        if (response.status === 401) {
+          $location.url('/');
+        }
+
+        return $q.reject(response);
+      }
+    }
+  })
 });

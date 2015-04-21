@@ -30,5 +30,14 @@ module.exports = exports = {
     else {
       return next();
     }
+  },
+
+  authorize: function (req, res, next) {
+    if (!req.isAuthenticated()) {
+      res.send(401);
+    }
+    else {
+      next();
+    }
   }
 };
