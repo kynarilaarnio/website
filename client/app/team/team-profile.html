@@ -1,0 +1,17 @@
+<div class="player large">
+  <a href ui-sref="kynarilaarnio.team.profile">
+    <div class="row title">
+      <div class="image two columns">
+        <img ng-src="{{ team.imageUrl }}" alt="Profile picture" />
+      </div>
+
+      <h4 class="name ten columns">
+        {{ team.nick }}
+      </h4>
+    </div>
+  </a>
+
+  <div ng-repeat="player in team.players">
+    <div ng-include="'partials/player/player-mini.html'"></div>
+  </div>
+</div>

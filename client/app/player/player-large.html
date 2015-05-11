@@ -1,0 +1,12 @@
+<div class="player large row">
+  <div class="image two columns">
+    <img ng-src="{{ player.imageUrl }}" alt="Profile picture" />
+  </div>
+
+  <div class="content ten columns">
+    <a href ui-sref="kynarilaarnio.player.profile">{{ player.nick }}</a>
+    <br />
+    <span translate>global.realname</span>: {{ player.name }}
+    <span translate>global.kd</span>: {{ player.kd }}
+  </div>
+</div>

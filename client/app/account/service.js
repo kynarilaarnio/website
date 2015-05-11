@@ -7,10 +7,10 @@ m.factory('Account', function ($resource) {
     'update': {
       method: 'PUT'
     }
-  })
+  });
 });
 
-m.factory('Auth', function ($rootScope, $q, $http, $location) {
+m.factory('Auth', function ($rootScope, $q, $http, $location, $cookieStore) {
   $rootScope.currentUser = $cookieStore.get('user') || null;
   $cookieStore.remove('user');
 
@@ -40,4 +40,4 @@ m.factory('Auth', function ($rootScope, $q, $http, $location) {
     currentUser: function () {
     }
   };
-})
+});

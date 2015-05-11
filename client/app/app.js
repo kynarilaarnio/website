@@ -44,6 +44,6 @@ m.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
 
         return $q.reject(response);
       }
-    }
-  })
+    };
+  });
 });

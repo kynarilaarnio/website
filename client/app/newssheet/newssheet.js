@@ -28,5 +28,5 @@ m.directive('newssheet', function () {
       content: '='
     },
     templateUrl: 'newssheet/newssheet-mini.html',
-  }
+  };
 });

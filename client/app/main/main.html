@@ -8,7 +8,7 @@
     <div class="six columns">
       <h5 translate>main.news.title</h5>
       <div ng-repeat="newsheet in newssheets">
-        <newssheet ng-attr-content="newsheet"></newssheet>
+        <newssheet content="newsheet"></newssheet>
       </div>
     </div>
   </div>
@@ -17,7 +17,7 @@
     <div class="six columns">
       <h5 translate>main.latest_matches.title</h5>
       <div ng-repeat="match in matches">
-        <match ng-attr-content="match" ng-attr-template="mini"></match>
+        <match content="match" template="mini"></match>
       </div>
     </div>
 

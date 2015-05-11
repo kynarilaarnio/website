@@ -1,15 +1,15 @@
-<div ui-sref="kynarilaarnio.team.profile({ id: content.id })" class="team-large">
+<div ui-sref="kynarilaarnio.team.profile({ id: content.id })" class="team large">
   <div class="row">
-    <div class="two columns team-logo">
-      logo placeholder
+    <div class="two columns image">
+      <img ng-src="{{ team.imageUrl }}" alt="Profile pic" />
     </div>
 
-    <div class="eight columns team-main">
-      {{ content.name }}
-    </div>
+    <h4 class="eight columns name">
+      {{ team.name }}
+    </h4>
+  </div>
 
-    <div class="two columns team-position">
-      #1
-    </div>
+  <div class="row players">
+    <player ng-repeat="player in team.players" content="player" template="mini"></player>
   </div>
 </div>

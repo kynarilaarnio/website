@@ -50,7 +50,9 @@ m.directive('match', function () {
           case 'report':
             return 'match/match-report.html';
         }
-      }
+      };
+
+      scope.match = scope.content;
     }
-  }
+  };
 });
