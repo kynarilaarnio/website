@@ -2,9 +2,11 @@
 
 var m = angular.module('app', [
   'angularMoment',
+  'btford.markdown',
   'ngAnimate',
   'ngCookies',
   'ngMessages',
+  'ngSanitize',
   'pascalprecht.translate',
   'ui.router',
 
@@ -20,7 +22,8 @@ var m = angular.module('app', [
   'app.newssheet',
   'app.team',
   'app.player',
-  'app.match'
+  'app.match',
+  'app.rules'
 ]);
 
 m.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
