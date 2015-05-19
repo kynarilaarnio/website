@@ -12,6 +12,7 @@ var m = angular.module('app', [
 
   // Application configuration
   'app.common.config',
+  'app.common.constants',
 
   // Pre-cached partials
   'app.partials',

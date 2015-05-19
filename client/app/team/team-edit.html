@@ -1,0 +1,33 @@
+<div class="team edit">
+  <div class="row">
+    <div class="six columns">
+      upload placeholder
+    </div>
+    <div class="six columns">
+      <label for="tag" translate>team.tag</label>
+      <input type="text" id="tag" minlength="1" maxlength="16" ng-model="team.tag" />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="twelve columns">
+      <label for="name" translate>team.name</label>
+      <input type="text" id="name" minlength="1" maxlength="255" ng-model="team.name" />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="twelve columns">
+      <label for="description" translate>team.description</label>
+      <textarea id="description" ng-model="team.description"></textarea>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="twelve columns">
+      <label for="rank" translate>team.rank</label>
+      <select id="rank" ng-model="team.rank" ng-options="rank.id as rank.fullName for rank in Ranks">
+      </select>
+    </div>
+  </div>
+</div>

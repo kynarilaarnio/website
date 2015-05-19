@@ -31,5 +31,20 @@
     "next_event": {
       "title": "Seuraava tapahtuma"
     }
+  },
+
+  "team": {
+    "tag": "Tunniste",
+    "name": "Nimi",
+    "description": "Joukkuekuvaus",
+    "rank": "Keskimääräinen taso"
+  },
+
+  "player": {
+    "nick": "Nimimerkki",
+    "email": "Sähköposti",
+    "name": "Nimi",
+    "birthdate": "Syntymäaika",
+    "guild": "Edustamasi ainejärjestö / kilta"
   }
 }

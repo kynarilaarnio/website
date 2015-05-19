@@ -1,0 +1,36 @@
+<div class="player edit">
+  <div class="row">
+    <div class="six columns">
+      upload placeholder
+    </div>
+    <div class="six columns">
+      <label for="nick" translate>player.nick</label>
+      <input type="text" id="nick" minlength="1" maxlength="50" ng-model="player.nick" />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="twelve columns">
+      <label for="email" translate>player.email</label>
+      <input type="email" id="email" minlength="1" maxlength="255" ng-model="player.email" />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="twelve columns">
+      <label for="realname" translate>player.realname</label>
+      <input type="text" id="realname" minlength="1" maxlength="255" ng-model="player.name" />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="six columns">
+      <label for="birthdate" translate>player.birthdate</label>
+      <input type="date" id="birthdate" ng-model="player.birthdate" />
+    </div>
+    <div class="six columns">
+      <label for="guild" translate>player.guild</label>
+      <input type="text" id="guild" ng-model="player.guild" />
+    </div>
+  </div>
+</div>
