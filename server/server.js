@@ -5,6 +5,9 @@ var bodyParser     = require('body-parser');
 var errorHandler   = require('errorhandler');
 var morgan         = require('morgan');
 var http           = require('http');
+var passport       = require('passport');
+var cookieParser   = require('cookie-parser');
+var session        = require('express-session');
 var db             = require('./models');
 
 var users = require('./routes/users');
@@ -20,6 +23,22 @@ app.set('port', process.env.PORT || 9000);
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+
+app.use(cookieParser());
+app.use(session({
+  secret: 'super secret dragon magic :D:D',
+  saveUninitialized: true,
+  resave: true,
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(db.User.createStrategy());
+
+passport.serializeUser(db.User.serializeUser());
+passport.deserializeUser(db.User.deserializeUser());
+
 app.use(express.static(__dirname + '/../_static'));
 
 // development only

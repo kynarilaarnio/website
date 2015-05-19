@@ -1,6 +1,8 @@
 'use strict';
 
-module.exports = function(sequelize, DataTypes) {
+var passportLocalSequelize = require('passport-local-sequelize');
+
+module.exports = function (sequelize, DataTypes) {
   var User = sequelize.define('User', {
     nick: {
       type: DataTypes.STRING,
@@ -51,6 +53,10 @@ module.exports = function(sequelize, DataTypes) {
         notNull: true
       }
     }
+  });
+
+  passportLocalSequelize.attachToUser(User, {
+    usernameField: 'nick'
   });
 
   return User;
