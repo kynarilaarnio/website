@@ -5,11 +5,14 @@ var session     = require('express-session'),
     morgan      = require('morgan'),
     bodyParser  = require('body-parser'),
     passport    = require('passport'),
+    restify     = require('express-restify-mongoose'),
     middle      = require('./middleware');
+
+/* Models for restify */
+var Guild = require('../models/guild.js');
 
 var SteamStrategy = require('../../node_modules/passport-steam').Strategy;
 
-var guilds = require('../guild/guild.controllers.js');
 var users = require('../user/user.controllers.js');
 
 passport.serializeUser(function (user, done) {
@@ -43,7 +46,7 @@ mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost/kynarilaarnio');
 /*
  * Include all your global env variables here.
 */
-module.exports = exports = function (app, express, routers) {
+module.exports = exports = function (app, express) {
   app.set('port', process.env.PORT || 9000);
   app.set('base url', process.env.URL || 'http://localhost');
   app.use(morgan('dev'));
@@ -86,7 +89,7 @@ module.exports = exports = function (app, express, routers) {
     res.send(200);
   });
 
-  app.route('/api/guilds').get(guilds.get);
+  restify.serve(app, Guild);
 
   app.use(middle.logError);
   app.use(middle.handleError);

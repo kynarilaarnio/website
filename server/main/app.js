@@ -3,11 +3,6 @@
 var express = require('express');
 var app = express();
 
-var routers = {};
-
-var Router = express.Router();
-routers.Router = Router;
-
-require('./config.js')(app, express, routers);
+require('./config.js')(app, express);
 
 module.exports = exports = app;
