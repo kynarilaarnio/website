@@ -82,7 +82,6 @@ db
   .sequelize
   .sync()
   .finally(function (err) {
-    console.log(err);
     if (err) {
       throw err;
     }

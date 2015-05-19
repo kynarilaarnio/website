@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   var Match = sequelize.define('Match', {
     groupStage: {
       type: DataTypes.BOOLEAN,
@@ -17,6 +17,13 @@ module.exports = function(sequelize, DataTypes) {
         var value = this.getDataValue('date');
         return value ? value.toISOString().substring(0, 10) : value;
       }
+    }
+  },
+  {
+    associate: function (db) {
+      Match.hasMany(db.Round);
+      Match.hasOne(db.Team, { as: 'home' });
+      Match.hasOne(db.Team, { as: 'away' });
     }
   });
 

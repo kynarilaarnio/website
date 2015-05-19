@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   var Team = sequelize.define('Team', {
     tag: {
       type: DataTypes.STRING,
@@ -27,6 +27,20 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         notNull: false
       }
+    }
+  },
+  {
+    associate: function (db) {
+      // 1 captain
+      Team.hasOne(db.User, { as: 'captain' });
+
+      // 4 actual members
+      Team.hasMany(db.User, { as: 'member' });
+
+      // 2 reserves
+      Team.hasMany(db.User, { as: 'reserve' });
+
+      Team.hasOne(db.Group);
     }
   });
 

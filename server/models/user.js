@@ -53,6 +53,11 @@ module.exports = function (sequelize, DataTypes) {
         notNull: true
       }
     }
+  },
+  {
+    associate: function (db) {
+      User.belongsTo(db.Team);
+    }
   });
 
   passportLocalSequelize.attachToUser(User, {
