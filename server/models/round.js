@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function (sequelize, DataTypes) {
-  var Round = sequelize.define('Round', {
+  var round = sequelize.define('round', {
     map: {
       type: DataTypes.ENUM('nuke', 'mirage', 'dust2', 'inferno', 'cache', 'overpass', 'cbble'),
       validate: {
@@ -23,9 +23,9 @@ module.exports = function (sequelize, DataTypes) {
   },
   {
     associate: function (db) {
-      Round.belongsTo(db.Match);
+      round.belongsTo(db.match);
     }
   });
 
-  return Round;
+  return round;
 };

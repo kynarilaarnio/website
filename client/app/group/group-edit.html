@@ -1,0 +1,10 @@
+<div class="group edit">
+  <div class="row">
+    <div class="twelve columns">
+      <label for="name" translate>group.name</label>
+      <input type="text" id="name" minlength="1" maxlength="1" ng-model="group.name" />
+    </div>
+  </div>
+
+  <list-select options="teamList" selected-list="group.teams" display="name"></list-select>
+</div>

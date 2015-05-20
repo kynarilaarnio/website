@@ -1,0 +1,28 @@
+$list-item-height:      40px;
+$list-hover-bacground:  #f5f5f5;
+$list-active:           #ff4d04;
+$list-padding:          1rem;
+
+.admin {
+  input, textarea, select {
+    width: 100%;
+  }
+
+  .object-list {
+    li {
+      list-style: none;
+      line-height: $list-item-height;
+      height: $list-item-height;
+      padding-left: $list-padding;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $list-hover-bacground;
+      }
+
+      &.active {
+        border-right: $list-active solid 5px;
+      }
+    }
+  }
+}

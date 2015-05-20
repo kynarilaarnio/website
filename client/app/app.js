@@ -6,13 +6,16 @@ var m = angular.module('app', [
   'ngAnimate',
   'ngCookies',
   'ngMessages',
+  'ngResource',
   'ngSanitize',
   'pascalprecht.translate',
   'ui.router',
 
-  // Application configuration
+  // Application configuration and other common stuff
   'app.common.config',
   'app.common.constants',
+  'app.common.directives',
+  'app.common.resources',
 
   // Pre-cached partials
   'app.partials',
@@ -24,7 +27,8 @@ var m = angular.module('app', [
   'app.team',
   'app.player',
   'app.match',
-  'app.rules'
+  'app.rules',
+  'app.admin'
 ]);
 
 m.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {

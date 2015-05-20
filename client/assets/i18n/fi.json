@@ -14,7 +14,15 @@
       "groups": "Lohkot",
       "brackets": "Pudotuspelit",
       "rules": "Säännöt"
-    }
+    },
+
+    "save": "Tallenna",
+    "cancel": "Peruuta",
+    "new": "Uusi",
+    "edit": "Muokkaa",
+    "noContent": "Ei sisältöä",
+    "filter": "Suodata",
+    "users": "Käyttäjät"
   },
 
   "main": {
@@ -37,14 +45,21 @@
     "tag": "Tunniste",
     "name": "Nimi",
     "description": "Joukkuekuvaus",
-    "rank": "Keskimääräinen taso"
+    "rank": "Keskimääräinen taso",
+    "captain": "Kapteeni",
+    "members": "Pelaajat",
+    "standins": "Varapelaajat"
   },
 
   "player": {
     "nick": "Nimimerkki",
     "email": "Sähköposti",
-    "name": "Nimi",
+    "realname": "Nimi",
     "birthdate": "Syntymäaika",
     "guild": "Edustamasi ainejärjestö / kilta"
+  },
+
+  "group": {
+    "name": "Nimi"
   }
 }

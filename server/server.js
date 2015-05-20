@@ -34,10 +34,10 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.use(db.User.createStrategy());
+passport.use(db.user.createStrategy());
 
-passport.serializeUser(db.User.serializeUser());
-passport.deserializeUser(db.User.deserializeUser());
+passport.serializeUser(db.user.serializeUser());
+passport.deserializeUser(db.user.deserializeUser());
 
 app.use(express.static(__dirname + '/../_static'));
 

@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function (sequelize, DataTypes) {
-  var Match = sequelize.define('Match', {
+  var match = sequelize.define('match', {
     groupStage: {
       type: DataTypes.BOOLEAN,
       validate: {
@@ -21,11 +21,11 @@ module.exports = function (sequelize, DataTypes) {
   },
   {
     associate: function (db) {
-      Match.hasMany(db.Round);
-      Match.hasOne(db.Team, { as: 'home' });
-      Match.hasOne(db.Team, { as: 'away' });
+      match.hasMany(db.round);
+      match.hasOne(db.team, { as: 'home' });
+      match.hasOne(db.team, { as: 'away' });
     }
   });
 
-  return Match;
+  return match;
 };

@@ -3,39 +3,35 @@
 var passportLocalSequelize = require('passport-local-sequelize');
 
 module.exports = function (sequelize, DataTypes) {
-  var User = sequelize.define('User', {
+  var user = sequelize.define('user', {
     nick: {
       type: DataTypes.STRING,
+      allowNull: false,
       validate: {
-        notNull: true,
         len: [1, 50]
       }
     },
     name: {
       type: DataTypes.STRING,
+      allowNull: false,
       validate: {
-        notNull: true,
         len: [1, 255]
       }
     },
     email: {
       type: DataTypes.STRING,
+      allowNull: false,
       validate: {
-        notNull: true,
         len: [3, 255]
       }
     },
     imageUrl: {
       type: DataTypes.STRING,
-      validate: {
-        notNull: false
-      }
+      allowNull: true
     },
     birthdate: {
       type: DataTypes.DATE,
-      validate: {
-        notNull: false
-      },
+      allowNull: true,
       get: function() {
         var value = this.getDataValue('birthdate');
         return value ? value.toISOString().substring(0, 10) : value;
@@ -43,26 +39,22 @@ module.exports = function (sequelize, DataTypes) {
     },
     steamId: {
       type: DataTypes.STRING,
-      validate: {
-        notNull: false
-      }
+      allowNull: true
     },
     guild: {
       type: DataTypes.STRING,
-      validate: {
-        notNull: true
-      }
+      allowNull: false
     }
   },
   {
     associate: function (db) {
-      User.belongsTo(db.Team);
+      user.belongsTo(db.team, { foreingKey: { allowNull: true } });
     }
   });
 
-  passportLocalSequelize.attachToUser(User, {
+  passportLocalSequelize.attachToUser(user, {
     usernameField: 'nick'
   });
 
-  return User;
+  return user;
 };

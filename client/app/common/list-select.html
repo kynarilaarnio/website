@@ -1,0 +1,14 @@
+<ul>
+  <li ng-repeat="item in selectedList">
+    <span>{{ item[display] }}</span>
+    <i class="fa fa-minus-square pull-right pointer" ng-click="remove(item)"></i>
+  </li>
+</ul>
+
+<div class="row">
+  <div class="twelve columns">
+    <select ng-model="selected" ng-change="add()" ng-options="item as item[display] for item in options | orderBy: display">
+      <option value=""></option>
+    </select>
+  </div>
+</div>

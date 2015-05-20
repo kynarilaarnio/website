@@ -3,13 +3,13 @@
 var db = require('../models');
 
 exports.findAll = function (req, res) {
-  db.Team.findAll().done(function (entities) {
+  db.team.findAll().done(function (entities) {
     res.json(entities);
   });
 };
 
 exports.find = function (req, res) {
-  db.Team.find({ where: { id: req.param('id') } }).done(function (entity) {
+  db.team.find({ where: { id: req.param('id') } }).done(function (entity) {
     if (entity) {
       res.json(entity);
     } else {
@@ -19,14 +19,14 @@ exports.find = function (req, res) {
 };
 
 exports.create = function (req, res) {
-  db.Team.create(req.body).done(function (entity) {
+  db.team.create(req.body).done(function (entity) {
     res.statusCode = 201;
     res.json(entity);
   });
 };
 
 exports.update = function (req, res) {
-  db.Team.find({ where: { id: req.param('id') } }).done(function (entity) {
+  db.team.find({ where: { id: req.param('id') } }).done(function (entity) {
     if (entity) {
       entity.updateAttributes(req.body).done(function (entity) {
         res.json(entity);
@@ -38,7 +38,7 @@ exports.update = function (req, res) {
 };
 
 exports.destroy = function( req, res) {
-  db.Team.find({ where: { id: req.param('id') } }).done(function (entity) {
+  db.team.find({ where: { id: req.param('id') } }).done(function (entity) {
     if (entity) {
       entity.destroy().done(function () {
         res.send(204);

@@ -30,4 +30,18 @@
       </select>
     </div>
   </div>
+
+  <div class="row">
+    <div class="twelve columns">
+      <label for="captain" translate>team.captain</label>
+      <select id="captain" ng-model="team.captain" ng-options="user as user.nick for user in userList | orderBy: 'nick'">
+      </select>
+    </div>
+  </div>
+
+  <label translate>team.members</label>
+  <list-select options="userList" selected-list="team.members" display="nick" max-selections="4"></list-select>
+
+  <label translate>team.standins</label>
+  <list-select options="userList" selected-list="team.standins" display="nick" max-selections="2"></list-select>
 </div>

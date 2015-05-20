@@ -1,48 +1,42 @@
 'use strict';
 
 module.exports = function (sequelize, DataTypes) {
-  var Team = sequelize.define('Team', {
+  var team = sequelize.define('team', {
     tag: {
       type: DataTypes.STRING,
+      allowNull: false,
       validate: {
-        notNull: true,
         len: [1, 16]
       }
     },
     name: {
       type: DataTypes.STRING,
+      allowNull: false,
       validate: {
-        notNull: true,
         len: [1, 255]
       }
     },
     imageUrl: {
       type: DataTypes.STRING,
-      validate: {
-        notNull: false
-      }
+      allowNull: true
     },
     rank: {
       type: DataTypes.ENUM('s1', 's2', 's3', 's4', 'se', 'sem', 'gn1', 'gn2', 'gn3', 'gnm', 'mg1', 'mg2', 'mge', 'dmg', 'le', 'lem', 'smfc', 'ge'),
-      validate: {
-        notNull: false
-      }
+      allowNull: true
     }
   },
   {
     associate: function (db) {
       // 1 captain
-      Team.hasOne(db.User, { as: 'captain' });
+      team.hasOne(db.user, { as: 'captain', foreingKey: { allowNull: true } });
 
       // 4 actual members
-      Team.hasMany(db.User, { as: 'member' });
+      team.hasMany(db.user, { as: 'member', foreingKey: { allowNull: true } });
 
       // 2 reserves
-      Team.hasMany(db.User, { as: 'reserve' });
-
-      Team.hasOne(db.Group);
+      team.hasMany(db.user, { as: 'reserve', foreingKey: { allowNull: true } });
     }
   });
 
-  return Team;
+  return team;
 };

@@ -3,7 +3,7 @@
 var fs        = require('fs');
 var path      = require('path');
 var Sequelize = require('sequelize');
-var lodash    = require('lodash');
+var _    = require('lodash');
 var sequelize = new Sequelize('kynarilaarnio', 'kynarilaarnio', null, {
   dialect: 'postgres'
 });
@@ -25,7 +25,7 @@ Object.keys(db).forEach(function(modelName) {
   }
 });
 
-module.exports = lodash.extend({
+module.exports = _.extend({
   sequelize: sequelize,
   Sequelize: Sequelize
 }, db);

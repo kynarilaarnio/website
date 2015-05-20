@@ -1,0 +1,42 @@
+<div class="admin">
+  <button ng-click="setConfig(users)" ng-class="{ 'button-primary': config === users }" translate>global.users</button>
+  <button ng-click="setConfig(teams)" ng-class="{ 'button-primary': config === teams }" translate>global.navigation.teams</button>
+  <button ng-click="setConfig(groups)" ng-class="{ 'button-primary': config === groups }" translate>global.navigation.groups</button>
+  <button ng-click="setConfig(news)" ng-class="{ 'button-primary': config === news }" translate>main.news.title</button>
+  <button ng-click="setConfig(schedule)" ng-class="{ 'button-primary': config === schedule }" translate>global.navigation.schedule</button>
+
+  <hr />
+
+  <div ng-show="config">
+    <div class="row">
+      <div class="six columns">
+        <input type="text" ng-model="filter" placeholder="{{ 'global.filter' | translate }}" />
+      </div>
+
+      <div class="six columns">
+        <h4 ng-hide="target.id" translate>global.new</h4>
+        <h4 ng-show="target.id">
+          <span translate>global.edit</span> #{{ target.id }}
+          <button class="pull-right" ng-click="setTarget({})" translate>global.new</button>
+        </h4>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="six columns">
+        <ul class="object-list" ng-show="content.length">
+          <li ng-class="{ 'active': target === row }" ng-click="setTarget(row)" ng-repeat="row in content | orderBy : config.orderBy">
+            <span ng-repeat="key in config.displayKeys">{{ row[key] }}<span ng-if="!$last">, </span></span>
+          </li>
+        </ul>
+
+        <span ng-hide="content.length" translate>global.noContent</span>
+      </div>
+
+      <div class="six columns edit-container pull-right">
+        <div ng-include="config.templateUrl"></div>
+        <button class="pull-right" ng-click="save()" translate>global.save</button>
+      </div>
+    </div>
+  </div>
+</div>
