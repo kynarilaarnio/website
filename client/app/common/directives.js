@@ -20,7 +20,7 @@ m.directive('listSelect', function () {
       }
 
       scope.add = function () {
-        if (_.findIndex(scope.selectedList, scope.selected) < 0 && (!scope.maxSelections || scope.maxSelections > scope.selectedList.length)) {
+        if (_.findIndex(scope.selectedList, scope.selected) < 0) {
           scope.selectedList.push(scope.selected);
         }
       };

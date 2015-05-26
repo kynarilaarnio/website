@@ -48,7 +48,7 @@ module.exports = function (sequelize, DataTypes) {
   },
   {
     associate: function (db) {
-      user.belongsTo(db.team, { foreingKey: { allowNull: true } });
+      //user.belongsTo(db.team);
     }
   });
 

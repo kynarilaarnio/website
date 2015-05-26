@@ -45,6 +45,13 @@ m.controller('AdminDashboardController', function ($scope, Users, Teams, Groups,
       if (!$scope.userList) {
         $scope.userList = Users.query();
       };
+
+      // Resolve team captain from userList and match select components ng-model with its ng-options
+      $scope.userList.$promise.then(function () {
+        if ($scope.team.captain) {
+          $scope.team.captain = _.find($scope.userList, { 'id': $scope.team.captain.id });
+        }
+      });
     },
     resource: function () {
       return Teams;

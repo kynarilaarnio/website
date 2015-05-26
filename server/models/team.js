@@ -28,13 +28,13 @@ module.exports = function (sequelize, DataTypes) {
   {
     associate: function (db) {
       // 1 captain
-      team.hasOne(db.user, { as: 'captain', foreingKey: { allowNull: true } });
+      team.hasOne(db.user, { as: 'captain', foreignKey: 'captainId' });
 
       // 4 actual members
-      team.hasMany(db.user, { as: 'member', foreingKey: { allowNull: true } });
+      team.hasMany(db.user, { as: 'members', foreignKey: 'memberId' });
 
       // 2 reserves
-      team.hasMany(db.user, { as: 'reserve', foreingKey: { allowNull: true } });
+      team.hasMany(db.user, { as: 'standins', foreignKey: 'standinId' });
     }
   });
 
