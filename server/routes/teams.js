@@ -4,6 +4,20 @@ var db = require('../models');
 var sequelize = require('sequelize');
 var _ = require('lodash');
 
+exports.authorize = function (req, res, next) {
+  if (req.user && req.user.role === 'admin') {
+    next();
+  }
+  else if (req.user && req.user.captainId && req.user.captainId === req.params.id) {
+    var whitelist = [ 'tag', 'name', 'imageUrl', 'rank' ];
+    req.body = _.pick(req.body, whitelist);
+    next();
+  }
+  else {
+    res.send(403);
+  }
+};
+
 exports.findAll = function (req, res) {
   db.team.findAll({
     include: [

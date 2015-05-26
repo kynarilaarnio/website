@@ -6,3 +6,5 @@ _DS_Store
 DS_Store
 .Trash/
 _static/
+
+server/*.config.js

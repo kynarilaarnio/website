@@ -20,6 +20,7 @@
     "cancel": "Peruuta",
     "new": "Uusi",
     "edit": "Muokkaa",
+    "continue": "Jatka",
     "noContent": "Ei sisältöä",
     "filter": "Suodata",
     "users": "Käyttäjät"
@@ -61,5 +62,9 @@
 
   "group": {
     "name": "Nimi"
+  },
+
+  "registration": {
+    "enterInvitationCode": "Syötä kutsukoodisi"
   }
 }

@@ -1,6 +1,21 @@
 'use strict';
 
 var db = require('../models');
+var _ = require('lodash');
+
+exports.authorize = function (req, res, next) {
+  if (req.user && req.user.role === 'admin') {
+    next();
+  }
+  else if (req.user && req.user.id === req.params.id) {
+    var whitelist = [ 'nick', 'name', 'email', 'imageUrl', 'birthdate', 'guild' ];
+    req.body = _.pick(req.body, whitelist);
+    next();
+  }
+  else {
+    res.send(403);
+  }
+};
 
 exports.findAll = function (req, res) {
   db.user.findAll().done(function (entities) {
@@ -23,6 +38,10 @@ exports.create = function (req, res) {
     res.statusCode = 201;
     res.json(entity);
   });
+};
+
+exports.register = function (req, res) {
+  res.send(400);
 };
 
 exports.update = function (req, res) {

@@ -21,14 +21,15 @@ var m = angular.module('app', [
   'app.partials',
 
   // Features
-  'app.navigation',
+  'app.admin',
   'app.main',
-  'app.newssheet',
-  'app.team',
-  'app.player',
   'app.match',
+  'app.navigation',
+  'app.newssheet',
+  'app.player',
+  'app.registration',
   'app.rules',
-  'app.admin'
+  'app.team'
 ]);
 
 m.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {

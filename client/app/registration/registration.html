@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="twelve columns text-center">
+    <h4 translate>registration.enterInvitationCode</h4>
+    <ng-form name="invitationCodeForm">
+      <input type="text" ng-model="invitationCode" minlength="10" maxlength="10" required />
+      <button ng-click="register()" ng-disabled="invatationForm.$invalid" translate>global.continue</button>
+    </ng-form>
+  </div>
+</div>

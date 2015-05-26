@@ -3,6 +3,15 @@
 var _ = require('lodash');
 var db = require('../models');
 
+exports.authorize = function (req, res, next) {
+  if (req.user && req.user.role === 'admin') {
+    next();
+  }
+  else {
+    res.send(403);
+  }
+};
+
 exports.findAll = function (req, res) {
   db.group.findAll({ include: { model: db.team } }).done(function (entities) {
     res.json(entities);

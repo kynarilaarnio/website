@@ -76,3 +76,10 @@ m.constant('Ranks', [
     fullName: 'The Global Elite'
   }
 ]);
+
+m.constant('Roles', [
+  'admin',
+  'captain',
+  'member',
+  'standin'
+]);
