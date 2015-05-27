@@ -24,7 +24,8 @@
     "noContent": "Ei sisältöä",
     "error": "Virhe!",
     "filter": "Suodata",
-    "users": "Käyttäjät"
+    "users": "Käyttäjät",
+    "invitationCodes": "Kutsukoodit"
   },
 
   "main": {

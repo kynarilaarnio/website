@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function (sequelize, DataTypes) {
-  var invitationCode = sequelize.define('invitationCode', {
+  var invcode = sequelize.define('invcode', {
     code: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -18,9 +18,9 @@ module.exports = function (sequelize, DataTypes) {
   },
   {
     associate: function (db) {
-      invitationCode.belongsTo(db.user, { as: 'usedBy' });
+      invcode.belongsTo(db.user, { as: 'usedBy' });
     }
   });
 
-  return invitationCode;
+  return invcode;
 };

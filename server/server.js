@@ -20,7 +20,7 @@ var teams = require('./routes/teams');
 var groups = require('./routes/groups');
 var rounds = require('./routes/rounds');
 var matches = require('./routes/matches');
-var invitationCodes = require('./routes/invitation-codes');
+var invcodes = require('./routes/invcodes');
 
 var app = express();
 
@@ -83,7 +83,7 @@ app.get('/auth/steam', passport.authenticate('steam', { failureRedirect: '/' }))
 app.get('/auth/steam/return',
   passport.authenticate('steam', { failureRedirect: '/' }),
   function (req, res) {
-    db.user.findOne({ where: { identifier: req.user.identifier }}).then(function (user) {
+    db.user.find({ where: { identifier: req.user.identifier }}).then(function (user) {
       if (user) {
         console.log(user);
         return done(null, user);
@@ -125,11 +125,11 @@ app.post('/api/matches', authorize, matches.authorize, matches.create);
 app.put('/api/matches/:id', authorize, matches.authorize, matches.update);
 app.delete('/api/matches/:id', authorize, matches.authorize, matches.destroy);
 
-app.get('/api/invitationcodes', invitationCodes.authorize, matches.findAll);
-app.get('/api/invitationcodes/:id', invitationCodes.authorize, matches.find);
-app.post('/api/invitationcodes', authorize, invitationCodes.authorize, matches.create);
-app.put('/api/invitationcodes/:id', authorize, invitationCodes.authorize, matches.update);
-app.delete('/api/invitationcodes/:id', authorize, invitationCodes.authorize, matches.destroy);
+app.get('/api/invitationcodes', invcodes.authorize, matches.findAll);
+app.get('/api/invitationcodes/:id', invcodes.authorize, matches.find);
+app.post('/api/invitationcodes', authorize, invcodes.authorize, matches.create);
+app.put('/api/invitationcodes/:id', authorize, invcodes.authorize, matches.update);
+app.delete('/api/invitationcodes/:id', authorize, invcodes.authorize, matches.destroy);
 
 db
   .sequelize
@@ -139,7 +139,7 @@ db
       throw err;
     }
     else {
-      http.createServer(app).listen(app.get('port'), function() {
+      http.createServer(app).listen(app.get('port'), function () {
         console.log('Express server listening on port ' + app.get('port'));
       });
     }

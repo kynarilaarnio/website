@@ -9,7 +9,7 @@ exports.authorize = function (req, res, next) {
     next();
   }
   else if (req.user && req.user.captainId && req.user.captainId === req.params.id) {
-    var whitelist = [ 'tag', 'name', 'imageUrl', 'rank' ];
+    var whitelist = [ 'tag', 'name', 'imageUrl', 'rank', 'description' ];
     req.body = _.pick(req.body, whitelist);
     next();
   }
