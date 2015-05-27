@@ -48,11 +48,15 @@ $mobile-navigation-item-padding:  5px;
       text-transform: uppercase;
       text-decoration: none;
       color: $navigation-foreground;
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       font-weight: 600;
 
       &:hover {
         color: $navigation-highlight;
+      }
+
+      &:visited {
+        color: $navigation-foreground;
       }
     }
 
@@ -162,6 +166,22 @@ $mobile-navigation-item-padding:  5px;
         border-bottom: 1px solid $navigation-foreground;
         background-color: $navigation-background;
         margin: 0;
+
+        &.user {
+          a {
+            text-transform: uppercase;
+            text-decoration: none;
+            color: $navigation-foreground;
+
+            &:hover {
+              color: $navigation-highlight;
+            }
+
+            &:visited {
+              color: $navigation-foreground;
+            }
+          }
+        }
       }
     }
 

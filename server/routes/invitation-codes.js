@@ -29,7 +29,7 @@ exports.createCodes = function (req, res) {
 
     var invitationCode = {
       code: code,
-      role: req.body.role
+      type: req.body.type
     };
 
     promises.push(db.invitationCode.create(invitationCode));

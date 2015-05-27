@@ -77,7 +77,7 @@ m.constant('Ranks', [
   }
 ]);
 
-m.constant('Roles', [
+m.constant('InvitationTypes', [
   'admin',
   'captain',
   'member',

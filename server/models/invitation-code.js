@@ -7,9 +7,11 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
       validate: {
         len: [10, 10]
-      }
+      },
+      unique: true,
+      index: true
     },
-    role: {
+    type: {
       type: DataTypes.ENUM('admin', 'captain', 'member', 'standin'),
       allowNull: false
     }

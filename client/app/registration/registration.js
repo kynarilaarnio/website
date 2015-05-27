@@ -15,10 +15,17 @@ m.config(function ($stateProvider) {
     });
 });
 
-m.controller('RegistrationController', function ($scope) {
+m.controller('RegistrationController', function ($scope, $http) {
   $scope.invitationCode = '';
+  $scope.error = false;
 
   $scope.register = function () {
-
+    $http.post('/api/register', { code: $scope.invitationCode })
+      .success(function (response) {
+        console.log(response);
+      })
+      .error(function (response) {
+        $scope.error = true;
+      });
   };
 });

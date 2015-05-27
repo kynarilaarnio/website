@@ -5,5 +5,6 @@ var config = require('./dev.config.js');
 module.exports = {
   baseUrl: config.baseUrl,
   port: config.port,
-  steamApiKey: config.steamApiKey
+  steamApiKey: config.steamApiKey,
+  secret: config.secret
 };

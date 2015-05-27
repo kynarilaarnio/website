@@ -8,6 +8,8 @@ var http           = require('http');
 var passport       = require('passport');
 var cookieParser   = require('cookie-parser');
 var session        = require('express-session');
+var _              = require('lodash');
+
 var db             = require('./models');
 var config         = require('./config.js');
 
@@ -30,7 +32,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(cookieParser());
 app.use(session({
-  secret: 'super secret dragon magic :D:D',
+  secret: config.secret,
   saveUninitialized: true,
   resave: true,
 }));
@@ -38,13 +40,12 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.use(db.user.createStrategy());
-
 passport.serializeUser(function (user, done) {
   done(null, user);
 });
 
 passport.deserializeUser(function (obj, done) {
+  // FIND USER FROM DATABASE
   done(null, obj);
 });
 
@@ -53,7 +54,7 @@ passport.use(new SteamStrategy({
     realm: config.baseUrl + ':' + config.port + '/',
     apiKey: config.steamApiKey
   },
-  function(identifier, profile, done) {
+  function (identifier, profile, done) {
     process.nextTick(function () {
       profile.identifier = identifier;
 
@@ -74,7 +75,7 @@ var authorize = function (req, res, next) {
     return next();
   }
 
-  res.send(403);
+  res.sendStatus(403);
 };
 
 app.get('/auth/steam', passport.authenticate('steam', { failureRedirect: '/' }));
@@ -82,13 +83,21 @@ app.get('/auth/steam', passport.authenticate('steam', { failureRedirect: '/' }))
 app.get('/auth/steam/return',
   passport.authenticate('steam', { failureRedirect: '/' }),
   function (req, res) {
-    res.redirect('/');
+    db.user.findOne({ where: { identifier: req.user.identifier }}).then(function (user) {
+      if (user) {
+        console.log(user);
+        return done(null, user);
+      }
+      else {
+        res.redirect('/#/registration');
+      }
+    });
   });
 
 app.get('/api/users', users.findAll);
 app.get('/api/users/:id', users.find);
 app.post('/api/users', authorize, users.authorize, users.create);
-app.post('/api/registration/:invitationCode', authorize, users.register);
+app.post('/api/register', authorize, users.register);
 app.put('/api/users/:id', authorize, users.authorize, users.update);
 app.delete('/api/users/:id', authorize, users.authorize, users.destroy);
 

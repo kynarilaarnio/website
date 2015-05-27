@@ -22,14 +22,14 @@
   <div class="three columns">
     <div class="user pull-right">
       <div ng-hide="account">
-        <span class="pull-right header-link" ng-click="account = true">
+        <a href="/auth/steam" class="pull-right header-link">
           <span class="fa fa-steam"></span> <span translate>global.login</span>
-        </span>
+        </a>
       </div>
 
       <div ng-show="account">
         <span class="pull-right header-link logout" ng-click="account = false">
-          <span class="fa fa-sign-out"></span>
+          <a href="/logout"><span class="fa fa-sign-out"></span></a>
         </span>
 
         <span class="pull-right header-link">
@@ -80,12 +80,12 @@
       </li>
       <li class="navigation-item navigation-link user" ng-hide="account">
         <div class="container">
-          <span ng-click="account = true" translate>global.login</span>
+          <a href="/auth/steam" translate>global.login</a>
        </div>
       </li>
       <li class="navigation-item navigation-link user" ng-show="account">
         <div class="container">
-          <span class="logout" ng-click="account = false" translate>global.logout</span>
+          <a class="logout" ng-click="account = false" translate>global.logout</a>
         </div>
       </li>
     </ul>

@@ -23,6 +23,9 @@ module.exports = function (sequelize, DataTypes) {
     rank: {
       type: DataTypes.ENUM('s1', 's2', 's3', 's4', 'se', 'sem', 'gn1', 'gn2', 'gn3', 'gnm', 'mg1', 'mg2', 'mge', 'dmg', 'le', 'lem', 'smfc', 'ge'),
       allowNull: true
+    },
+    description: {
+      type: DataTypes.TEXT
     }
   },
   {
