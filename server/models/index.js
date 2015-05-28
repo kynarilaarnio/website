@@ -3,8 +3,13 @@
 var fs        = require('fs');
 var path      = require('path');
 var Sequelize = require('sequelize');
-var _    = require('lodash');
-var sequelize = new Sequelize('kynarilaarnio', 'kynarilaarnio', null, {
+var _         = require('lodash');
+
+var config    = require('../config.js');
+
+var sequelize = new Sequelize(config.dbName, config.dbUser, config.dbPass, {
+  host: config.dbHost,
+  port: config.dbPort,
   dialect: 'postgres'
 });
 var db        = {};
