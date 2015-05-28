@@ -15,14 +15,14 @@ m.config(function ($stateProvider) {
     });
 });
 
-m.controller('RegistrationController', function ($scope, $http) {
+m.controller('RegistrationController', function ($scope, $http, $state) {
   $scope.invitationCode = '';
   $scope.error = false;
 
   $scope.register = function () {
     $http.post('/api/register', { code: $scope.invitationCode })
       .success(function (response) {
-        console.log(response);
+        $state.go('kynarilaarnio.player.profile');
       })
       .error(function (response) {
         $scope.error = true;

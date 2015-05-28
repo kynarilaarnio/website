@@ -20,6 +20,7 @@ m.controller('AdminDashboardController', function ($scope, Users, Teams, Groups,
   $scope.filter = '';
   $scope.config = undefined;
   $scope.content = [];
+  $scope.custom = undefined;
 
   $scope.Ranks = Ranks;
 
@@ -93,13 +94,24 @@ m.controller('AdminDashboardController', function ($scope, Users, Teams, Groups,
     }
   };
 
+  $scope.invitationCodes = {
+    templateUrl: 'invitation-code/invitation-code.html'
+  };
+
   $scope.setConfig = function (config) {
     $scope.target = {};
     $scope.config = config;
+    $scope.custom = undefined;
     $scope.content = $scope.config.resource().query();
     if ($scope.config.resolve) {
       $scope.config.resolve();
     }
+  };
+
+  $scope.setCustom = function (custom) {
+    $scope.target = {};
+    $scope.config = undefined;
+    $scope.custom = custom;
   };
 
   $scope.setTarget = function (item) {

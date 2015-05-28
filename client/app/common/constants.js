@@ -78,8 +78,8 @@ m.constant('Ranks', [
 ]);
 
 m.constant('InvitationTypes', [
-  'admin',
-  'captain',
-  'member',
-  'standin'
+  { name: 'admin' },
+  { name: 'captain' },
+  { name: 'member' },
+  { name: 'standin' }
 ]);

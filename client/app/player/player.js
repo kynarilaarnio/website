@@ -6,9 +6,8 @@ m.config(function ($stateProvider) {
   $stateProvider
     .state('kynarilaarnio.player', {
       abstract: true
-    });
+    })
 
-  $stateProvider
     .state('kynarilaarnio.player.profile', {
       url: 'players/:id',
       views: {
@@ -16,34 +15,19 @@ m.config(function ($stateProvider) {
           templateUrl: 'player/player-profile.html',
           controller: 'PlayerProfileController'
         }
+      },
+      resolve: {
+        player: function (Users, $stateParams) {
+          return Users.query({ id: $stateParams.id });
+        }
       }
     });
 });
 
-m.controller('PlayerProfileController', function ($scope) {
+m.controller('PlayerProfileController', function ($scope, player) {
+  $scope.player = player;
 });
 
-m.directive('player', function () {
-  return {
-    restrict: 'E',
-    templateUrl: 'player/player-mini.html',
-    scope: {
-      template: '@',
-      content: '='
-    },
-    controller: function ($scope) {
-      $scope.getTemplateUrl = function () {
-        switch ($scope.template) {
-          case 'mini':
-            return 'player/player-mini.html';
-          case 'large':
-            return 'player/player-large.html';
-          case 'profile':
-            return 'player/player-profile.html';
-        }
-      };
+m.controller('PlayerProfileEditController', function ($scope) {
 
-      $scope.player = $scope.content;
-    }
-  };
 });

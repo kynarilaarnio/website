@@ -3,7 +3,9 @@
     <h4 translate>registration.enterInvitationCode</h4>
     <ng-form name="invitationCodeForm">
       <input type="text" ng-model="invitationCode" minlength="10" maxlength="10" required />
-      <button ng-click="register()" ng-disabled="invitationCode.length !== 10" translate>global.continue</button>
+      <button type="submit" ng-click="register()" ng-disabled="invitationCode.length !== 10" translate>
+        global.continue
+      </button>
       <br />
       <strong ng-show="error" class="error" translate>global.error</strong>
     </ng-form>

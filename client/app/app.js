@@ -22,6 +22,7 @@ var m = angular.module('app', [
 
   // Features
   'app.admin',
+  'app.invitationCode',
   'app.main',
   'app.match',
   'app.navigation',

@@ -6,26 +6,35 @@ var crypto = require('crypto');
 var sequelize = require('sequelize');
 
 exports.authorize = function (req, res, next) {
+  console.log(req.user);
+
   if (req.user && req.user.role === 'admin') {
     next();
   }
   else {
-    res.send(403);
+    res.sendStatus(403);
   }
 };
 
 exports.findAll = function (req, res) {
-  db.invcode.findAll().done(function (entities) {
+  db.invcode.findAll({ include: { model: db.user, as: 'usedBy' } }).done(function (entities) {
     res.json(entities);
   });
 };
 
-exports.createCodes = function (req, res) {
-  var codes = [];
+exports.createAdminCode = function (code) {
+  db.invcode.find({ where: { code: code } }).done(function (entity) {
+    if (!entity) {
+      db.invcode.create({ code: code, type: 'admin' });
+    }
+  });
+};
+
+exports.create = function (req, res) {
   var promises = [];
 
   _.times(req.body.amount, function () {
-    code.push(crypto.randomBytes(10).toString('hex'));
+    var code = crypto.randomBytes(5).toString('hex');
 
     var invcode = {
       code: code,
@@ -47,10 +56,10 @@ exports.destroy = function(req, res) {
   db.invcode.find({ where: { id: req.params.id } }).done(function (entity) {
     if (entity) {
       entity.destroy().done(function () {
-        res.send(204);
+        res.sendStatus(204);
       });
     } else {
-      res.send(404);
+      res.sendStatus(404);
     }
   });
 };

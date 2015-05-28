@@ -1,35 +1,30 @@
-<div class="row">
-  <div class="six columns">
-    <input type="number" ng-model="invitationCodes.amount" />
-  </div>
+<div ng-controller="InvitationCodeController">
+  <div class="row">
+    <div class="twelve columns u-full-width">
+      <input type="number" ng-model="amount" />
 
-  <div class="six columns">
-    <select ng-model="invitationCodes.type" ng-options="type in InvitationTypes">
-    </select>
+      <select ng-model="type" ng-options="type.name as type.name for type in InvitationTypes">
+      </select>
+
+      <button ng-click="generateInvitationCodes()" translate>invitationCodes.generate</button>
+    </div>
   </div>
+  <table class="u-full-width">
+    <thead>
+      <tr>
+        <th translate>invitationCodes.code</th>
+        <th translate>invitationCodes.role</th>
+        <th translate>invitationCodes.usedBy</th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="invitationCode in invitationCodes">
+        <td>{{ invitationCode.code }}</td>
+        <td>{{ invitationCode.type }}</td>
+        <td>{{ invitationCode.usedBy.nick }}</td>
+        <td><i class="fa fa-minus-square pull-right pointer" ng-click="remove(invitationCode)"></i></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-
-<div class="row">
-  <div class="twelve columns pull-right">
-    <button ng-click="generateInvitationCodes()" translate>invitationCodes.generate</button>
-  </div>
-</div>
-
-<table class="u-full-width">
-  <thead>
-    <tr>
-      <th translate>invitationCodes.code</th>
-      <th translate>invitationCodes.role</th>
-      <th translate>invitationCodes.usedBy</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr ng-repeat="invitationCode in invitationCodes">
-      <td>{{ invitationCode.code }}</td>
-      <td>{{ invitationCode.role }}</td>
-      <td>{{ invitationCode.usedBy.nick }}</td>
-      <td><i class="fa fa-minus-square pull-right pointer" ng-click="remove(invitationCode)"></i></td>
-    </tr>
-  </tbody>
-</table>

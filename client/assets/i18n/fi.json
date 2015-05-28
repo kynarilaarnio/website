@@ -25,7 +25,10 @@
     "error": "Virhe!",
     "filter": "Suodata",
     "users": "Käyttäjät",
-    "invitationCodes": "Kutsukoodit"
+    "user": "Käyttäjä",
+    "invitationCodes": "Kutsukoodit",
+    "player": "Pelaaja",
+    "team": "Joukkue"
   },
 
   "main": {
@@ -68,5 +71,12 @@
 
   "registration": {
     "enterInvitationCode": "Syötä kutsukoodisi"
+  },
+
+  "invitationCodes": {
+    "code": "Kutsukoodi",
+    "role": "Tyyppi",
+    "usedBy": "Käyttänyt",
+    "generate": "Generoi"
   }
 }

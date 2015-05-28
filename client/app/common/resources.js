@@ -36,3 +36,11 @@ m.factory('News', function ($resource) {
       'update': { method: 'PUT' }
     });
 });
+
+m.factory('InvitationCodes', function ($resource) {
+  return $resource('api/invitationcodes/:id', { 'id': '@id' },
+    {
+      'save': { method: 'POST', isArray: true }
+    }
+  );
+});

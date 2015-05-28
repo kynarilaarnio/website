@@ -45,8 +45,9 @@ passport.serializeUser(function (user, done) {
 });
 
 passport.deserializeUser(function (obj, done) {
-  // FIND USER FROM DATABASE
-  done(null, obj);
+  users.getProfile(obj).done(function (user) {
+    done(null, user);
+  });
 });
 
 passport.use(new SteamStrategy({
@@ -56,7 +57,7 @@ passport.use(new SteamStrategy({
   },
   function (identifier, profile, done) {
     process.nextTick(function () {
-      profile.identifier = identifier;
+      profile.authIdentifier = profile.id;
 
       return done(null, profile);
     });
@@ -83,10 +84,9 @@ app.get('/auth/steam', passport.authenticate('steam', { failureRedirect: '/' }))
 app.get('/auth/steam/return',
   passport.authenticate('steam', { failureRedirect: '/' }),
   function (req, res) {
-    db.user.find({ where: { identifier: req.user.identifier }}).then(function (user) {
+    db.user.find({ where: { authIdentifier: req.user.id }}).then(function (user) {
       if (user) {
-        console.log(user);
-        return done(null, user);
+        res.redirect('/#/login');
       }
       else {
         res.redirect('/#/registration');
@@ -125,11 +125,9 @@ app.post('/api/matches', authorize, matches.authorize, matches.create);
 app.put('/api/matches/:id', authorize, matches.authorize, matches.update);
 app.delete('/api/matches/:id', authorize, matches.authorize, matches.destroy);
 
-app.get('/api/invitationcodes', invcodes.authorize, matches.findAll);
-app.get('/api/invitationcodes/:id', invcodes.authorize, matches.find);
-app.post('/api/invitationcodes', authorize, invcodes.authorize, matches.create);
-app.put('/api/invitationcodes/:id', authorize, invcodes.authorize, matches.update);
-app.delete('/api/invitationcodes/:id', authorize, invcodes.authorize, matches.destroy);
+app.get('/api/invitationcodes', authorize, invcodes.authorize, invcodes.findAll);
+app.post('/api/invitationcodes', authorize, invcodes.authorize, invcodes.create);
+app.delete('/api/invitationcodes/:id', authorize, invcodes.authorize, invcodes.destroy);
 
 db
   .sequelize
@@ -139,6 +137,8 @@ db
       throw err;
     }
     else {
+      invcodes.createAdminCode(config.adminCode);
+
       http.createServer(app).listen(app.get('port'), function () {
         console.log('Express server listening on port ' + app.get('port'));
       });
