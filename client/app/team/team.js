@@ -94,28 +94,6 @@ m.controller('TeamListController', function ($scope) {
   ];
 });
 
-m.controller('TeamProfileController', function ($scope) {
+m.controller('TeamProfileEditController', function ($scope) {
 });
 
-m.directive('team', function () {
-  return {
-    restrict: 'E',
-    templateUrl: function (elem, attrs) {
-      switch (attrs.template) {
-        case 'mini':
-          return 'team/team-mini.html';
-        case 'large':
-          return 'team/team-large.html';
-        case 'profile':
-          return 'team/team-profile.html';
-      }
-    },
-    scope: {
-      template: '@',
-      content: '='
-    },
-    controller: function ($scope) {
-      $scope.team = $scope.content;
-    }
-  };
-});

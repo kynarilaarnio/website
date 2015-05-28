@@ -18,7 +18,7 @@ m.config(function ($stateProvider) {
       },
       resolve: {
         player: function (Users, $stateParams) {
-          return Users.query({ id: $stateParams.id });
+          return Users.get({ id: $stateParams.id });
         }
       }
     });

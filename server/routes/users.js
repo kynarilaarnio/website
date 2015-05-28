@@ -106,7 +106,7 @@ exports.register = function (req, res) {
         if (createTeam) {
           db.team.create(team).done(function (entity) {
             promises.push(entity.setCaptain(user.id));
-            promises.push(invcodes.createTeamCodes(entity.id));
+            promises = promises.concat(invcodes.createTeamCodes(entity));
           });
         }
         else {

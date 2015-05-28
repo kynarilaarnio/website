@@ -19,6 +19,7 @@ module.exports = function (sequelize, DataTypes) {
   {
     associate: function (db) {
       invcode.belongsTo(db.user, { as: 'usedBy' });
+      invcode.belongsTo(db.team);
     }
   });
 

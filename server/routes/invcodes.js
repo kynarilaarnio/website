@@ -6,8 +6,6 @@ var crypto = require('crypto');
 var sequelize = require('sequelize');
 
 exports.authorize = function (req, res, next) {
-  console.log(req.user);
-
   if (req.user && req.user.role === 'admin') {
     next();
   }
@@ -30,21 +28,33 @@ exports.createAdminCode = function (code) {
   });
 };
 
-exports.create = function (req, res) {
+var createCodes = function (amount, type, teamId) {
   var promises = [];
 
-  _.times(req.body.amount, function () {
+  _.times(amount, function () {
     var code = crypto.randomBytes(5).toString('hex');
 
     var invcode = {
       code: code,
-      type: req.body.type
+      type: type,
+      teamId: teamId
     };
 
     promises.push(db.invcode.create(invcode));
   });
 
-  sequelize.Promise.all(promises).then(function () {
+  return promises;
+};
+
+exports.createTeamCodes = function (team) {
+  var memberPromises = createCodes(4, 'member', team.id);
+  var standinPromises = createCodes(2, 'standin', team.id);
+
+  return memberPromises.concat(standinPromises);
+};
+
+exports.create = function (req, res) {
+  sequelize.Promise.all(createCodes(req.body.amount, req.body.type)).then(function () {
     db.invcode.findAll().done(function (entities) {
       res.statusCode = 201;
       res.json(entities);
