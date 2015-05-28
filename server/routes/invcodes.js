@@ -46,11 +46,9 @@ var createCodes = function (amount, type, teamId) {
   return promises;
 };
 
-exports.createTeamCodes = function (team) {
-  var memberPromises = createCodes(4, 'member', team.id);
-  var standinPromises = createCodes(2, 'standin', team.id);
-
-  return memberPromises.concat(standinPromises);
+exports.createTeamCodes = function (team, promises) {
+  promises.push(createCodes(4, 'member', team.id));
+  promises.push(createCodes(2, 'standin', team.id));
 };
 
 exports.create = function (req, res) {

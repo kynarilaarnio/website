@@ -75,6 +75,7 @@ exports.register = function (req, res) {
       var createTeam = false;
       var type = '';
       var code = req.body.code;
+      var relatedTeamId = entity.teamId;
 
       // Invitation code types at the moment: admin, captain, member, standin
       // User roles at the moment: admin, staff, user (staff is defined but not used)
@@ -104,18 +105,25 @@ exports.register = function (req, res) {
         user = entity;
 
         if (createTeam) {
+          var team = {
+            tag: ' ',
+            name: ' '
+          };
+
           db.team.create(team).done(function (entity) {
             promises.push(entity.setCaptain(user.id));
-            promises = promises.concat(invcodes.createTeamCodes(entity));
+            invcodes.createTeamCodes(entity, promises);
           });
         }
         else {
-          promises.push(db.team.find({ where: { id: entity.teamId } }).done(function (entity) {
-            if (type === 'member') {
-              promises.push(entity.setMember(user.id));
-            }
-            else if (type === 'standin') {
-              promises.push(entity.setStandin(user.id));
+          promises.push(db.team.find({ where: { id: relatedTeamId } }).done(function (entity) {
+            if (entity) {
+              if (type === 'member') {
+                promises.push(entity.addMembers(user.id));
+              }
+              else if (type === 'standin') {
+                promises.push(entity.addStandins(user.id));
+              }
             }
           }));
         }
