@@ -1,17 +1,26 @@
 'use strict';
 
-// TODO: Select correct configuration with gulp argv or from environment
-var config = require('./testing.config.js');
+var config;
+
+try {
+  config = require('./dev.config.js');
+}
+catch (err) {
+  if (err) {
+    config = {};
+  }
+}
 
 module.exports = {
-  baseUrl: config.baseUrl,
-  port: config.port,
-  steamApiKey: config.steamApiKey,
-  secret: config.secret,
-  adminCode: config.adminCode,
-  dbHost: config.dbHost,
-  dbPort: config.dbPort,
-  dbUser: config.dbUser,
-  dbPass: config.dbPass,
-  dbName: config.dbName
+  baseUrl: config.baseUrl || process.env.BASE_URL,
+  port: config.port || 80,
+  steamApiKey: config.steamApiKey || process.env.STEAM_API_KEY,
+  secret: config.secret || process.env.SECRET,
+  adminCode: config.adminCode || process.env.ADMIN_CODE,
+  dbHost: config.dbHost || process.env.DATABASE_HOST,
+  dbPort: config.dbPort || process.env.DATABASE_PORT,
+  dbUser: config.dbUser || process.env.DATABASE_USER,
+  dbPass: config.dbPass || process.env.DATABASE_PASSWORD,
+  dbName: config.dbName || process.env.DATABASE_NAME,
+  dbUrl: config.dbUrl  || process.env.DATABASE_URL
 };
