@@ -45,7 +45,7 @@ passport.serializeUser(function (user, done) {
 });
 
 passport.deserializeUser(function (obj, done) {
-  users.getProfile(obj).done(function (user) {
+  users.getProfile(obj).then(function (user) {
     if (user) {
       done(null, user);
     }

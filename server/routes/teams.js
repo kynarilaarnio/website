@@ -25,20 +25,23 @@ exports.findAll = function (req, res) {
       { model: db.user, as: 'members' },
       { model: db.user, as: 'standins' }
     ]
-  }).done(function (entities) {
+  }).then(function (entities) {
     res.json(entities);
   });
 };
 
 exports.find = function (req, res) {
-  db.team.find(
-    { where: { id: req.params.id },
-    include: [
-      { model: db.user, as: 'captain' },
-      { model: db.user, as: 'members' },
-      { model: db.user, as: 'standins' }
-    ]
-  }).done(function (entity) {
+  var eager = [
+    { model: db.user, as: 'captain' },
+    { model: db.user, as: 'members' },
+    { model: db.user, as: 'standins' }
+  ];
+
+  if (req.user && req.user.teamId === req.id) {
+    eager.push({ model: db.invitationCode });
+  }
+
+  db.team.find({ where: { id: req.params.id }, include: eager }).then(function (entity) {
     if (entity) {
       res.json(entity);
     }
@@ -49,7 +52,7 @@ exports.find = function (req, res) {
 };
 
 exports.create = function (req, res) {
-  db.team.create(req.body).done(function (entity) {
+  db.team.create(req.body).then(function (entity) {
     res.statusCode = 201;
 
     var promises = [];
@@ -74,7 +77,7 @@ exports.create = function (req, res) {
           { model: db.user, as: 'members' },
           { model: db.user, as: 'standins' }
         ]
-      }).done(function (entity) {
+      }).then(function (entity) {
         if (entity) {
           res.json(entity);
         }
@@ -82,14 +85,17 @@ exports.create = function (req, res) {
           res.send(500);
         }
       });
+    })
+    .catch(function (err) {
+      res.sendStatus(400);
     });
   });
 };
 
 exports.update = function (req, res) {
-  db.team.find({ where: { id: req.params.id } }).done(function (entity) {
+  db.team.find({ where: { id: req.params.id } }).then(function (entity) {
     if (entity) {
-      entity.updateAttributes(req.body).done(function (entity) {
+      entity.updateAttributes(req.body).then(function (entity) {
         var promises = [];
 
         if (req.body.captain) {
@@ -104,7 +110,7 @@ exports.update = function (req, res) {
           promises.push(entity.setStandins(_.pluck(req.body.standins, 'id')));
         }
 
-        sequelize.Promise.all(promises).done(function () {
+        sequelize.Promise.all(promises).then(function () {
           db.team.find(
             { where: { id: entity.id },
             include: [
@@ -112,7 +118,7 @@ exports.update = function (req, res) {
               { model: db.user, as: 'members' },
               { model: db.user, as: 'standins' }
             ]
-          }).done(function (entity) {
+          }).then(function (entity) {
             if (entity) {
               res.json(entity);
             }
@@ -121,6 +127,9 @@ exports.update = function (req, res) {
             }
           });
         });
+      })
+      .catch(function (err) {
+        res.sendStatus(400);
       });
     } else {
       res.send(404);
@@ -129,9 +138,9 @@ exports.update = function (req, res) {
 };
 
 exports.destroy = function( req, res) {
-  db.team.find({ where: { id: req.params.id } }).done(function (entity) {
+  db.team.find({ where: { id: req.params.id } }).then(function (entity) {
     if (entity) {
-      entity.destroy().done(function () {
+      entity.destroy().then(function () {
         res.send(204);
       });
     } else {

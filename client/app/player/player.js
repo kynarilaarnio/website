@@ -46,15 +46,9 @@ m.controller('PlayerProfileController', function ($scope, player) {
 m.controller('PlayerProfileEditController', function ($scope, $state, Users, Teams, player) {
   $scope.player = player;
 
-  $scope.saveProfile = function () {
-    Users.update($scope.player).then(function (response) {
+  $scope.save = function () {
+    Users.update($scope.player).$promise.then(function (response) {
       $state.go('kynarilaarnio.profile', { id: response.id });
-    });
-  };
-
-  $scope.saveTeam = function () {
-    Teams.update($scope.player.team).then(function (response) {
-      $state.go('kynarilaarnio.profile', { id: $scope.player.id });
     });
   };
 });

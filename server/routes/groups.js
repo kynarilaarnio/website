@@ -13,13 +13,13 @@ exports.authorize = function (req, res, next) {
 };
 
 exports.findAll = function (req, res) {
-  db.group.findAll({ include: { model: db.team } }).done(function (entities) {
+  db.group.findAll({ include: { model: db.team } }).then(function (entities) {
     res.json(entities);
   });
 };
 
 exports.find = function (req, res) {
-  db.group.find({ where: { id: req.params.id } }).done(function (entity) {
+  db.group.find({ where: { id: req.params.id } }).then(function (entity) {
     if (entity) {
       res.json(entity);
     } else {
@@ -29,22 +29,28 @@ exports.find = function (req, res) {
 };
 
 exports.create = function (req, res) {
-  db.group.create(req.body).done(function (entity) {
+  db.group.create(req.body).then(function (entity) {
     res.statusCode = 201;
-     entity.setTeams(_.pluck(req.body.teams, 'id')).done(function (teams) {
+     entity.setTeams(_.pluck(req.body.teams, 'id')).then(function (teams) {
       entity.teams = req.body.teams;
       res.json(entity);
     });
+  })
+  .catch(function (err) {
+    res.sendStatus(400);
   });
 };
 
 exports.update = function (req, res) {
-  db.group.find({ where: { id: req.params.id } }).done(function (entity) {
+  db.group.find({ where: { id: req.params.id } }).then(function (entity) {
     if (entity) {
-      entity.updateAttributes(req.body).done(function (entity) {
-        entity.setTeams(_.pluck(req.body.teams, 'id')).done(function (teams) {
+      entity.updateAttributes(req.body).then(function (entity) {
+        entity.setTeams(_.pluck(req.body.teams, 'id')).then(function (teams) {
           entity.teams = req.body.teams;
           res.json(entity);
+        })
+        .catch(function (err) {
+          res.sendStatus(400);
         });
       });
     } else {
@@ -54,9 +60,9 @@ exports.update = function (req, res) {
 };
 
 exports.destroy = function (req, res) {
-  db.group.find({ where: { id: req.params.id } }).done(function (entity) {
+  db.group.find({ where: { id: req.params.id } }).then(function (entity) {
     if (entity) {
-      entity.destroy().done(function () {
+      entity.destroy().then(function () {
         res.send(204);
       });
     } else {

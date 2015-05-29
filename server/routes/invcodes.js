@@ -15,13 +15,13 @@ exports.authorize = function (req, res, next) {
 };
 
 exports.findAll = function (req, res) {
-  db.invcode.findAll({ include: { model: db.user, as: 'usedBy' } }).done(function (entities) {
+  db.invcode.findAll({ include: { model: db.user, as: 'usedBy' } }).then(function (entities) {
     res.json(entities);
   });
 };
 
 exports.createAdminCode = function (code) {
-  db.invcode.find({ where: { code: code } }).done(function (entity) {
+  db.invcode.find({ where: { code: code } }).then(function (entity) {
     if (!entity) {
       db.invcode.create({ code: code, type: 'admin' });
     }
@@ -53,17 +53,20 @@ exports.createTeamCodes = function (team, promises) {
 
 exports.create = function (req, res) {
   sequelize.Promise.all(createCodes(req.body.amount, req.body.type)).then(function () {
-    db.invcode.findAll().done(function (entities) {
+    db.invcode.findAll().then(function (entities) {
       res.statusCode = 201;
       res.json(entities);
     });
+  })
+  .catch(function (err) {
+    res.sendStatus(400);
   });
 };
 
 exports.destroy = function(req, res) {
-  db.invcode.find({ where: { id: req.params.id } }).done(function (entity) {
+  db.invcode.find({ where: { id: req.params.id } }).then(function (entity) {
     if (entity) {
-      entity.destroy().done(function () {
+      entity.destroy().then(function () {
         res.sendStatus(204);
       });
     } else {

@@ -20,13 +20,13 @@ exports.authorize = function (req, res, next) {
 };
 
 exports.findAll = function (req, res) {
-  db.user.findAll().done(function (entities) {
+  db.user.findAll().then(function (entities) {
     res.json(entities);
   });
 };
 
 exports.find = function (req, res) {
-  db.user.find({ where: { id: req.params.id } }).done(function (entity) {
+  db.user.find({ where: { id: req.params.id } }).then(function (entity) {
     if (entity) {
       res.json(entity);
     }
@@ -37,9 +37,12 @@ exports.find = function (req, res) {
 };
 
 exports.create = function (req, res) {
-  db.user.create(req.body).done(function (entity) {
+  db.user.create(req.body).then(function (entity) {
     res.statusCode = 201;
     res.json(entity);
+  })
+  .catch(function (err) {
+    res.sendStatus(400);
   });
 };
 
@@ -68,7 +71,7 @@ exports.register = function (req, res) {
     return 'temp';
   };
 
-  db.invcode.find({ where: { code: req.body.code, usedById: null }}).done(function (entity) {
+  db.invcode.find({ where: { code: req.body.code, usedById: null }}).then(function (entity) {
     if (entity) {
       var role = 'user';
       var foreignKey = '';
@@ -101,7 +104,7 @@ exports.register = function (req, res) {
         steamId: calculateSteamId(req.user.identifier)
       };
 
-      db.user.create(userInfo).done(function (entity) {
+      db.user.create(userInfo).then(function (entity) {
         user = entity;
 
         if (createTeam) {
@@ -110,13 +113,13 @@ exports.register = function (req, res) {
             name: ' '
           };
 
-          db.team.create(team).done(function (entity) {
+          db.team.create(team).then(function (entity) {
             promises.push(entity.setCaptain(user.id));
             invcodes.createTeamCodes(entity, promises);
           });
         }
         else {
-          promises.push(db.team.find({ where: { id: relatedTeamId } }).done(function (entity) {
+          promises.push(db.team.find({ where: { id: relatedTeamId } }).then(function (entity) {
             if (entity) {
               if (type === 'member') {
                 promises.push(entity.addMembers(user.id));
@@ -129,12 +132,12 @@ exports.register = function (req, res) {
         }
 
         sequelize.Promise.all(promises).then(function () {
-          db.user.find({ where: { id: user.id } }).done(function (entity) {
+          db.user.find({ where: { id: user.id } }).then(function (entity) {
             var user = entity;
 
             // Invalidate invitation code
-            db.invcode.find({ where: { code: code } }).done(function (entity) {
-              entity.updateAttributes({ usedById: user.id }).done(function (entity) {
+            db.invcode.find({ where: { code: code } }).then(function (entity) {
+              entity.updateAttributes({ usedById: user.id }).then(function (entity) {
                 res.statusCode = 201;
                 res.json(user);
               });
@@ -151,10 +154,13 @@ exports.register = function (req, res) {
 };
 
 exports.update = function (req, res) {
-  db.user.find({ where: { id: req.params.id } }).done(function (entity) {
+  db.user.find({ where: { id: req.params.id } }).then(function (entity) {
     if (entity) {
-      entity.updateAttributes(req.body).done(function (entity) {
+      entity.updateAttributes(req.body).then(function (entity) {
         res.json(entity);
+      })
+      .catch(function (err) {
+        res.sendStatus(400);
       });
     }
     else {
@@ -164,9 +170,9 @@ exports.update = function (req, res) {
 };
 
 exports.destroy = function (req, res) {
-  db.user.find({ where: { id: req.params.id } }).done(function (entity) {
+  db.user.find({ where: { id: req.params.id } }).then(function (entity) {
     if (entity) {
-      entity.destroy().done(function () {
+      entity.destroy().then(function () {
         res.send(204);
       });
     }
