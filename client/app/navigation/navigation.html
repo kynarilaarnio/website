@@ -21,18 +21,18 @@
 
   <div class="three columns">
     <div class="user pull-right">
-      <div ng-hide="account">
+      <div ng-hide="account.isAuthenticated()">
         <a href="/auth/steam" class="pull-right header-link">
           <span class="fa fa-steam"></span> <span translate>global.login</span>
         </a>
       </div>
 
-      <div ng-show="account">
-        <span class="pull-right header-link logout" ng-click="account = false">
+      <div ng-show="account.isAuthenticated()">
+        <span class="pull-right header-link logout">
           <a href="/logout"><span class="fa fa-sign-out"></span></a>
         </span>
 
-        <span class="pull-right header-link">
+        <span ui-sref="kynarilaarnio.player.profile({ id: account.currentUser.id })" class="pull-right header-link">
           <span class="fa fa-user"></span> <span translate>global.my_profile</span>
         </span>
       </div>
@@ -73,19 +73,19 @@
           <span translate>global.navigation.rules</span>
         </div>
       </li>
-      <li class="navigation-item navigation-link user" ng-show="account">
+      <li class="navigation-item navigation-link user" ng-show="account.isAuthenticated()">
         <div class="container">
-          <span translate>global.my_profile</span>
+          <span ui-sref="kynarilaarnio.player.profile" translate>global.my_profile</span>
         </div>
       </li>
-      <li class="navigation-item navigation-link user" ng-hide="account">
+      <li class="navigation-item navigation-link user" ng-hide="account.isAuthenticated()">
         <div class="container">
           <a href="/auth/steam" translate>global.login</a>
        </div>
       </li>
-      <li class="navigation-item navigation-link user" ng-show="account">
+      <li class="navigation-item navigation-link user" ng-show="account.isAuthenticated()">
         <div class="container">
-          <a class="logout" ng-click="account = false" translate>global.logout</a>
+          <a  href="/logout" class="logout" translate>global.logout</a>
         </div>
       </li>
     </ul>

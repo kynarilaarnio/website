@@ -21,6 +21,7 @@ var m = angular.module('app', [
   'app.partials',
 
   // Features
+  'app.account.service',
   'app.admin',
   'app.invitationCode',
   'app.main',
