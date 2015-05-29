@@ -2,42 +2,31 @@
 
 var m = angular.module('app.account.service', []);
 
-m.factory('Account', function ($resource) {
-  return $resource('/auth/users/:id', {}, {
-    'update': {
-      method: 'PUT'
-    }
-  });
-});
+m.factory('AuthService', function ($http, $timeout, $q) {
+  var service = {
+    currentUser: null,
 
-m.factory('Auth', function ($rootScope, $q, $http, $location, $cookieStore) {
-  $rootScope.currentUser = $cookieStore.get('user') || null;
-  $cookieStore.remove('user');
-
-  return {
     requestCurrentUser: function () {
-      var deferred = $q.defer();
+      if (service.isAuthenticated()) {
+        return $q.when(service.currentUser);
+      }
+      else {
+        return $http.get('/user').then(function (response) {
+          service.currentUser = response.data;
 
-      $http.get('/loggedin').success(function(user){
-        if (user !== null) {
-          deferred.resolve();
-        }
-        else {
-          deferred.reject();
-          $location.url('/');
-        }
-      });
-
-      return deferred.promise;
+          return service.currentUser;
+        });
+      }
     },
 
-    login: function () {
+    isAuthenticated: function () {
+      return !!service.currentUser;
     },
 
-    logout: function () {
-    },
-
-    currentUser: function () {
+    isAdmin: function () {
+      return service.isAuthenticated() && (service.currentUser.role === 'admin');
     }
   };
+
+  return service;
 });

@@ -33,6 +33,14 @@ var m = angular.module('app', [
   'app.team'
 ]);
 
+m.run(function (AuthService) {
+  AuthService.requestCurrentUser();
+});
+
+m.run(function ($rootScope, AuthService) {
+  $rootScope.account = AuthService;
+});
+
 m.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
   $stateProvider
     .state('kynarilaarnio', {

@@ -99,6 +99,18 @@ app.get('/auth/steam/return',
     });
   });
 
+// Return express session user
+app.get('/api/user', function (req, res) {
+  res.statusCode = 200;
+
+  if (!req.user) {
+    return res.json(null);
+  }
+  else {
+    return res.json(req.user);
+  }
+});
+
 app.get('/api/users', users.findAll);
 app.get('/api/users/:id', users.find);
 app.post('/api/users', authorize, users.authorize, users.create);
