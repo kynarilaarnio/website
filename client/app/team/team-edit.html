@@ -1,4 +1,4 @@
-<div class="team edit">
+<div class="team edit" ng-if="account.isAdmin() || account.id === team.captainId">
   <div class="row">
     <div class="six columns">
       upload placeholder
@@ -31,17 +31,33 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="twelve columns">
-      <label for="captain" translate>team.captain</label>
-      <select id="captain" ng-model="team.captain" ng-options="user as user.nick for user in userList | orderBy: 'nick'">
-      </select>
+  <div ng-if="account.isAdmin()">
+    <div class="row">
+      <div class="twelve columns">
+        <label for="captain" translate>team.captain</label>
+        <select id="captain" ng-model="team.captain" ng-options="user as user.nick for user in userList | orderBy: 'nick'">
+        </select>
+      </div>
     </div>
+
+    <label translate>team.members</label>
+    <list-select options="userList" selected-list="team.members" display="nick" max-selections="4"></list-select>
+
+    <label translate>team.standins</label>
+    <list-select options="userList" selected-list="team.standins" display="nick" max-selections="2"></list-select>
   </div>
 
-  <label translate>team.members</label>
-  <list-select options="userList" selected-list="team.members" display="nick" max-selections="4"></list-select>
-
-  <label translate>team.standins</label>
-  <list-select options="userList" selected-list="team.standins" display="nick" max-selections="2"></list-select>
+  <div class="row">
+    <div class="twelve columns">
+      <ul>
+        <li ng-repeat="invitationCode in team.invitationCodes">
+          {{ invitationCode.code }}
+          <span ng-switch="invitationCode.type">
+            <span ng-switch-when="'standin'"><span>(<span translate>global.standin</span>)</span>
+            <span ng-switch-when="'member'"><span>(<span translate>global.member</span>)</span>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>

@@ -28,7 +28,9 @@
     "user": "Käyttäjä",
     "invitationCodes": "Kutsukoodit",
     "player": "Pelaaja",
-    "team": "Joukkue"
+    "team": "Joukkue",
+    "member": "Pelaaja",
+    "standin": "Varapelaaja"
   },
 
   "main": {
@@ -48,7 +50,7 @@
   },
 
   "team": {
-    "tag": "Tunniste",
+    "tag": "Tagi",
     "name": "Nimi",
     "description": "Joukkuekuvaus",
     "rank": "Keskimääräinen taso",
