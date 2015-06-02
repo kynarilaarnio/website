@@ -26,7 +26,7 @@
   <div class="row">
     <div class="six columns">
       <label for="birthdate" translate>player.birthdate</label>
-      <input type="text" id="birthdate" ng-model="player.birthdate" />
+      <input type="number" id="birthdate" ng-model="player.birthdate" min="1900" max="2000" />
     </div>
     <div class="six columns">
       <label for="guild" translate>player.guild</label>

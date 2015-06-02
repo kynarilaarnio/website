@@ -126,6 +126,7 @@ exports.register = function (req, res) {
         name: req.user.displayName,
         role: role,
         guild: '',
+        birthdate: '1970',
         steamId: calculateSteamId(req.user.id)
       };
 

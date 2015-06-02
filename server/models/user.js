@@ -28,11 +28,11 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: true
     },
     birthdate: {
-      type: DataTypes.DATEONLY,
+      type: DataTypes.INTEGER,
       allowNull: true,
-      get: function() {
-        var value = this.getDataValue('birthdate');
-        return value ? value.toISOString().substring(0, 10) : value;
+      validate: {
+        min: 1900,
+        max: 3000
       }
     },
     contactInfo: {
