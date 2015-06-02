@@ -1,4 +1,4 @@
-<div class="admin">
+<div class="admin" ng-show="account.isAdmin()">
   <button ng-click="setConfig(users)" ng-class="{ 'button-primary': config === users }" translate>global.users</button>
   <button ng-click="setConfig(teams)" ng-class="{ 'button-primary': config === teams }" translate>global.navigation.teams</button>
   <button ng-click="setConfig(groups)" ng-class="{ 'button-primary': config === groups }" translate>global.navigation.groups</button>
