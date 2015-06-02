@@ -4,6 +4,7 @@ var db = require('../models');
 var invcodes = require('../routes/invcodes');
 var _ = require('lodash');
 var sequelize = require('sequelize');
+var steamIdConvert = require('steamidconvert')()
 
 exports.authorize = function (req, res, next) {
   if (req.user && req.user.role === 'admin') {
@@ -75,8 +76,8 @@ exports.getProfile = function (user) {
 // 7. ???
 // 8. ???
 exports.register = function (req, res) {
-  var calculateSteamId = function () {
-    return 'temp';
+  var calculateSteamId = function (steamId) {
+    steamIdConvert.convertToText(steamId);
   };
 
   db.invcode.find({ where: { code: req.body.code, usedById: null }}).then(function (entity) {
