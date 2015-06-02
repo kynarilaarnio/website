@@ -28,7 +28,15 @@ exports.findAll = function (req, res) {
 exports.find = function (req, res) {
   db.user.find({ where: { id: req.params.id } }).then(function (entity) {
     if (entity) {
-      res.json(entity);
+      var teamId = entity.captainId || entity.memberId || entity.standinId;
+
+      db.team.find({ where: { id: teamId } }).then(function (team) {
+        if (team) {
+          entity.team = team;
+        }
+
+        res.json(entity);
+      });
     }
     else {
       res.sendStatus(404);
