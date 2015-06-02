@@ -77,7 +77,11 @@ exports.getProfile = function (user) {
 // 8. ???
 exports.register = function (req, res) {
   var calculateSteamId = function (steamId) {
-    steamIdConvert.convertToText(steamId);
+    if (steamId) {
+      return steamIdConvert.convertToText(steamId);
+    }
+
+    return '';
   };
 
   db.invcode.find({ where: { code: req.body.code, usedById: null }}).then(function (entity) {
@@ -110,7 +114,7 @@ exports.register = function (req, res) {
         name: req.user.displayName,
         role: role,
         guild: '',
-        steamId: calculateSteamId(req.user.identifier)
+        steamId: calculateSteamId(req.user.id)
       };
 
       db.user.create(userInfo).then(function (entity) {
