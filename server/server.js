@@ -99,6 +99,11 @@ app.get('/auth/steam/return',
     });
   });
 
+app.get('/logout', function (req, res){
+  req.logout();
+  res.redirect('/');
+});
+
 // Return express session user
 app.get('/api/user', function (req, res) {
   res.statusCode = 200;
