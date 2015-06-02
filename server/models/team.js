@@ -38,6 +38,8 @@ module.exports = function (sequelize, DataTypes) {
 
       // 2 reserves
       team.hasMany(db.user, { as: 'standins', foreignKey: 'standinId' });
+
+      team.hasMany(db.invcode);
     }
   });
 

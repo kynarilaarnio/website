@@ -31,12 +31,24 @@ exports.find = function (req, res) {
     if (entity) {
       var teamId = entity.captainId || entity.memberId || entity.standinId;
 
-      db.team.find({ where: { id: teamId } }).then(function (team) {
+      var eager = [
+        { model: db.user, as: 'captain' },
+        { model: db.user, as: 'members' },
+        { model: db.user, as: 'standins' }
+      ];
+
+      if (req.user && req.user.teamId === req.id) {
+        eager.push({ model: db.invcode, foreignKey: 'teamId' });
+      }
+
+      db.team.find({ where: { id: teamId }, include: eager }).then(function (team) {
+        var resp = entity.get();
+
         if (team) {
-          entity.team = team;
+          resp.team = team;
         }
 
-        res.json(entity);
+        res.json(resp);
       });
     }
     else {
