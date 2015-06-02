@@ -19,8 +19,6 @@ m.controller('RegistrationController', function ($scope, $http, $state) {
   $scope.invitationCode = '';
   $scope.error = false;
 
-  console.log($state.get());
-
   $scope.register = function () {
     $http.post('/api/register', { code: $scope.invitationCode })
       .success(function (response) {

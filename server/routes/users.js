@@ -84,7 +84,7 @@ exports.register = function (req, res) {
     return '';
   };
 
-  db.invcode.find({ where: { code: req.body.code, usedById: null }}).then(function (entity) {
+  db.invcode.find({ where: { code: req.body.code, usedById: null } }).then(function (entity) {
     if (entity) {
       var role = 'user';
       var foreignKey = '';
