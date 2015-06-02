@@ -10,7 +10,7 @@ exports.authorize = function (req, res, next) {
   if (req.user && req.user.role === 'admin') {
     next();
   }
-  else if (req.user && req.user.id === req.params.id) {
+  else if (req.user && req.user.id == req.params.id) {
     var whitelist = [ 'nick', 'name', 'email', 'imageUrl', 'birthdate', 'guild', 'contactInfo' ];
     req.body = _.pick(req.body, whitelist);
     next();
