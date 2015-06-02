@@ -5,6 +5,7 @@ var m = angular.module('app', [
   'btford.markdown',
   'ngAnimate',
   'ngCookies',
+  'ngFx',
   'ngMessages',
   'ngResource',
   'ngSanitize',
@@ -16,6 +17,7 @@ var m = angular.module('app', [
   'app.common.constants',
   'app.common.directives',
   'app.common.resources',
+  'app.common.services',
 
   // Pre-cached partials
   'app.partials',
@@ -42,6 +44,10 @@ m.run(function ($rootScope, AuthService) {
   $rootScope.account = AuthService;
 });
 
+m.run(function ($rootScope, Notifications) {
+  $rootScope.Notifications = Notifications;
+});
+
 m.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
   $stateProvider
     .state('kynarilaarnio', {
@@ -51,15 +57,13 @@ m.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
 
   $urlRouterProvider.otherwise('/main');
 
-  $httpProvider.interceptors.push(function ($q, $location) {
+  $httpProvider.interceptors.push(function ($q, Notifications) {
     return {
       response: function (response) {
         return response;
       },
       responseError: function (response) {
-        if (response.status === 401) {
-          $location.url('/');
-        }
+        Notifications.set('global.error', Notifications.types.error);
 
         return $q.reject(response);
       }

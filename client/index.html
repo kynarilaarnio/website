@@ -18,6 +18,13 @@
 </head>
 <body>
   <div class="container">
+    <div class="notification fx-fade-right fx-speed-300 fx-easing-back"
+      ng-class="Notifications.get().classes" ng-show="Notifications.get()">
+      <span>
+        {{ Notifications.get().content | translate : Notifications.get().parameters }}
+      </span>
+    </div>
+
     <header>
       <nav ng-include="'navigation/navigation.html'" role="navigation"></nav>
     </header>
