@@ -47,14 +47,15 @@
     <list-select options="userList" selected-list="team.standins" display="nick" max-selections="2"></list-select>
   </div>
 
-  <div class="row">
+  <div class="row" ng-show="team.invcodes">
     <div class="twelve columns">
+      <label translate>team.validInvitationCodes</label>
       <ul>
-        <li ng-repeat="invitationCode in team.invitationCodes">
-          {{ invitationCode.code }}
+        <li ng-repeat="invitationCode in team.invcodes">
           <span ng-switch="invitationCode.type">
-            <span ng-switch-when="'standin'"><span>(<span translate>global.standin</span>)</span>
-            <span ng-switch-when="'member'"><span>(<span translate>global.member</span>)</span>
+            {{ invitationCode.code }}
+            <span ng-switch-when="standin"><span>(<span translate>global.standin</span>)</span>
+            <span ng-switch-when="member"><span>(<span translate>global.member</span>)</span>
           </span>
         </li>
       </ul>

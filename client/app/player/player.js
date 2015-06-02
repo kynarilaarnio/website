@@ -33,7 +33,7 @@ m.config(function ($stateProvider) {
       },
       resolve: {
         player: function (Users, $stateParams) {
-          return Users.get({ id: $stateParams.id });
+          return Users.get({ id: $stateParams.id }).$promise;
         }
       }
     });
@@ -43,12 +43,20 @@ m.controller('PlayerProfileController', function ($scope, player) {
   $scope.player = player;
 });
 
-m.controller('PlayerProfileEditController', function ($scope, $state, Users, Teams, player) {
+m.controller('PlayerProfileEditController', function ($scope, $state, Users, Teams, Ranks, player) {
   $scope.player = player;
+  $scope.team = player.team;
+  $scope.Ranks = Ranks;
 
-  $scope.save = function () {
+  $scope.saveUser = function () {
     Users.update($scope.player).$promise.then(function (response) {
-      $state.go('kynarilaarnio.profile', { id: response.id });
+      $state.go('kynarilaarnio.player.profile', { id: response.id });
+    });
+  };
+
+  $scope.saveTeam = function () {
+    Teams.update($scope.player.team).$promise.then(function (response) {
+      $state.go('kynarilaarnio.team.profile', { id: response.id });
     });
   };
 });

@@ -8,13 +8,13 @@ exports.authorize = function (req, res, next) {
   if (req.user && req.user.role === 'admin') {
     next();
   }
-  else if (req.user && req.user.captainId && req.user.captainId === req.params.id) {
+  else if (req.user && req.user.captainId && req.user.captainId == req.params.id) {
     var whitelist = [ 'tag', 'name', 'imageUrl', 'rank', 'description' ];
     req.body = _.pick(req.body, whitelist);
     next();
   }
   else {
-    res.send(403);
+    res.sendStatus(403);
   }
 };
 

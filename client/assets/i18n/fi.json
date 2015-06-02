@@ -56,7 +56,8 @@
     "rank": "Keskimääräinen taso",
     "captain": "Kapteeni",
     "members": "Pelaajat",
-    "standins": "Varapelaajat"
+    "standins": "Varapelaajat",
+    "validInvitationCodes": "Käyttämättömät kutsukoodit"
   },
 
   "player": {

@@ -23,6 +23,10 @@ m.factory('AuthService', function ($http, $timeout, $q) {
       return !!service.currentUser;
     },
 
+    isCurrentUser: function (id) {
+      return service.isAuthenticated() && (service.currentUser.id === id);
+    },
+
     isAdmin: function () {
       return service.isAuthenticated() && (service.currentUser.role === 'admin');
     }

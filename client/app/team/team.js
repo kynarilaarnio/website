@@ -94,6 +94,6 @@ m.controller('TeamListController', function ($scope) {
   ];
 });
 
-m.controller('TeamProfileEditController', function ($scope) {
+m.controller('TeamProfileController', function ($scope) {
 });
 
