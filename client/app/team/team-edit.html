@@ -48,7 +48,7 @@
     <div class="twelve columns">
       <label translate>team.validInvitationCodes</label>
       <ul>
-        <li ng-repeat="invitationCode in team.invcodes">
+        <li ng-repeat="invitationCode in team.invcodes" ng-hide="invitationCode.usedById">
           <span ng-switch="invitationCode.type">
             {{ invitationCode.code }}
             <span ng-switch-when="standin"><span>(<span translate>global.standin</span>)</span>
