@@ -1,33 +1,33 @@
 <div class="player edit">
   <div class="row">
     <div class="twelve columns">
-      <label for="nick" translate>player.nick</label>
-      <input type="text" id="nick" minlength="1" maxlength="50" ng-model="player.nick" />
+      <label for="nick" class="required" translate>player.nick</label>
+      <input type="text" id="nick" minlength="1" maxlength="50" ng-model="player.nick" required />
     </div>
   </div>
 
   <div class="row">
     <div class="twelve columns">
-      <label for="realname" translate>player.realname</label>
-      <input type="text" id="realname" minlength="1" maxlength="255" ng-model="player.name" />
+      <label for="realname" class="required" translate>player.realname</label>
+      <input type="text" id="realname" minlength="1" maxlength="255" ng-model="player.name" required />
     </div>
   </div>
 
   <div class="row">
     <div class="twelve columns">
-      <label for="email" translate>player.email</label>
-      <input type="email" id="email" minlength="1" maxlength="255" ng-model="player.email" />
+      <label for="email" class="required" translate>player.email</label>
+      <input type="email" id="email" minlength="1" maxlength="255" ng-model="player.email" required />
     </div>
   </div>
 
   <div class="row">
+    <div class="six columns">
+      <label for="guild" class="required" translate>player.guild</label>
+      <input type="text" id="guild" ng-model="player.guild" required />
+    </div>
     <div class="six columns">
       <label for="birthdate" translate>player.birthdate</label>
       <input type="number" id="birthdate" ng-model="player.birthdate" min="1900" max="2000" />
-    </div>
-    <div class="six columns">
-      <label for="guild" translate>player.guild</label>
-      <input type="text" id="guild" ng-model="player.guild" />
     </div>
   </div>
 
