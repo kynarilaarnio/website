@@ -33,9 +33,6 @@ m.config(function ($stateProvider) {
       },
       resolve: {
         player: function (Users, $stateParams, $rootScope) {
-          // Request current user when coming from registration
-          $rootScope.account.requestCurrentUser();
-
           return Users.get({ id: $stateParams.id }).$promise;
         }
       }

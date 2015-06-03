@@ -22,6 +22,7 @@ m.controller('RegistrationController', function ($scope, $http, $state) {
   $scope.register = function () {
     $http.post('/api/register', { code: $scope.invitationCode })
       .success(function (response) {
+        $scope.account.requestCurrentUser();
         $state.go('kynarilaarnio.player.profile.edit', { id: response.id });
       })
       .error(function (response) {

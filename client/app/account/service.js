@@ -7,16 +7,11 @@ m.factory('AuthService', function ($http, $timeout, $q) {
     currentUser: null,
 
     requestCurrentUser: function () {
-      if (service.isAuthenticated()) {
-        return $q.when(service.currentUser);
-      }
-      else {
-        return $http.get('/api/user').then(function (response) {
-          service.currentUser = response.data;
+      return $http.get('/api/user').then(function (response) {
+        service.currentUser = response.data;
 
-          return service.currentUser;
-        });
-      }
+        return service.currentUser;
+      });
     },
 
     isAuthenticated: function () {
