@@ -142,6 +142,8 @@ exports.register = function (req, res) {
           db.team.create(team).then(function (entity) {
             promises.push(entity.setCaptain(user.id));
             invcodes.createTeamCodes(entity, promises);
+          }).catch (function (err) {
+            res.sendStatus(400);
           });
         }
         else {
@@ -167,8 +169,12 @@ exports.register = function (req, res) {
                 res.statusCode = 201;
                 res.json(user);
               });
+            }).catch(function (err) {
+              res.sendStatus(400);
             });
           });
+        }).catch(function (err) {
+          res.sendStatus(400);
         });
       });
     }
