@@ -22,6 +22,11 @@ m.config(function ($stateProvider) {
           templateUrl: 'team/team-profile.html',
           controller: 'TeamProfileController'
         }
+      },
+      resolve: {
+        team: function (Teams, $stateParams) {
+          return Teams.get({ id: $stateParams.id }).$promise;
+        }
       }
     });
 });
@@ -94,6 +99,9 @@ m.controller('TeamListController', function ($scope) {
   ];
 });
 
-m.controller('TeamProfileController', function ($scope) {
+m.controller('TeamProfileController', function ($scope, Ranks, team) {
+  team.rank = _.find(Ranks, { id: team.rank }).fullName;
+
+  $scope.team = team;
 });
 

@@ -38,7 +38,7 @@ exports.find = function (req, res) {
   ];
 
   if (req.user && req.user.teamId === req.id) {
-    eager.push({ model: db.invcode, foreignKey: 'teamId', where: { usedById: null} });
+    eager.push({ model: db.invcode, foreignKey: 'teamId' });
   }
 
   db.team.find({ where: { id: req.params.id }, include: eager }).then(function (entity) {
@@ -46,7 +46,7 @@ exports.find = function (req, res) {
       res.json(entity);
     }
     else {
-      res.send(404);
+      res.sendStatus(404);
     }
   });
 };

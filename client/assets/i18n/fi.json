@@ -34,6 +34,7 @@
     "member": "Pelaaja",
     "standin": "Varapelaaja",
     "name": "Nimi",
+    "description": "Kuvaus",
     "guild": "Kilta / ainejärjestö",
     "birthyear": "Syntynyt",
     "contactInfo": "Yhteystiedot",
