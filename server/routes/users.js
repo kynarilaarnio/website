@@ -37,7 +37,7 @@ exports.find = function (req, res) {
         { model: db.user, as: 'standins' }
       ];
 
-      if (req.user && teamId === req.id) {
+      if (req.user && req.user.teamId === req.id) {
         eager.push({ model: db.invcode, foreignKey: 'teamId' });
       }
 
