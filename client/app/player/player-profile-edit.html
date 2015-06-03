@@ -6,7 +6,7 @@
   </div>
 
   <div class="six columns">
-    <div ng-if="account.isCaptain(team.captainId)">
+    <div ng-if="account.isCaptain(player.team.id)">
       <h4 translate>global.team</h4>
       <div ng-include="'team/team-edit.html'"></div>
       <button class="pull-right" ng-click="saveTeam()" translate>global.save</button>
