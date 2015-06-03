@@ -1,17 +1,41 @@
-<div class="player large">
-  <a href ui-sref="kynarilaarnio.team.profile">
-    <div class="row title">
-      <div class="image two columns">
-        <img ng-src="{{ team.imageUrl }}" alt="Profile picture" />
-      </div>
+<div class="row">
+  <div class="six columns">
+    <h4>{{ team.name }}</h4>
 
-      <h4 class="name ten columns">
-        {{ team.nick }}
-      </h4>
+    <table class="u-full-width">
+      <tr>
+        <th translate>team.tag</th>
+        <td>{{ team.tag }}</td>
+      </tr>
+
+      <tr>
+        <th translate>global.guild</th>
+        <td>{{ player.guild }}</td>
+      </tr>
+
+      <tr>
+        <th translate>team.rank</th>
+        <td>{{ team.rank }}</td>
+      </tr>
+
+      <tr>
+        <th translate>global.description</th>
+        <td class="pre">{{ team.description }}</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="six columns">
+    <div ng-init="player = team.captain">
+      <div ng-include="'partials/player/player-mini.html">
     </div>
-  </a>
 
-  <div ng-repeat="player in team.players">
-    <div ng-include="'partials/player/player-mini.html'"></div>
+    <div ng-repeat="player in team.members">
+      <div ng-include="'partials/player/player-mini.html'"></div>
+    </div>
+
+    <div ng-repeat="player in team.standins">
+      <div ng-include="'partials/player/player-mini.html'"></div>
+    </div>
   </div>
 </div>

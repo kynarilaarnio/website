@@ -43,19 +43,21 @@ m.controller('PlayerProfileController', function ($scope, player) {
   $scope.player = player;
 });
 
-m.controller('PlayerProfileEditController', function ($scope, $state, Users, Teams, Ranks, player) {
+m.controller('PlayerProfileEditController', function ($scope, $state, Users, Teams, Ranks, Notifications, player) {
   $scope.player = player;
   $scope.team = player.team;
   $scope.Ranks = Ranks;
 
   $scope.saveUser = function () {
     Users.update($scope.player).$promise.then(function (response) {
+      Notifications.set('player.saveSuccess', Notifications.types.success);
       $state.go('kynarilaarnio.player.profile', { id: response.id });
     });
   };
 
   $scope.saveTeam = function () {
     Teams.update($scope.player.team).$promise.then(function (response) {
+      Notifications.set('team.saveSuccess', Notifications.types.success);
       $state.go('kynarilaarnio.team.profile', { id: response.id });
     });
   };

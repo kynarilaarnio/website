@@ -1,11 +1,40 @@
 <div class="row">
   <div class="six columns">
-    <h4 translate>global.player</h4>
-    <div ng-include="player/player-large.html"></div>
+    <h4>{{ player.nick }}</h4>
+
+    <table class="u-full-width">
+      <tr>
+        <th translate>global.name</th>
+        <td>{{ player.name }}</td>
+      </tr>
+
+      <tr>
+        <th translate>global.guild</th>
+        <td>{{ player.guild }}</td>
+      </tr>
+
+      <tr>
+        <th translate>global.birthyear</th>
+        <td>{{ player.birthdate }}</td>
+      </tr>
+
+      <tr>
+        <th translate>global.contactInfo</th>
+        <td class="pre">{{ player.contactInfo }}</td>
+      </tr>
+
+      <tr>
+        <th translate>global.steamId</th>
+        <td>{{ player.steamId }}</td>
+      </tr>
+
+      <tr>
+        <th translate>global.team</th>
+        <td><a href ui-sref="kynarilaarnio.team.profile({ id: player.team.id })">{{ player.team.name }}</a></td>
+      </tr>
+    </table>
   </div>
 
   <div class="six columns">
-    <h4 translate>global.team</h4>
-    <div ng-include="team/team-large.html"></div>
   </div>
 </div>

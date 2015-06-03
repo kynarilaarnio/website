@@ -31,7 +31,12 @@
     "player": "Pelaaja",
     "team": "Joukkue",
     "member": "Pelaaja",
-    "standin": "Varapelaaja"
+    "standin": "Varapelaaja",
+    "name": "Nimi",
+    "guild": "Kilta / ainejärjestö",
+    "birthyear": "Syntynyt",
+    "contactInfo": "Yhteystiedot",
+    "steamId": "Steam ID"
   },
 
   "main": {
@@ -58,7 +63,8 @@
     "captain": "Kapteeni",
     "members": "Pelaajat",
     "standins": "Varapelaajat",
-    "validInvitationCodes": "Käyttämättömät kutsukoodit"
+    "validInvitationCodes": "Käyttämättömät kutsukoodit",
+    "saveSuccess": "Joukkueen tiedot tallennettu"
   },
 
   "player": {
@@ -66,7 +72,9 @@
     "email": "Sähköposti",
     "realname": "Nimi",
     "birthdate": "Syntymäaika",
-    "guild": "Edustamasi ainejärjestö / kilta"
+    "guild": "Ainejärjestö / kilta",
+    "contactInfo": "Yhteydenottotavat",
+    "saveSuccess": "Pelaajan tiedot tallennettu"
   },
 
   "group": {

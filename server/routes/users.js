@@ -123,7 +123,7 @@ exports.register = function (req, res) {
       var userInfo = {
         authIdentifier: req.user.id,
         nick: req.user.displayName,
-        name: req.user.displayName,
+        name: '',
         role: role,
         guild: '',
         birthdate: '1970',
