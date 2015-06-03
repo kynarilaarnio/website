@@ -6,8 +6,10 @@
   </div>
 
   <div class="six columns">
-    <h4 translate>global.team</h4>
-    <div ng-include="'team/team-edit.html'"></div>
-    <button class="pull-right" ng-click="saveTeam()" translate>global.save</button>
+    <div ng-if="account.isCaptain(team.captainId)">
+      <h4 translate>global.team</h4>
+      <div ng-include="'team/team-edit.html'"></div>
+      <button class="pull-right" ng-click="saveTeam()" translate>global.save</button>
+    </div>
   </div>
 </div>

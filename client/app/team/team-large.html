@@ -1,17 +1,23 @@
-<div ui-sref="kynarilaarnio.team.profile({ id: content.id })" class="team large">
-  <div class="row">
-    <div class="one column image">
-      <img ng-src="{{ team.imageUrl }}" ng-if="team.imageUrl" alt="Profile pic" />
-    </div>
+<h4 ui-sref="kynarilaarnio.team.profile({ id: team.id })" class="pointer">{{ team.name }}</h4>
 
-    <h4 class="eleven columns name">
-      {{ team.name }}
-    </h4>
-  </div>
+<table class="u-full-width">
+  <tr>
+    <th translate>team.tag</th>
+    <td>{{ team.tag }}</td>
+  </tr>
 
-  <div class="row players">
-    <p class="twelve columns">
-      <span ng-repeat="player in team.players">{{ player.nick }}</span>
-    </p>
-  </div>
-</div>
+  <tr>
+    <th translate>global.guild</th>
+    <td>{{ player.guild }}</td>
+  </tr>
+
+  <tr>
+    <th translate>team.rank</th>
+    <td>{{ team.rank }}</td>
+  </tr>
+
+  <tr>
+    <th translate>global.description</th>
+    <td class="pre">{{ team.description }}</td>
+  </tr>
+</table>
