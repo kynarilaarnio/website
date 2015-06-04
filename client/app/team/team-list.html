@@ -1,3 +1,6 @@
 <div class="team list">
-  <team ng-repeat="team in teams" content="team" template="large"></team>
+  <div class="row clickable" ng-repeat="team in teams | orderBy: 'name'" ui-sref="kynarilaarnio.team.profile({ id: team.id })">
+    <div class="two columns">{{ team.tag }}</div>
+    <div class="ten columns">{{ team.name }}</div>
+  </div>
 </div>

@@ -11,6 +11,11 @@ m.config(function ($stateProvider) {
           templateUrl: 'team/team-list.html',
           controller: 'TeamListController'
         }
+      },
+      resolve: {
+        teams: function (Teams) {
+          return Teams.query().$promise;
+        }
       }
     })
 
@@ -45,7 +50,8 @@ m.config(function ($stateProvider) {
     });
 });
 
-m.controller('TeamListController', function ($scope) {
+m.controller('TeamListController', function ($scope, teams) {
+  $scope.teams = teams;
 });
 
 m.controller('TeamProfileController', function ($scope, Ranks, team) {

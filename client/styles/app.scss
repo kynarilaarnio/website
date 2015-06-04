@@ -25,6 +25,17 @@ p {
   text-align: justify;
 }
 
+.row.clickable {
+  cursor: pointer;
+  height: 40px;
+  line-height: 40px;
+  vertical-align: middle;
+
+  &:hover {
+    font-weight: 600;
+  }
+}
+
 /* Global notification service */
 
 $flash-background:      #383738;
