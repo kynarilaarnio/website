@@ -1,0 +1,24 @@
+<div class="row team-profile-edit" ng-if="account.isCaptain(team.id)">
+  <div class="six columns">
+    <div>
+      <h4 translate>global.team</h4>
+      <div ng-include="'team/team-edit.html'"></div>
+      <button class="pull-right button-primary" ng-click="save()" translate>global.save</button>
+    </div>
+  </div>
+
+  <div class="six columns">
+    <div ng-show="team.invcodes">
+      <label translate>team.validInvitationCodes</label>
+      <ul>
+        <li ng-repeat="invitationCode in team.invcodes" ng-hide="invitationCode.usedById">
+          <span ng-switch="invitationCode.type">
+            {{ invitationCode.code }}
+            <span ng-switch-when="standin"><span>(<span translate>global.standin</span>)</span></span>
+            <span ng-switch-when="member"><span>(<span translate>global.member</span>)</span></span>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -32,7 +32,7 @@ m.config(function ($stateProvider) {
         }
       },
       resolve: {
-        player: function (Users, $stateParams, $rootScope) {
+        player: function (Users, $stateParams) {
           return Users.get({ id: $stateParams.id }).$promise;
         }
       }
@@ -43,20 +43,12 @@ m.controller('PlayerProfileController', function ($scope, player) {
   $scope.player = player;
 });
 
-m.controller('PlayerProfileEditController', function ($scope, $state, Users, Teams, Ranks, Notifications, player) {
+m.controller('PlayerProfileEditController', function ($scope, $state, Users, Notifications, player) {
   $scope.player = player;
-  $scope.team = player.team;
-  $scope.Ranks = Ranks;
 
-  $scope.saveUser = function () {
+  $scope.save = function () {
     Users.update($scope.player).$promise.then(function (response) {
       Notifications.set('player.saveSuccess', Notifications.types.success);
-    });
-  };
-
-  $scope.saveTeam = function () {
-    Teams.update($scope.player.team).$promise.then(function (response) {
-      Notifications.set('team.saveSuccess', Notifications.types.success);
     });
   };
 });

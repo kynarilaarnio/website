@@ -76,7 +76,8 @@
     "birthdate": "Syntymäaika",
     "guild": "Ainejärjestö / kilta",
     "contactInfo": "Yhteydenottotavat",
-    "saveSuccess": "Pelaajan tiedot tallennettu"
+    "saveSuccess": "Pelaajan tiedot tallennettu",
+    "editTeam": "Muokkaa joukkuetta"
   },
 
   "group": {

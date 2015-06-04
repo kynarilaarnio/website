@@ -12,9 +12,8 @@ m.config(function ($stateProvider) {
           controller: 'TeamListController'
         }
       }
-    });
+    })
 
-  $stateProvider
     .state('kynarilaarnio.team.profile', {
       url: '/:id',
       views: {
@@ -28,75 +27,25 @@ m.config(function ($stateProvider) {
           return Teams.get({ id: $stateParams.id }).$promise;
         }
       }
+    })
+
+    .state('kynarilaarnio.team.profile.edit', {
+      url: '/edit',
+      views: {
+        'main@': {
+          templateUrl: 'team/team-profile-edit.html',
+          controller: 'TeamProfileEditController'
+        }
+      },
+      resolve: {
+        team: function (Teams, $stateParams) {
+          return Teams.get({ id: $stateParams.id }).$promise;
+        }
+      }
     });
 });
 
 m.controller('TeamListController', function ($scope) {
-  $scope.teams = [
-    {
-      id: 1,
-      name: 'Tommi Sotkan Penis',
-      players: [
-        {
-          nick: 'Player 1'
-        },
-        {
-          nick: 'Player 2'
-        },
-        {
-          nick: 'Player 3'
-        },
-        {
-          nick: 'Player 4'
-        },
-        {
-          nick: 'Player 5'
-        }
-      ]
-    },
-    {
-      id: 2,
-      name: 'Fuksijoukkue',
-      players: [
-        {
-          nick: 'Player 1'
-        },
-        {
-          nick: 'Player 2'
-        },
-        {
-          nick: 'Player 3'
-        },
-        {
-          nick: 'Player 4'
-        },
-        {
-          nick: 'Player 5'
-        }
-      ]
-    },
-    {
-      id: 3,
-      name: 'TiTe 2',
-      players: [
-        {
-          nick: 'Player 1'
-        },
-        {
-          nick: 'Player 2'
-        },
-        {
-          nick: 'Player 3'
-        },
-        {
-          nick: 'Player 4'
-        },
-        {
-          nick: 'Player 5'
-        }
-      ]
-    }
-  ];
 });
 
 m.controller('TeamProfileController', function ($scope, Ranks, team) {
@@ -105,3 +54,13 @@ m.controller('TeamProfileController', function ($scope, Ranks, team) {
   $scope.team = team;
 });
 
+m.controller('TeamProfileEditController', function ($scope, $state, Teams, Ranks, Notifications, team) {
+  $scope.team = team;
+  $scope.Ranks = Ranks;
+
+  $scope.save = function () {
+    Teams.update($scope.team).$promise.then(function (response) {
+      Notifications.set('team.saveSuccess', Notifications.types.success);
+    });
+  };
+});
