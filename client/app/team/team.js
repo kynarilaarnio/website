@@ -55,7 +55,11 @@ m.controller('TeamListController', function ($scope, teams) {
 });
 
 m.controller('TeamProfileController', function ($scope, Ranks, team) {
-  team.rank = _.find(Ranks, { id: team.rank }).fullName;
+  var rank = _.find(Ranks, { id: team.rank });
+
+  if (rank) {
+    team.rank = rank.fullName;
+  }
 
   $scope.team = team;
 });
