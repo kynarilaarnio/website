@@ -1,0 +1,29 @@
+<div class="match edit">
+  <div class="row">
+    <div class="twelve columns">
+      <label for="captain" translate>global.group</label>
+      <select id="group" ng-model="match.group" ng-options="group as group.name for group in groupList | orderBy: 'name'">
+      </select>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="twelve columns">
+      <label for="home" translate>match.home</label>
+      <select id="home" ng-model="match.home" ng-options="team as team.name for team in teamList | orderBy: 'name'">
+      </select>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="twelve columns">
+      <label for="away" translate>match.away</label>
+      <select id="away" ng-model="match.away" ng-options="team as team.name for user in teamList | orderBy: 'name'">
+      </select>
+    </div>
+  </div>
+
+  <hr />
+
+
+</div>

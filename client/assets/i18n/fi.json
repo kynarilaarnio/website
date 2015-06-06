@@ -38,7 +38,8 @@
     "guild": "Kilta / ainejärjestö",
     "birthyear": "Syntynyt",
     "contactInfo": "Yhteystiedot",
-    "steamId": "Steam ID"
+    "steamId": "Steam ID",
+    "matches": "Ottelut"
   },
 
   "main": {

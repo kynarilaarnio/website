@@ -83,3 +83,34 @@ m.constant('InvitationTypes', [
   { name: 'member' },
   { name: 'standin' }
 ]);
+
+m.constant('Maps', [
+  {
+    id: 'nuke',
+    fullName: 'Nuke'
+  },
+  {
+    id: 'mirage',
+    fullName: 'Mirage'
+  },
+  {
+    id:  'dust2',
+    fullName: 'Dust 2'
+  },
+  {
+    id: 'inferno',
+    fullName: 'Inferno'
+  },
+  {
+    id: 'cache',
+    fullName: 'Cache'
+  },
+  {
+    id: 'overpass',
+    fullName: 'Overpass'
+  },
+  {
+    id: 'cbble',
+    fullName: 'Cobblestone'
+  }
+]);

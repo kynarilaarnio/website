@@ -15,7 +15,7 @@ m.config(function ($stateProvider) {
     });
 });
 
-m.controller('AdminDashboardController', function ($scope, Users, Teams, Groups, Events, News, Ranks) {
+m.controller('AdminDashboardController', function ($scope, Users, Teams, Groups, Events, News, Ranks, Maps) {
   $scope.target = {};
   $scope.filter = '';
   $scope.config = undefined;
