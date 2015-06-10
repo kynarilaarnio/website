@@ -10,7 +10,8 @@ var config    = require('../config.js');
 var sequelize = new Sequelize(config.dbName, config.dbUser, config.dbPass, {
   host: config.dbHost,
   port: config.dbPort,
-  dialect: 'postgres'
+  dialect: 'postgres',
+  logging: config.logging || false
 });
 var db        = {};
 

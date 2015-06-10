@@ -21,6 +21,7 @@ var groups = require('./routes/groups');
 var rounds = require('./routes/rounds');
 var matches = require('./routes/matches');
 var invcodes = require('./routes/invcodes');
+var stats = require('./routes/stats');
 
 var app = express();
 
@@ -75,6 +76,11 @@ app.use(express.static(__dirname + '/../_static'));
 if ('development' === app.get('env')) {
   app.use(errorHandler());
 }
+
+// FIXME: Let only gameservers through
+var apiAuthorize = function (req, res, next) {
+  return next();
+};
 
 var authorize = function (req, res, next) {
   if (req.isAuthenticated()) {
@@ -150,6 +156,9 @@ app.delete('/api/matches/:id', authorize, matches.authorize, matches.destroy);
 app.get('/api/invitationcodes', authorize, invcodes.authorize, invcodes.findAll);
 app.post('/api/invitationcodes', authorize, invcodes.authorize, invcodes.create);
 app.delete('/api/invitationcodes/:id', authorize, invcodes.authorize, invcodes.destroy);
+
+app.post('/api/stats', apiAuthorize, stats.bulkInsert);
+app.get('/api/stats/:id', stats.getPlayerStats);
 
 db
   .sequelize
