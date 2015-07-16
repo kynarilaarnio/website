@@ -25,6 +25,7 @@ var m = angular.module('app', [
   // Features
   'app.account.service',
   'app.admin',
+  'app.group',
   'app.invitationCode',
   'app.main',
   'app.match',

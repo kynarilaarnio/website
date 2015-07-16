@@ -1,0 +1,19 @@
+<div class="row" ng-repeat="groupPair in groupChunks">
+  <div class="six columns group">
+      <div class="group-name">{{ groupPair[0].name }}</div>
+      <div class="team-name" ng-repeat="team in groupPair[0].teams | orderBy: 'groupScore' : true"
+           ui-sref="kynarilaarnio.team.profile({ id: team.id })" ng-class="{ 'dashed-border': $index === 1 }">
+        {{ team.name }}
+        <span class="score u-pull-right">{{ team.groupScore }}</span>
+      </div>
+  </div>
+  <div class="six columns group" ng-if="groupPair[1]">
+    <div class="group-name">{{ groupPair[1].name }}</div>
+    <div class="team-name" ng-repeat="team in groupPair[1].teams | orderBy: 'groupScore' : true"
+         ui-sref="kynarilaarnio.team.profile({ id: team.id })" ng-class="{ 'dashed-border': $index === 1 }">
+      {{ team.name }}
+      <span class="score u-pull-right">{{ team.groupScore }}</span>
+    </div>
+  </div>
+</div>
+

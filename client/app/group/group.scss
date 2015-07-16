@@ -1,0 +1,20 @@
+.group {
+  margin-bottom: 1rem;
+
+  .group-name {
+    font-weight: 900;
+    border-bottom: 1px solid #000;
+  }
+
+  .team-name {
+     cursor: pointer;
+
+    &:hover {
+       font-weight: 600;
+      }
+
+    &.dashed-border {
+      border-bottom: 1px dashed #000;
+    }
+  }
+}
