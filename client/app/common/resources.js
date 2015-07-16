@@ -23,6 +23,13 @@ m.factory('Groups', function ($resource) {
     });
 });
 
+m.factory('Matches', function ($resource) {
+  return $resource('api/matches/:id', { 'id': '@id' },
+    {
+      'update': { method: 'PUT' }
+    });
+});
+
 m.factory('Events', function ($resource) {
   return $resource('api/events/:id', { 'id': '@id' },
     {

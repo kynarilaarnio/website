@@ -25,5 +25,26 @@
 
   <hr />
 
+  <div ng-repeat="round in match.rounds">
+    <strong><span translate>global.round</span> #{{ $index }}</span></strong>
+    <div class="row">
+      <div class="twelve columns">
+        <label for="away" translate>match.away</label>
+        <select id="away" ng-model="round.map" ng-options="map as map.fullName for map in Maps | orderBy: 'fullName'">
+        </select>
+      </div>
+    </div>
 
+    <div class="row">
+      <div class="six columns">
+        <label for="home-score" translate>match.home</label>
+        <input type="number" id="home-score" minlength="1" maxlength="1" ng-model="round.scoreHome" />
+      </div>
+
+      <div class="six columns">
+        <label for="away-score" translate>match.away</label>
+        <input type="number" id="away-score" minlength="1" maxlength="1" ng-model="round.scoreAway" />
+      </div>
+    </div>
+  </div>
 </div>

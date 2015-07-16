@@ -2,8 +2,8 @@
 
 var m = angular.module('app.common.services', []);
 
-m.constant('NotificationTimeout', 2000)
-m.constant('ErrorNotificationTimeout', 4000)
+m.constant('NotificationTimeout', 2000);
+m.constant('ErrorNotificationTimeout', 4000);
 
 m.factory('Notifications', function ($timeout, NotificationTimeout, ErrorNotificationTimeout) {
   var messageQueue = [];

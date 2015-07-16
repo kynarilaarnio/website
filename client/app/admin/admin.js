@@ -15,7 +15,7 @@ m.config(function ($stateProvider) {
     });
 });
 
-m.controller('AdminDashboardController', function ($scope, Users, Teams, Groups, Events, News, Ranks, Maps) {
+m.controller('AdminDashboardController', function ($scope, Users, Teams, Groups, Matches, Events, News, Ranks, Maps) {
   $scope.target = {};
   $scope.filter = '';
   $scope.config = undefined;
@@ -94,6 +94,15 @@ m.controller('AdminDashboardController', function ($scope, Users, Teams, Groups,
     }
   };
 
+  $scope.matches = {
+    orderBy: 'date',
+    displayKeys: [ 'home.name', 'away.name' ],
+    tempateUrl: 'match/match-edit.html',
+    resource: function () {
+      return Matches;
+    }
+  };
+
   $scope.invitationCodes = {
     templateUrl: 'invitation-code/invitation-code.html'
   };
@@ -124,7 +133,7 @@ m.controller('AdminDashboardController', function ($scope, Users, Teams, Groups,
   $scope.save = function () {
     var saveSuccessful = function (response) {
       $scope.target = response;
-      var index = _.findIndex($scope.content, { 'id': $scope.target.id })
+      var index = _.findIndex($scope.content, { 'id': $scope.target.id });
 
       if (index < 0) {
         $scope.content.push($scope.target);
