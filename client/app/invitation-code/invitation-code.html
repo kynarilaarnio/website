@@ -1,14 +1,30 @@
 <div ng-controller="InvitationCodeController">
-  <div class="row">
-    <div class="twelve columns u-full-width">
-      <input type="number" ng-model="amount" />
 
-      <select ng-model="type" ng-options="type.name as type.name for type in InvitationTypes">
-      </select>
+  <div class="newcodes__wrapper">
+    <div class="row">
+      <h5 translate>invitationCodes.newCodesTitle</h5>
+    </div>
 
+    <div class="row">
+      <div class="six columns">
+        <label for="newCodesAmount" translate>invitationCodes.newCodesAmount</label>
+        <input type="number" ng-model="amount" id="newCodesAmount" />
+      </div>
+
+      <div class="six columns u-full-width">
+        <label for="newCodesType" translate>invitationCodes.newCodesType</label>
+        <select ng-model="type" id="newCodesType"
+          ng-options="type.name as type.name for type in InvitationTypes"></select>
+      </div>
+    </div>
+
+    <div class="row u-full-width">
       <button ng-click="generateInvitationCodes()" translate>invitationCodes.generate</button>
     </div>
+
+    <hr/>
   </div>
+
   <table class="u-full-width">
     <thead>
       <tr>
