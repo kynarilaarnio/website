@@ -30,6 +30,12 @@
       <label for="codesSearchString" translate>invitationCodes.codesSearchString</label>
       <input type="text" ng-model="searchString" id="codesSearchString" />
     </div>
+
+    <div class="six columns">
+      <label for="redeemedCodesToggle" translate>invitationCodes.showRedeemed</label>
+      <input type="checkbox" ng-model="showRedeemed" id="redeemedCodesToggle" />
+    </div>
+
   </div>
 
   <table class="u-full-width">
@@ -42,7 +48,9 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="invitationCode in invitationCodes | filter: searchString">
+      <tr ng-repeat="invitationCode in invitationCodes |
+        filter: searchString |
+        filter: filterRedeemed">
         <td>{{ invitationCode.code }}</td>
         <td>{{ invitationCode.type }}</td>
         <td>{{ invitationCode.usedBy.nick }}</td>
