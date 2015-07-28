@@ -25,6 +25,13 @@
     <hr/>
   </div>
 
+  <div class="row">
+    <div class="six columns">
+      <label for="codesSearchString" translate>invitationCodes.codesSearchString</label>
+      <input type="text" ng-model="searchString" id="codesSearchString" />
+    </div>
+  </div>
+
   <table class="u-full-width">
     <thead>
       <tr>
@@ -35,7 +42,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="invitationCode in invitationCodes">
+      <tr ng-repeat="invitationCode in invitationCodes | filter: searchString">
         <td>{{ invitationCode.code }}</td>
         <td>{{ invitationCode.type }}</td>
         <td>{{ invitationCode.usedBy.nick }}</td>

@@ -96,6 +96,7 @@
     "generate": "Generoi",
     "newCodesTitle": "Luo kutsuja",
     "newCodesAmount": "Kutsujen määrä",
-    "newCodesType": "Kutsujen tyyppi"
+    "newCodesType": "Kutsujen tyyppi",
+    "codesSearchString": "Hakusana"
   }
 }
