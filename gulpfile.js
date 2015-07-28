@@ -11,6 +11,7 @@ gulp.task('install:client:css', function () {
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
     .pipe($.sass())
+    .pipe($.autoprefixer())
     .pipe($.sourcemaps.write())
     .pipe($.concatCss('style.css'))
     .pipe(gulp.dest(config.frontendTarget.css));
