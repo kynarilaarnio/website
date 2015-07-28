@@ -98,6 +98,7 @@
     "newCodesAmount": "Kutsujen määrä",
     "newCodesType": "Kutsujen tyyppi",
     "codesSearchString": "Hakusana",
-    "showRedeemed": "Näytä aktivoidut"
+    "showRedeemed": "Näytä aktivoidut",
+    "codeAmountUnit": "koodia"
   }
 }
