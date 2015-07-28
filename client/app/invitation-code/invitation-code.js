@@ -10,7 +10,8 @@ m.controller('InvitationCodeController', function ($scope, InvitationCodes, Invi
   $scope.type = undefined;
 
   $scope.generateInvitationCodes = function () {
-    InvitationCodes.save({ amount: $scope.amount, type: $scope.type }).$promise.then(function (response) {
+    InvitationCodes.save({ amount: $scope.amount, type: $scope.type })
+    .$promise.then(function (response) {
       $scope.invitationCodes = response;
     });
   };

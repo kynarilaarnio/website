@@ -52,8 +52,10 @@ exports.createTeamCodes = function (team, promises) {
 };
 
 exports.create = function (req, res) {
+  // Optimization-TODO: return only the new codes, not all of them
   sequelize.Promise.all(createCodes(req.body.amount, req.body.type)).then(function () {
-    db.invcode.findAll().then(function (entities) {
+    db.invcode.findAll({ include: { model: db.user, as: 'usedBy' } })
+    .then(function (entities) {
       res.statusCode = 201;
       res.json(entities);
     });
