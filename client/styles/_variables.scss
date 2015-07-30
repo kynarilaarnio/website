@@ -1,0 +1,28 @@
+
+// # Colors
+$black:     #31302B;
+$gray:      #DADADA;
+$white:     #FFFFFF;
+$red:       #C33B15;
+$red-dark:  #990000;
+
+$border-color: $gray;
+$bg-transparent:  rgba(49,49,49, 0.6);
+
+// Navigation related
+$navigation-foreground:           $white;
+$navigation-background:           $bg-transparent;
+$navigation-highlight:            #2E0A5D;
+
+// Notification box related
+$flash-background:      #383738;
+$flash-foreground:      #f5f5f5;
+$flash-error-color:     #ff2114;
+$flash-success-color:   #64ba2a;
+
+// # DOM sizing related vars
+$docked-navigation-height:        50px;
+$mobile-menu-max-width:           750px;
+$mobile-header-height:            50px;
+$mobile-navigation-item-height:   50px;
+$mobile-navigation-item-padding:  5px;
