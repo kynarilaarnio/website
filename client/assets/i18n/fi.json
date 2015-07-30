@@ -6,6 +6,7 @@
     "login": "Steam-kirjautuminen",
     "logout": "Kirjaudu ulos",
     "my_profile": "Profiili",
+    "admin": "Admin",
 
     "navigation": {
       "main": "Yleistä",

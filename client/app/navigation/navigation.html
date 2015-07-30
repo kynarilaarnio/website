@@ -14,12 +14,13 @@
   </div>
 </div>
 
+
 <div class="row header">
-  <div class="eight columns title">
+  <div class="seven columns title">
     <h4 class="title-full" translate>global.title</h4>
   </div>
 
-  <div class="four columns">
+  <div class="five columns">
     <div class="user pull-right">
       <div ng-hide="account.isAuthenticated()">
         <a href="/auth/steam" class="pull-right header-link">
@@ -39,11 +40,16 @@
         <span ui-sref="kynarilaarnio.player.profile.edit({ id: account.currentUser.id })" class="pull-right header-link">
           <span class="fa fa-cog"></span> <span translate>global.settings</span>
         </span>
+
+        <span ui-sref="kynarilaarnio.admin" class="pull-right header-link">
+          <span class="fa fa-bolt"></span> <span translate>global.admin</span>
+        </span>
       </div>
     </div>
   </div>
 </div>
 
+<!-- Mobile Navigation -->
 <div class="navigation" navigation-dock>
   <div class="container">
     <ul class="navigation-list" ng-class="{ 'open': mobileOpen }">
@@ -75,6 +81,13 @@
       <li ui-sref="kynarilaarnio.rules" class="navigation-item navigation-link">
         <div class="container">
           <span translate>global.navigation.rules</span>
+        </div>
+      </li>
+
+
+      <li class="navigation-item navigation-link user" ng-show="account.isAdmin()">
+        <div class="container">
+          <span ui-sref="kynarilaarnio.admin" translate>global.admin</span>
         </div>
       </li>
       <li class="navigation-item navigation-link user" ng-show="account.isAuthenticated()">
