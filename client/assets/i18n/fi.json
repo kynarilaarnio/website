@@ -94,6 +94,12 @@
     "code": "Kutsukoodi",
     "role": "Tyyppi",
     "usedBy": "Käyttänyt",
-    "generate": "Generoi"
+    "generate": "Generoi",
+    "newCodesTitle": "Luo kutsuja",
+    "newCodesAmount": "Kutsujen määrä",
+    "newCodesType": "Kutsujen tyyppi",
+    "codesSearchString": "Hakusana",
+    "showRedeemed": "Näytä aktivoidut",
+    "codeAmountUnit": "koodia"
   }
 }
