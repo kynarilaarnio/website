@@ -1,5 +1,7 @@
 // "global" styles
 @import 'general';
+@import 'utility';
+@import 'notification';
 
 // "view specific" styles
 @import '../app/admin/admin';
