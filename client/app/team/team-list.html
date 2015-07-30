@@ -1,6 +1,12 @@
-<div class="team list">
-  <div class="row clickable" ng-repeat="team in teams | orderBy: 'name'" ui-sref="kynarilaarnio.team.profile({ id: team.id })">
-    <div class="two columns">{{ team.tag }}</div>
-    <div class="ten columns">{{ team.name }}</div>
-  </div>
+<div class="row">
+  <h2>Joukkueet</h2>
+
+  <ul class="team__listing">
+    <li class="clickable u-full-width"
+      ng-repeat="team in teams | orderBy: 'name'"
+      ui-sref="kynarilaarnio.team.profile({ id: team.id })"
+    >
+      <span class="team--tag">{{ team.tag }}</span> {{ team.name }}
+    </li>
+  </ul>
 </div>

@@ -1,3 +1,26 @@
+
+
+.team__listing {
+  list-style: none;
+
+  li {
+    cursor: pointer;
+    height: 28px;
+    line-height: 28px;
+    vertical-align: middle;
+
+    &:hover {
+      font-weight: 600;
+    }
+  }
+}
+
+
+.team--tag {
+  font-weight: bold;
+}
+
+
 .team-profile-edit {
   input, select, textarea {
     width: 100%;

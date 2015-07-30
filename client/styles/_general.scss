@@ -8,22 +8,12 @@ html {
 body { color: $white; }
 input { color: $black; }
 
-p {
-  text-align: justify;
 .row {
   background-color: $bg-transparent;
   padding: 20px 10px;
 }
 
-.row.clickable {
-  cursor: pointer;
-  height: 40px;
-  line-height: 40px;
-  vertical-align: middle;
 
-  &:hover {
-    font-weight: 600;
-  }
-}
+p { text-align: justify; }
 
 
