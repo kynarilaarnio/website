@@ -1,8 +1,18 @@
+// # Layout
+
+html {
+    background: url(/nukebg.jpg) no-repeat center center fixed;
+    background-size: cover;
 }
 
+body { color: $white; }
+input { color: $black; }
 
 p {
   text-align: justify;
+.row {
+  background-color: $bg-transparent;
+  padding: 20px 10px;
 }
 
 .row.clickable {
