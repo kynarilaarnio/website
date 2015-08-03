@@ -25,17 +25,6 @@
 
   margin-bottom: 0;
 
-  &:before {
-    content: " ";
-    display: inline-block;
-    height: 15px;
-    width: 10px;
-    margin-right: 10px;
-
-    border-left: 10px solid $color-secondary-1-0;
-    border-right: 10px solid $color-secondary-1-0;
-  }
-
 }
 
 .hero__slope {
@@ -64,7 +53,6 @@ html {
   padding: 20px 10px;
 
   overflow: hidden; // HOX can this cause problems? this class is from Skeleton
-
 }
 
 body { color: $white; }
