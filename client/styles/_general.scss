@@ -1,6 +1,56 @@
-.site__wrap {
-  width: 80%;
+.content__wrap {
+  width: $content-width;
+  max-width: $content-max-width;
   margin: 0 auto;
+}
+
+
+// "Hero" header
+.hero__wrapper {
+  position: relative;
+  height: 105px;
+  width: 100%;
+  overflow: hidden;
+
+  border-bottom: 10px solid $color-secondary-1-2;
+}
+
+.hero__title {
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  // right: 0;
+  bottom: 10px;
+  background-color: $color-secondary-1-4;
+
+  margin-bottom: 0;
+
+  &:before {
+    content: " ";
+    display: inline-block;
+    height: 15px;
+    width: 10px;
+    margin-right: 10px;
+
+    border-left: 10px solid $color-secondary-1-0;
+    border-right: 10px solid $color-secondary-1-0;
+  }
+
+}
+
+.hero__slope {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  z-index: 1;
+  width: 150%;
+  height: 200px;
+  background-color: $color-secondary-1-4;
+
+  transform-origin: left top;
+  transform: rotate(3deg);
+
 }
 
 
@@ -10,9 +60,11 @@ html {
     background-size: cover;
 }
 .row {
-  // border-top: 5px solid $hilight-color;
   background-color: $bg-transparent;
   padding: 20px 10px;
+
+  overflow: hidden; // HOX can this cause problems? this class is from Skeleton
+
 }
 
 body { color: $white; }

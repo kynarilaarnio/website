@@ -56,8 +56,8 @@ $bg-transparent:  rgba(49,49,49, 0.6);
 
 // Navigation related
 $navigation-foreground:           $white;
-$navigation-background:           $bg-transparent;
-$navigation-highlight:            #2E0A5D;
+$navigation-background:           $black;
+$navigation-highlight:            $color-secondary-1-1;
 
 // Notification box related
 $flash-background:      #383738;
@@ -67,6 +67,7 @@ $flash-success-color:   #64ba2a;
 
 // # DOM sizing related vars
 $content-width:                   80%;
+$content-max-width:               960px;
 
 
 $docked-navigation-height:        50px;

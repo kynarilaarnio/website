@@ -5,6 +5,7 @@ header {
 }
 
 .header {
+  background-color: $black;
   width: $content-width;
   margin: 0 auto;
 
@@ -48,6 +49,7 @@ header {
   position: relative;
   box-sizing: border-box;
 
+  z-index: 10;
 
   .navigation-list li {
     list-style: none;
@@ -74,7 +76,7 @@ header {
 
 @media screen and (min-width: $mobile-menu-max-width) {
   nav {
-    min-height: 220px; // to fix bug of navigation-dock directive
+    min-height: 100px; // to fix bug of navigation-dock directive
   }
 
   .navigation {
