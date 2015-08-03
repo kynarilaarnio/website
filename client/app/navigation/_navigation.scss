@@ -13,19 +13,11 @@ header {
 
   .title {
     text-transform: uppercase;
-
-    .title-full {
-      display: block;
-    }
-
-    .title-short {
-      display: none;
-    }
+    .title-full { display: block; }
+    .title-short { display: none; }
   }
 
-  .navicon {
-    display: none;
-  }
+  .navicon { display: none; }
 
   .user {
     margin-top: 1rem;
@@ -46,9 +38,7 @@ header {
       }
     }
 
-    .header-link {
-      margin-left: 2rem;
-    }
+    .header-link { margin-left: 2rem; }
   }
 }
 
@@ -84,7 +74,7 @@ header {
 
 @media screen and (min-width: $mobile-menu-max-width) {
   nav {
-    min-height: 220px;
+    min-height: 220px; // to fix bug of navigation-dock directive
   }
 
   .navigation {
@@ -92,12 +82,11 @@ header {
       display: flex;
       justify-content: space-between;
 
-      padding-top: 1rem;
+      padding: 1rem 2rem 0 2rem;
       border-top: 1px solid $navigation-foreground;
 
       .navigation-item {
         display: inline;
-        width: 100%;
 
         &.user {
           display: none;
@@ -126,9 +115,7 @@ header {
       left: 0;
       right: 0;
       top: 0;
-      height: $docked-navigation-height;
       background-color: $navigation-background;
-
 
       .navigation-list {
         border-top: 0px;
