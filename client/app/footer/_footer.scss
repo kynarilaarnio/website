@@ -1,8 +1,25 @@
 footer {
-  margin-top: 20px;
-  border-top: 2px solid $border-color;
-  min-height: 60px;
+  margin-top: 40px;
+  min-height: 80px;
 
+  border-top: 10px solid $color-secondary-1-4;
+  background-color: $black;
+}
 
-  background-color: $bg-transparent;
+.footer__content {
+  margin: 0 auto;
+  width: $content-width;
+  max-width: $content-max-width;
+
+  position: relative;
+}
+
+.footer__copyright {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  color: $color-secondary-1-1;
+
+  a { color: $color-secondary-1-1; }
 }
