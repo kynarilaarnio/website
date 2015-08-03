@@ -17,7 +17,13 @@
   <!-- <link rel="icon" type="image/png" href="images/favicon.png" /> -->
 </head>
 <body>
-  <div class="container">
+
+  <header>
+  <!-- TODO navista headerikama tänne? -->
+    <nav ng-include="'navigation/navigation.html'" role="navigation"></nav>
+  </header>
+
+  <div class="site__wrap">
     <div class="notification fx-fade-right fx-speed-300 fx-easing-back"
       ng-class="Notifications.get().classes" ng-show="Notifications.get()">
       <span>
@@ -25,9 +31,7 @@
       </span>
     </div>
 
-    <header>
-      <nav ng-include="'navigation/navigation.html'" role="navigation"></nav>
-    </header>
+
 
     <main ui-view="main"></main>
 

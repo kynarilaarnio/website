@@ -1,4 +1,6 @@
 /* Global notification service */
+// TODO: this should be hidden as a default, otherwise the notification box
+// stays on top of everything if no JavaScript is executed
 
 .notification {
   margin: 0;

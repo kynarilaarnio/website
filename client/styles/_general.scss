@@ -1,19 +1,28 @@
-// # Layout
+.site__wrap {
+  width: 80%;
+  margin: 0 auto;
+}
 
+
+// # Basic coloring for text & backgrounds
 html {
     background: url(/nukebg.jpg) no-repeat center center fixed;
     background-size: cover;
+}
+.row {
+  // border-top: 5px solid $hilight-color;
+  background-color: $bg-transparent;
+  padding: 20px 10px;
 }
 
 body { color: $white; }
 input { color: $black; }
 
-.row {
-  background-color: $bg-transparent;
-  padding: 20px 10px;
+
+h1, h2, h3, h4, h5 {
+  background-color: $color-secondary-1-0;
+  border-left: 20px solid $color-secondary-1-4;
+  padding-left: 10px;
 }
 
-
 p { text-align: justify; }
-
-

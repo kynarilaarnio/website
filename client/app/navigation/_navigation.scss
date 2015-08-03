@@ -1,21 +1,13 @@
-
-.navigation-link, .header-link {
-  cursor: pointer;
-
-  font-size: 1.5rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  text-decoration: none;
-  letter-spacing: -0.1rem;
-  color: $navigation-foreground;
-
-  &:hover {
-    color: $navigation-highlight;
-  }
+header {
+  width: 100%;
 }
 
 .header {
-  padding-top: 1rem;
+  width: $content-width;
+  margin: 0 auto;
+
+  box-sizing: border-box;
+  padding: 1rem;
 
   .title {
     text-transform: uppercase;
@@ -59,24 +51,41 @@
 }
 
 .navigation {
-  > .container {
-    width: 100%;
-  }
+  width: $content-width;
+  margin: 0 auto;
+  position: relative;
+  box-sizing: border-box;
 
-  .navigation-list {
-    .navigation-item {
-      list-style: none;
-    }
+
+  .navigation-list li {
+    list-style: none;
+  }
+}
+
+
+
+.navigation-link, .header-link {
+  cursor: pointer;
+
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: -0.1rem;
+  color: $navigation-foreground;
+
+  &:hover {
+    color: $navigation-highlight;
   }
 }
 
 
 @media screen and (min-width: $mobile-menu-max-width) {
-  .navigation {
-    > .container {
-      width: 100%;
-    }
+  nav {
+    min-height: 220px;
+  }
 
+  .navigation {
     .navigation-list {
       display: flex;
       justify-content: space-between;
@@ -86,10 +95,7 @@
 
       .navigation-item {
         display: inline;
-
-        > .container {
-          width: 100%;
-        }
+        width: 100%;
 
         &.user {
           display: none;
@@ -106,11 +112,12 @@
       background: transparent;
       transition: width .4s ease;
     }
+  }
+
+  .navigation {
 
     &.docked {
-      > .container {
-        width: 80%;
-      }
+      width: 100%;
 
       display: block;
       position: fixed;
@@ -138,10 +145,7 @@
   .navigation {
     .navigation-list {
       display: none;
-
-      > .container {
-        width: 80%;
-      }
+      width: 80%;
 
       &.open {
         display: block;
@@ -218,11 +222,4 @@
     }
   }
 
-  #main {
-    margin-top: $mobile-header-height + 20px;
-  }
-}
-
-#main {
-  margin-bottom: 70px;
 }
