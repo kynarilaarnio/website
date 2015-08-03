@@ -5,6 +5,9 @@
 @import 'utility';
 @import 'notification';
 
+// "components"
+@import '../app/hero/hero';
+
 // "view specific" styles
 @import '../app/admin/admin';
 @import '../app/group/group';
