@@ -4,15 +4,12 @@
   height: 105px;
   width: 100%;
   overflow: hidden;
-
-  border-bottom: 10px solid $color-secondary-1-2;
 }
 
 .hero__title {
   z-index: 2;
   position: absolute;
   left: 0;
-  // right: 0;
   bottom: 10px;
   background-color: $color-secondary-1-4;
 
@@ -33,4 +30,5 @@
   transform-origin: left top;
   transform: rotate(3deg);
 
+  border-top: 10px solid $color-secondary-1-2;
 }
