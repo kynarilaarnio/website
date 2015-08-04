@@ -1,22 +1,13 @@
-@import 'navicon';
+@import 'navicon'; // icon used on mobile navigation
 
-header {
-  width: 100%;
-}
-
-.header {
+header { width: 100%; } // wrapper for header
+.header { // actual header content
   background-color: $black;
   width: $content-width;
   margin: 0 auto;
+  padding: 2rem 1rem 1rem 1rem;
 
   box-sizing: border-box;
-  padding: 1rem;
-
-  .title {
-    text-transform: uppercase;
-    .title-full { display: block; }
-    .title-short { display: none; }
-  }
 
   .navicon { display: none; }
 
@@ -30,18 +21,41 @@ header {
       font-size: 1.4rem;
       font-weight: 600;
 
-      &:hover {
-        color: $navigation-highlight;
-      }
-
-      &:visited {
-        color: $navigation-foreground;
-      }
+      &:hover { color: $navigation-highlight; }
+      &:visited { color: $navigation-foreground; }
     }
 
     .header-link { margin-left: 2rem; }
   }
 }
+
+// Typographic logo
+.logo__wrap--full { position: relative; }
+.logo__short {
+  display: inline-block;
+  line-height: 1;
+
+  border-left: none;
+  background-color: transparent;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.logo__full--top,
+.logo__full--bottom {
+  position: absolute;
+  left: 100px;
+
+  display: inline-block;
+  background-color: transparent;
+  border-left: none;
+  font-size: 20px;
+
+  text-transform: uppercase;
+}
+.logo__full--top { top: 0; }
+.logo__full--bottom { bottom: 0; }
+
 
 .navigation {
   width: $content-width;
@@ -56,8 +70,6 @@ header {
   }
 }
 
-
-
 .navigation-link, .header-link {
   cursor: pointer;
 
@@ -68,16 +80,13 @@ header {
   letter-spacing: -0.1rem;
   color: $navigation-foreground;
 
-  &:hover {
-    color: $navigation-highlight;
-  }
+  &:hover { color: $navigation-highlight; }
 }
 
 
 @media screen and (min-width: $mobile-menu-max-width) {
-  nav {
-    min-height: 100px; // to fix bug of navigation-dock directive
-  }
+  nav { min-height: 100px; } // to fix bug of navigation-dock directive
+  .header.mobile { display: none; }
 
   .navigation {
     .navigation-list {
@@ -105,9 +114,6 @@ header {
       background: transparent;
       transition: width .4s ease;
     }
-  }
-
-  .navigation {
 
     &.docked {
       width: 100%;
@@ -132,7 +138,14 @@ header {
   }
 }
 
+
 @media screen and (max-width: $mobile-menu-max-width) {
+  .logo__wrap--full { display: none; }
+  .logo__short {
+    line-height: 1.5;
+    font-size: 25px;
+  }
+
   .navigation {
     .navigation-list {
       display: none;
@@ -160,13 +173,8 @@ header {
             text-decoration: none;
             color: $navigation-foreground;
 
-            &:hover {
-              color: $navigation-highlight;
-            }
-
-            &:visited {
-              color: $navigation-foreground;
-            }
+            &:hover { color: $navigation-highlight; }
+            &:visited { color: $navigation-foreground; }
           }
         }
       }
@@ -192,25 +200,8 @@ header {
       height: $mobile-header-height;
     }
 
-    .title {
-      display: inline;
 
-      .title-short {
-        display: inline;
-      }
-
-      .title-full {
-        display: none;
-      }
-    }
-
-    .navicon {
-      display: inline;
-    }
-
-    .user {
-      display: none;
-    }
+    .navicon { display: inline; }
+    .user { display: none; }
   }
-
 }

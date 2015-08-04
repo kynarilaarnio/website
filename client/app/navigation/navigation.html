@@ -1,8 +1,6 @@
 <div class="row header mobile" ng-init="mobileOpen = false" ng-click="mobileOpen = !mobileOpen">
   <div class="twelve columns">
-    <div class="title">
-      <h4 class="title-short" translate>global.title_short</h4>
-    </div>
+    <h1 class="logo__short" translate>global.title_short</h1>
 
     <div class="navicon">
       <button class="lines-button x pull-right" ng-class="{ 'open' : mobileOpen  }" type="button" role="button">
@@ -14,11 +12,13 @@
 
 
 <div class="row header">
-  <div class="seven columns title">
-    <h4 class="title-full" translate>global.title</h4>
+  <div class="logo__wrap--full five columns">
+    <h1 class="logo__short" translate>global.title_short</h1>
+    <h4 class="logo__full--top">Akateeminen</h4>
+    <h4 class="logo__full--bottom">Kynäriliiga</h4>
   </div>
 
-  <div class="five columns">
+  <div class="seven columns">
     <div class="user pull-right">
       <div ng-hide="account.isAuthenticated()">
         <a href="/auth/steam" class="pull-right header-link">

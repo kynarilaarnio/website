@@ -3,6 +3,11 @@
   max-width: $content-max-width;
   margin: 0 auto;
 }
+@media screen and (max-width: $mobile-menu-max-width) {
+  .content__wrap {
+    margin-top: $mobile-header-height + 20px;
+  }
+}
 
 
 
