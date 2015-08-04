@@ -3,12 +3,15 @@
 </akl-hero>
 
 <div class="row">
-  <ul class="team__listing">
-    <li class="clickable u-full-width"
+
+  <ul class="team__listing u-cf">
+    <li class="team__badge"
       ng-repeat="team in teams | orderBy: 'name'"
       ui-sref="kynarilaarnio.team.profile({ id: team.id })"
     >
-      <span class="team--tag">{{ team.tag }}</span> {{ team.name }}
+      <h5 class="team__tag">{{ team.tag }}</h5>
+      <p class="team__name">{{ team.name }}</p>
     </li>
   </ul>
+
 </div>
