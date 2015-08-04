@@ -29,6 +29,10 @@ header { width: 100%; } // wrapper for header
   }
 }
 
+.header.mobile {
+  padding: 10px;
+}
+
 // Typographic logo
 .logo__wrap--full { position: relative; }
 .logo__short {
@@ -186,7 +190,10 @@ header { width: 100%; } // wrapper for header
     }
   }
 
-  .header {
+  .header { display: none; }
+  .header.mobile {
+    display: block;
+
     position: fixed;
     top: 0;
     left: 0;
