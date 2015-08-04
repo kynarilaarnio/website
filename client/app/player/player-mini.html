@@ -1,3 +1,6 @@
-<div class="player mini">
-  <a href ui-sref="kynarilaarnio.player.profile({ id: player.id })">{{ player.nick }}</a>
+<div class="player--mini" ui-sref="kynarilaarnio.player.profile({ id: player.id })">
+  <i class="fa fa-user ng-scope"></i>
+  {{ player.nick }}
+  <span ng-show="player.captainId" class="label" translate>player.captain</span>
+  <span ng-show="player.standinId" class="label" translate>player.standin</span>
 </div>

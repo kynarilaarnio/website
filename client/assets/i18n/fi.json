@@ -74,6 +74,8 @@
 
   "player": {
     "title": "Pelaaja",
+    "captain": "Kapteeni",
+    "standin": "Varapelaaja",
     "nick": "Nimimerkki",
     "email": "Sähköposti",
     "realname": "Koko nimi",
