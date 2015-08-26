@@ -1,45 +1,15 @@
-$navigation-foreground:           #333333;
-$navigation-background:           #ffffff;
-$navigation-highlight:            #2E0A5D;
-$docked-navigation-height:        50px;
-$mobile-menu-max-width:           750px;
-$mobile-header-height:            50px;
-$mobile-navigation-item-height:   50px;
-$mobile-navigation-item-padding:  5px;
+@import 'navicon'; // icon used on mobile navigation
 
-.navigation-link, .header-link {
-  cursor: pointer;
+header { width: 100%; } // wrapper for header
+.header { // actual header content
+  background-color: $black;
+  width: $content-width;
+  margin: 0 auto;
+  padding: 2rem 1rem 1rem 1rem;
 
-  font-size: 1.5rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  text-decoration: none;
-  letter-spacing: -0.1rem;
-  color: $navigation-foreground;
+  box-sizing: border-box;
 
-  &:hover {
-    color: $navigation-highlight;
-  }
-}
-
-.header {
-  padding-top: 1rem;
-
-  .title {
-    text-transform: uppercase;
-
-    .title-full {
-      display: block;
-    }
-
-    .title-short {
-      display: none;
-    }
-  }
-
-  .navicon {
-    display: none;
-  }
+  .navicon { display: none; }
 
   .user {
     margin-top: 1rem;
@@ -51,53 +21,87 @@ $mobile-navigation-item-padding:  5px;
       font-size: 1.4rem;
       font-weight: 600;
 
-      &:hover {
-        color: $navigation-highlight;
-      }
-
-      &:visited {
-        color: $navigation-foreground;
-      }
+      &:hover { color: $navigation-highlight; }
+      &:visited { color: $navigation-foreground; }
     }
 
-    .header-link {
-      margin-left: 2rem;
-    }
+    .header-link { margin-left: 2rem; }
   }
 }
 
-.navigation {
-  > .container {
-    width: 100%;
-  }
+.header.mobile {
+  padding: 10px;
+}
 
-  .navigation-list {
-    .navigation-item {
-      list-style: none;
-    }
+// Typographic logo
+.logo__wrap--full { position: relative; }
+.logo__short {
+  display: inline-block;
+  line-height: 1;
+
+  border-left: none;
+  background-color: transparent;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.logo__full--top,
+.logo__full--bottom {
+  position: absolute;
+  left: 100px;
+
+  display: inline-block;
+  background-color: transparent;
+  border-left: none;
+  font-size: 20px;
+
+  text-transform: uppercase;
+}
+.logo__full--top { top: 0; }
+.logo__full--bottom { bottom: 0; }
+
+
+.navigation {
+  width: $content-width;
+  margin: 0 auto;
+  position: relative;
+  box-sizing: border-box;
+
+  z-index: 10;
+
+  .navigation-list li {
+    list-style: none;
   }
+}
+
+.navigation-link, .header-link {
+  cursor: pointer;
+
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: -0.1rem;
+  color: $navigation-foreground;
+
+  &:hover { color: $navigation-highlight; }
 }
 
 
 @media screen and (min-width: $mobile-menu-max-width) {
-  .navigation {
-    > .container {
-      width: 100%;
-    }
+  nav { min-height: 100px; } // to fix bug of navigation-dock directive
+  .header.mobile { display: none; }
 
+  .navigation {
     .navigation-list {
       display: flex;
       justify-content: space-between;
 
-      padding-top: 1rem;
+      padding: 1rem 2rem 0 2rem;
       border-top: 1px solid $navigation-foreground;
 
       .navigation-item {
         display: inline;
-
-        > .container {
-          width: 100%;
-        }
 
         &.user {
           display: none;
@@ -116,18 +120,14 @@ $mobile-navigation-item-padding:  5px;
     }
 
     &.docked {
-      > .container {
-        width: 80%;
-      }
+      width: 100%;
 
       display: block;
       position: fixed;
       left: 0;
       right: 0;
       top: 0;
-      height: $docked-navigation-height;
       background-color: $navigation-background;
-
 
       .navigation-list {
         border-top: 0px;
@@ -142,14 +142,18 @@ $mobile-navigation-item-padding:  5px;
   }
 }
 
+
 @media screen and (max-width: $mobile-menu-max-width) {
+  .logo__wrap--full { display: none; }
+  .logo__short {
+    line-height: 1.5;
+    font-size: 25px;
+  }
+
   .navigation {
     .navigation-list {
       display: none;
-
-      > .container {
-        width: 80%;
-      }
+      width: 80%;
 
       &.open {
         display: block;
@@ -173,13 +177,8 @@ $mobile-navigation-item-padding:  5px;
             text-decoration: none;
             color: $navigation-foreground;
 
-            &:hover {
-              color: $navigation-highlight;
-            }
-
-            &:visited {
-              color: $navigation-foreground;
-            }
+            &:hover { color: $navigation-highlight; }
+            &:visited { color: $navigation-foreground; }
           }
         }
       }
@@ -191,7 +190,10 @@ $mobile-navigation-item-padding:  5px;
     }
   }
 
-  .header {
+  .header { display: none; }
+  .header.mobile {
+    display: block;
+
     position: fixed;
     top: 0;
     left: 0;
@@ -205,32 +207,8 @@ $mobile-navigation-item-padding:  5px;
       height: $mobile-header-height;
     }
 
-    .title {
-      display: inline;
 
-      .title-short {
-        display: inline;
-      }
-
-      .title-full {
-        display: none;
-      }
-    }
-
-    .navicon {
-      display: inline;
-    }
-
-    .user {
-      display: none;
-    }
+    .navicon { display: inline; }
+    .user { display: none; }
   }
-
-  #main {
-    margin-top: $mobile-header-height + 20px;
-  }
-}
-
-#main {
-  margin-bottom: 70px;
 }

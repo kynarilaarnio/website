@@ -1,0 +1,37 @@
+.content__wrap {
+  width: $content-width;
+  max-width: $content-max-width;
+  margin: 0 auto;
+}
+@media screen and (max-width: $mobile-menu-max-width) {
+  .content__wrap {
+    margin-top: $mobile-header-height + 20px;
+  }
+}
+
+
+
+// # Basic coloring for text & backgrounds
+html {
+    background: url(/nukebg.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+.row {
+  background-color: $bg-transparent;
+  padding: 20px 10px;
+
+  overflow: hidden; // HOX can this cause problems? this class is from Skeleton
+}
+
+body { color: $white; }
+input { color: $black; }
+
+
+h1, h2, h3, h4, h5 {
+  background-color: $color-secondary-1-0;
+  border-left: 20px solid $color-secondary-1-4;
+  padding-left: 10px;
+}
+
+p { text-align: justify; }
+a { color: $color-secondary-1-1; }
