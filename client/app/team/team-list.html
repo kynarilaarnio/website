@@ -1,6 +1,17 @@
-<div class="team list">
-  <div class="row clickable" ng-repeat="team in teams | orderBy: 'name'" ui-sref="kynarilaarnio.team.profile({ id: team.id })">
-    <div class="two columns">{{ team.tag }}</div>
-    <div class="ten columns">{{ team.name }}</div>
-  </div>
+<akl-hero>
+  <i class="fa fa-group"></i> <span translate>team.listingTitle</span>
+</akl-hero>
+
+<div class="row">
+
+  <ul class="team__listing u-cf">
+    <li class="team__badge"
+      ng-repeat="team in teams | orderBy: 'name'"
+      ui-sref="kynarilaarnio.team.profile({ id: team.id })"
+    >
+      <h5 class="team__tag">{{ team.tag }}</h5>
+      <p class="team__name">{{ team.name }}</p>
+    </li>
+  </ul>
+
 </div>

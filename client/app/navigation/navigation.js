@@ -19,6 +19,7 @@ m.directive('navigationDock', function ($window) {
         }
       };
 
+      // TODO throtthle these functions with lodash?
       w.bind('resize', function () {
         element.removeClass('docked');
         top = element[0].offsetTop;

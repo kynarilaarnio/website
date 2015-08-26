@@ -1,26 +1,24 @@
 <div class="row header mobile" ng-init="mobileOpen = false" ng-click="mobileOpen = !mobileOpen">
   <div class="twelve columns">
-    <div class="container">
-      <div class="title">
-        <h4 class="title-short" translate>global.title_short</h4>
-      </div>
+    <h1 class="logo__short" translate>global.title_short</h1>
 
-      <div class="navicon">
-        <button class="lines-button x pull-right" ng-class="{ 'open' : mobileOpen  }" type="button" role="button">
-          <span class="lines"></span>
-        </button>
-      </div>
+    <div class="navicon">
+      <button class="lines-button x pull-right" ng-class="{ 'open' : mobileOpen  }" type="button" role="button">
+        <span class="lines"></span>
+      </button>
     </div>
   </div>
 </div>
 
 
 <div class="row header">
-  <div class="seven columns title">
-    <h4 class="title-full" translate>global.title</h4>
+  <div class="logo__wrap--full five columns">
+    <h1 class="logo__short" translate>global.title_short</h1>
+    <h4 class="logo__full--top">Akateeminen</h4>
+    <h4 class="logo__full--bottom">Kynäriliiga</h4>
   </div>
 
-  <div class="five columns">
+  <div class="seven columns">
     <div class="user pull-right">
       <div ng-hide="account.isAuthenticated()">
         <a href="/auth/steam" class="pull-right header-link">
@@ -51,65 +49,41 @@
 
 <!-- Mobile Navigation -->
 <div class="navigation" navigation-dock>
-  <div class="container">
-    <ul class="navigation-list" ng-class="{ 'open': mobileOpen }">
-      <li ui-sref="kynarilaarnio.main" class="navigation-item navigation-link">
-        <div class="container">
-          <span translate>global.navigation.main</span>
-        </div>
-      </li>
-      <li class="navigation-item navigation-link">
-        <div class="container">
-          <span translate>global.navigation.schedule</span>
-        </div>
-      </li>
-      <li ui-sref="kynarilaarnio.team" class="navigation-item navigation-link">
-        <div class="container">
-          <span translate>global.navigation.teams</span>
-        </div>
-      </li>
-      <li ui-sref="kynarilaarnio.group" class="navigation-item navigation-link">
-        <div class="container">
-          <span translate>global.navigation.groups</span>
-        </div>
-      </li>
-      <li class="navigation-item navigation-link">
-        <div class="container">
-          <span translate>global.navigation.brackets</span>
-        </div>
-      </li>
-      <li ui-sref="kynarilaarnio.rules" class="navigation-item navigation-link">
-        <div class="container">
-          <span translate>global.navigation.rules</span>
-        </div>
-      </li>
+  <ul class="navigation-list" ng-class="{ 'open': mobileOpen }">
+    <li ui-sref="kynarilaarnio.main" class="navigation-item navigation-link">
+      <span translate>global.navigation.main</span>
+    </li>
+    <li class="navigation-item navigation-link">
+      <span translate>global.navigation.schedule</span>
+    </li>
+    <li ui-sref="kynarilaarnio.team" class="navigation-item navigation-link">
+      <span translate>global.navigation.teams</span>
+    </li>
+    <li ui-sref="kynarilaarnio.group" class="navigation-item navigation-link">
+      <span translate>global.navigation.groups</span>
+    </li>
+    <li class="navigation-item navigation-link">
+      <span translate>global.navigation.brackets</span>
+    </li>
+    <li ui-sref="kynarilaarnio.rules" class="navigation-item navigation-link">
+      <span translate>global.navigation.rules</span>
+    </li>
 
 
-      <li class="navigation-item navigation-link user" ng-show="account.isAdmin()">
-        <div class="container">
-          <span ui-sref="kynarilaarnio.admin" translate>global.admin</span>
-        </div>
-      </li>
-      <li class="navigation-item navigation-link user" ng-show="account.isAuthenticated()">
-        <div class="container">
-          <span ui-sref="kynarilaarnio.player.profile.edit" translate>global.settings</span>
-        </div>
-      </li>
-      <li class="navigation-item navigation-link user" ng-show="account.isAuthenticated()">
-        <div class="container">
-          <span ui-sref="kynarilaarnio.player.profile" translate>global.my_profile</span>
-        </div>
-      </li>
-      <li class="navigation-item navigation-link user" ng-hide="account.isAuthenticated()">
-        <div class="container">
-          <a href="/auth/steam" translate>global.login</a>
-       </div>
-      </li>
-      <li class="navigation-item navigation-link user" ng-show="account.isAuthenticated()">
-        <div class="container">
-          <a  href="/logout" class="logout" translate>global.logout</a>
-        </div>
-      </li>
-    </ul>
-  </div>
+    <li class="navigation-item navigation-link user" ng-show="account.isAdmin()">
+      <span ui-sref="kynarilaarnio.admin" translate>global.admin</span>
+    </li>
+    <li class="navigation-item navigation-link user" ng-show="account.isAuthenticated()">
+      <span ui-sref="kynarilaarnio.player.profile.edit" translate>global.settings</span>
+    </li>
+    <li class="navigation-item navigation-link user" ng-show="account.isAuthenticated()">
+      <span ui-sref="kynarilaarnio.player.profile" translate>global.my_profile</span>
+    </li>
+    <li class="navigation-item navigation-link user" ng-hide="account.isAuthenticated()">
+      <a href="/auth/steam" translate>global.login</a>
+    </li>
+    <li class="navigation-item navigation-link user" ng-show="account.isAuthenticated()">
+      <a  href="/logout" class="logout" translate>global.logout</a>
+    </li>
+  </ul>
 </div>

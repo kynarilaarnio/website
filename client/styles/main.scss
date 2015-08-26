@@ -1,0 +1,19 @@
+// "global" styles
+@import 'variables';
+
+@import 'general';
+@import 'utility';
+@import 'notification';
+
+// "components"
+@import '../app/hero/hero';
+
+// "view specific" styles
+@import '../app/admin/admin';
+@import '../app/group/group';
+@import '../app/invitation-code/invitation-code';
+@import '../app/match/match';
+@import '../app/navigation/navigation';
+@import '../app/player/player';
+@import '../app/team/team';
+@import '../app/footer/footer';

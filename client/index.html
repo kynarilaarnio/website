@@ -2,7 +2,7 @@
 <html lang="en" ng-app="app">
 <head>
   <meta charset="utf-8">
-  <title translate>global.title</title>
+  <title>Akateeminen Kynäriliiga</title>
   <meta name="description" content="" />
   <meta name="author" content="" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -17,23 +17,24 @@
   <!-- <link rel="icon" type="image/png" href="images/favicon.png" /> -->
 </head>
 <body>
-  <div class="container">
+
+  <header>
+  <!-- TODO navista headerikama tänne? -->
+    <nav ng-include="'navigation/navigation.html'" role="navigation"></nav>
+  </header>
+
+  <div class="content__wrap">
     <div class="notification fx-fade-right fx-speed-300 fx-easing-back"
       ng-class="Notifications.get().classes" ng-show="Notifications.get()">
       <span>
         {{ Notifications.get().content | translate : Notifications.get().parameters }}
       </span>
     </div>
-
-    <header>
-      <nav ng-include="'navigation/navigation.html'" role="navigation"></nav>
-    </header>
-
     <main ui-view="main"></main>
-
-    <footer>
-    </footer>
   </div>
+
+  <footer ng-include="'footer/footer.html'"></footer>
+
 
   <!-- bower:js -->
   <!-- endbower -->

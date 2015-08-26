@@ -21,8 +21,6 @@
     <div class="row u-full-width">
       <button ng-click="generateInvitationCodes()" translate>invitationCodes.generate</button>
     </div>
-
-    <hr/>
   </div>
 
   <div class="row">
@@ -45,24 +43,26 @@
 
   </div>
 
-  <table class="u-full-width">
-    <thead>
-      <tr>
-        <th translate>invitationCodes.code</th>
-        <th translate>invitationCodes.role</th>
-        <th translate>invitationCodes.usedBy</th>
-        <th> </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="invitationCode in filteredCodes = (invitationCodes |
-        filter: searchString |
-        filter: filterRedeemed)">
-        <td>{{ invitationCode.code }}</td>
-        <td>{{ invitationCode.type }}</td>
-        <td>{{ invitationCode.usedBy.nick }}</td>
-        <td><i class="fa fa-minus-square pull-right pointer" ng-click="remove(invitationCode)"></i></td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="row">
+    <table class="u-full-width">
+      <thead>
+        <tr>
+          <th translate>invitationCodes.code</th>
+          <th translate>invitationCodes.role</th>
+          <th translate>invitationCodes.usedBy</th>
+          <th> </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="invitationCode in filteredCodes = (invitationCodes |
+          filter: searchString |
+          filter: filterRedeemed)">
+          <td>{{ invitationCode.code }}</td>
+          <td>{{ invitationCode.type }}</td>
+          <td>{{ invitationCode.usedBy.nick }}</td>
+          <td><i class="fa fa-minus-square pull-right pointer" ng-click="remove(invitationCode)"></i></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

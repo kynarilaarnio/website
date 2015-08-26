@@ -60,6 +60,7 @@
   },
 
   "team": {
+    "listingTitle": "Joukkueet",
     "tag": "Tagi",
     "name": "Nimi",
     "description": "Joukkuekuvaus",
@@ -72,6 +73,9 @@
   },
 
   "player": {
+    "title": "Pelaaja",
+    "captain": "Kapteeni",
+    "standin": "Varapelaaja",
     "nick": "Nimimerkki",
     "email": "Sähköposti",
     "realname": "Koko nimi",
