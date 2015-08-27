@@ -105,5 +105,9 @@
     "codesSearchString": "Hakusana",
     "showRedeemed": "Näytä aktivoidut",
     "codeAmountUnit": "koodia"
+  },
+
+  "playoffs": {
+    "title": "Pudotuspelit"
   }
 }

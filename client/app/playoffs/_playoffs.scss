@@ -1,0 +1,65 @@
+// Based on http://codepen.io/aronduby/pen/qliuj
+
+$playoff-tree-branch-color: #aaa;
+$playoff-tree-branch-width: 1px;
+
+.playoff-tree__wrapper {
+  overflow: scroll;
+}
+
+
+// Flex all the things!
+section.playoff-tree {
+  display: flex;
+  flex-direction: row;
+}
+.round {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 200px;
+  list-style: none;
+  padding: 0;
+}
+
+.round .spacer { flex-grow: 1; }
+
+.round .spacer:first-child,
+.round .spacer:last-child {
+  flex-grow: .5;
+}
+.round .game-spacer{
+  flex-grow: 1;
+}
+
+
+
+
+
+
+li.game {
+  padding-left: 20px;
+  margin-bottom: 0;
+}
+
+li.game.winner{
+  font-weight: bold;
+}
+
+li.game span{
+  float: right;
+  margin-right: 5px;
+}
+
+li.game-top {
+  border-bottom: $playoff-tree-branch-width solid $playoff-tree-branch-color;
+}
+
+li.game-spacer{
+  border-right: $playoff-tree-branch-width solid $playoff-tree-branch-color;
+  min-height: 40px;
+}
+
+li.game-bottom{
+  border-top: $playoff-tree-branch-width solid $playoff-tree-branch-color;
+}
