@@ -34,7 +34,8 @@ var m = angular.module('app', [
   'app.player',
   'app.registration',
   'app.rules',
-  'app.team'
+  'app.team',
+  'app.playoffs'
 ]);
 
 m.run(function (AuthService) {
