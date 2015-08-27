@@ -8,7 +8,7 @@ $playoff-tree-branch-width: 1px;
 }
 
 
-// Flex all the things!
+// # Flex all the things!
 section.playoff-tree {
   display: flex;
   flex-direction: row;
@@ -22,31 +22,49 @@ section.playoff-tree {
   padding: 0;
 }
 
-.round .spacer { flex-grow: 1; }
-
-.round .spacer:first-child,
-.round .spacer:last-child {
-  flex-grow: .5;
-}
-.round .game-spacer{
+.round .spacer {
   flex-grow: 1;
 }
 
+.round .spacer:first-child,
+.round .spacer:last-child,
+.round .spacer-first,
+.round .spacer-last {
+  flex-grow: .5;
+}
+
+.round .game-spacer {
+  flex-grow: 1;
+}
+
+// # Special rules (hacks) for the loser's bracket
+.playoff-tree__wrapper--losers {
+  .round-1 .spacer:first-child { flex-grow: 2; }
+  .round-1 .spacer { flex-grow: .5; }
+
+  .round-2 .spacer:first-child { flex-grow: 1; }
+  .round-2 .spacer { flex-grow: 4; }
+  .round-2 .spacer:last-child { flex-grow: 12; }
+
+  .round-3 .spacer:first-child { flex-grow: 6; }
+  .round-3 .spacer { flex-grow: 10; }
+  .round-3 .game-spacer { flex-grow: 10; }
+}
 
 
 
 
-
+// # Styling for items
 li.game {
   padding-left: 20px;
   margin-bottom: 0;
 }
 
-li.game.winner{
+li.game.winner {
   font-weight: bold;
 }
 
-li.game span{
+li.game span {
   float: right;
   margin-right: 5px;
 }
@@ -55,11 +73,11 @@ li.game-top {
   border-bottom: $playoff-tree-branch-width solid $playoff-tree-branch-color;
 }
 
-li.game-spacer{
+li.game-spacer {
   border-right: $playoff-tree-branch-width solid $playoff-tree-branch-color;
   min-height: 40px;
 }
 
-li.game-bottom{
+li.game-bottom {
   border-top: $playoff-tree-branch-width solid $playoff-tree-branch-color;
 }

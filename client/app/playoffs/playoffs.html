@@ -2,119 +2,246 @@
   <i class="fa fa-group"></i> <span translate>playoffs.title</span>
 </akl-hero>
 
-<div class="row playoff-tree__wrapper">
+
+<!-- <div class="row playoff-tree__wrapper">
+  TODO REMOVE THIS BEFORE GOING INTO PRODUCTION
+
   <section class="playoff-tree">
-    <ul class="round round-1">
-      <li class="spacer">&nbsp;</li>
+    <ul class="round" ng-repeat="round in rounds" ng-class="'round-' + round.roundNumber">
+      <div ng-repeat="matchPair in round.matchPairs">
+        <li class="spacer" ng-class="{ 'spacer-first': $first }" ng-if="$first">&nbsp;</li>
 
-      <li class="game game-top winner">Lousville <span>79</span></li>
-      <li class="game game-spacer">&nbsp;</li>
-      <li class="game game-bottom ">NC A&T <span>48</span></li>
+        <li class="game game-top winner">{{matchPair}}-A <span>99</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom">{{matchPair}}-B <span>99</span></li>
 
-      <li class="spacer">&nbsp;</li>
-
-      <li class="game game-top winner">Colo St <span>84</span></li>
-      <li class="game game-spacer">&nbsp;</li>
-      <li class="game game-bottom ">Missouri <span>72</span></li>
-
-      <li class="spacer">&nbsp;</li>
-
-      <li class="game game-top ">Oklahoma St <span>55</span></li>
-      <li class="game game-spacer">&nbsp;</li>
-      <li class="game game-bottom winner">Oregon <span>68</span></li>
-
-      <li class="spacer">&nbsp;</li>
-
-      <li class="game game-top winner">Saint Louis <span>64</span></li>
-      <li class="game game-spacer">&nbsp;</li>
-      <li class="game game-bottom ">New Mexico St <span>44</span></li>
-
-      <li class="spacer">&nbsp;</li>
-
-      <li class="game game-top winner">Memphis <span>54</span></li>
-      <li class="game game-spacer">&nbsp;</li>
-      <li class="game game-bottom ">St Mary's <span>52</span></li>
-
-      <li class="spacer">&nbsp;</li>
-
-      <li class="game game-top winner">Mich St <span>65</span></li>
-      <li class="game game-spacer">&nbsp;</li>
-      <li class="game game-bottom ">Valparaiso <span>54</span></li>
-
-      <li class="spacer">&nbsp;</li>
-
-      <li class="game game-top winner">Creighton <span>67</span></li>
-      <li class="game game-spacer">&nbsp;</li>
-      <li class="game game-bottom ">Cincinnati <span>63</span></li>
-
-      <li class="spacer">&nbsp;</li>
-
-      <li class="game game-top winner">Duke <span>73</span></li>
-      <li class="game game-spacer">&nbsp;</li>
-      <li class="game game-bottom ">Albany <span>61</span></li>
-
-      <li class="spacer">&nbsp;</li>
-
-    </ul>
-
-    <ul class="round round-2">
-      <li class="spacer">&nbsp;</li>
-
-      <li class="game game-top winner">Lousville <span>82</span></li>
-      <li class="game game-spacer">&nbsp;</li>
-      <li class="game game-bottom ">Colo St <span>56</span></li>
-
-      <li class="spacer">&nbsp;</li>
-
-      <li class="game game-top winner">Oregon <span>74</span></li>
-      <li class="game game-spacer">&nbsp;</li>
-      <li class="game game-bottom ">Saint Louis <span>57</span></li>
-
-      <li class="spacer">&nbsp;</li>
-
-      <li class="game game-top ">Memphis <span>48</span></li>
-      <li class="game game-spacer">&nbsp;</li>
-      <li class="game game-bottom winner">Mich St <span>70</span></li>
-
-      <li class="spacer">&nbsp;</li>
-
-      <li class="game game-top ">Creighton <span>50</span></li>
-      <li class="game game-spacer">&nbsp;</li>
-      <li class="game game-bottom winner">Duke <span>66</span></li>
-
-      <li class="spacer">&nbsp;</li>
-    </ul>
-
-    <ul class="round round-3">
-      <li class="spacer">&nbsp;</li>
-
-      <li class="game game-top winner">Lousville <span>77</span></li>
-      <li class="game game-spacer">&nbsp;</li>
-      <li class="game game-bottom ">Oregon <span>69</span></li>
-
-      <li class="spacer">&nbsp;</li>
-
-      <li class="game game-top ">Mich St <span>61</span></li>
-      <li class="game game-spacer">&nbsp;</li>
-      <li class="game game-bottom winner">Duke <span>71</span></li>
-
-      <li class="spacer">&nbsp;</li>
-    </ul>
-
-    <ul class="round round-4">
-      <li class="spacer">&nbsp;</li>
-
-      <li class="game game-top winner">Lousville <span>85</span></li>
-      <li class="game game-spacer">&nbsp;</li>
-      <li class="game game-bottom ">Duke <span>63</span></li>
-
-      <li class="spacer">&nbsp;</li>
-    </ul>
-
-    <ul class="round round-5">
-      <li class="game game-top winner">KEIJOO <span>85</span></li>
+        <li class="spacer" ng-class="{ 'spacer-last': $last }">&nbsp;</li>
+      </div>
 
     </ul>
   </section>
+</div> -->
 
+
+<div class="row">
+  <h3>Winner's Bracket</h3>
+
+  <div class="playoff-tree__wrapper">
+    <section class="playoff-tree">
+      <ul class="round round-1">
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top winner">A1 <span>99</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom">H2 <span>99</span></li>
+
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top">B1 <span>99</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom">G2 <span>99</span></li>
+
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top">C1 <span>99</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom">F2 <span>99</span></li>
+
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top">D1 <span>99</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom">E2 <span>99</span></li>
+
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top">E1 <span>99</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom">D2 <span>99</span></li>
+
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top">F1 <span>99</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom">C2 <span>99</span></li>
+
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top">G1 <span>99</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom">B2 <span>99</span></li>
+
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top">H1 <span>99</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom">A2 <span>99</span></li>
+
+        <li class="spacer">&nbsp;</li>
+
+      </ul>
+
+      <ul class="round round-2">
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top"> <span></span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom"> <span></span></li>
+
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top"> <span></span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom"> <span></span></li>
+
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top"> <span></span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom"> <span></span></li>
+
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top"> <span></span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom"> <span></span></li>
+
+        <li class="spacer">&nbsp;</li>
+      </ul>
+
+      <ul class="round round-3">
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top"> <span></span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom"> <span></span></li>
+
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top"> <span></span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom"> <span></span></li>
+
+        <li class="spacer">&nbsp;</li>
+      </ul>
+
+      <ul class="round round-4">
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top"> <span></span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom"> <span></span></li>
+
+        <li class="spacer">&nbsp;</li>
+      </ul>
+
+      <ul class="round round-5">
+        <li class="game game-top"> <span></span></li>
+      </ul>
+
+    </section>
+  </div>
+
+
+
+  <h3>Loser's Bracket</h3>
+
+  <div class="playoff-tree__wrapper playoff-tree__wrapper--losers">
+    <section class="playoff-tree">
+      <ul class="round round-1">
+        <li class="spacer">&nbsp;</li>
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top">L1 <span></span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom">L2 <span></span></li>
+
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top">L3 <span></span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom">L4 <span></span></li>
+
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top">L5 <span></span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom">L6 <span></span></li>
+
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top">L7 <span></span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom">L8 <span></span></li>
+
+        <li class="spacer">&nbsp;</li>
+
+
+      </ul>
+
+      <ul class="round round-2">
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top">L16 <span></span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom"> <span></span></li>
+
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top">L15 <span></span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom"> <span></span></li>
+
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top">L14 <span></span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom"> <span></span></li>
+
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top">L13 <span></span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom"> <span></span></li>
+
+        <li class="spacer">&nbsp;</li>
+      </ul>
+
+      <ul class="round round-3">
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top"> <span></span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom"> <span></span></li>
+
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top"> <span></span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom"> <span></span></li>
+
+        <li class="spacer">&nbsp;</li>
+      </ul>
+
+      <ul class="round round-4">
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top"> <span></span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom"> <span></span></li>
+
+        <li class="spacer">&nbsp;</li>
+      </ul>
+
+      <ul class="round round-5">
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top"> <span></span></li>
+
+        <li class="spacer">&nbsp;</li>
+      </ul>
+
+    </section>
+
+  </div>
 </div>
