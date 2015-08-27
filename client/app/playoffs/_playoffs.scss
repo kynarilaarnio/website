@@ -12,6 +12,11 @@ $playoff-tree-branch-width: 1px;
 section.playoff-tree {
   display: flex;
   flex-direction: row;
+
+  // make the bracket scrollable in x-axis
+  min-width: 800px;
+  width: 100%;
+  ul { width: 100%; }
 }
 .round {
   display: flex;
