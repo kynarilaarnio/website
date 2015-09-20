@@ -15,6 +15,16 @@ m.config(function ($stateProvider) {
     });
 });
 
-m.controller('MainController', function ($scope) {
+m.controller('MainController', function ($scope, $http) {
+  $scope.streamIsOnline = false;
 
+  $scope.init = function() {
+
+    // Check if stream is active
+    $http.get('https://api.twitch.tv/kraken/streams/tietoteekkarikilta')
+    .then(function success(response) {
+      // If stream attribute exists, the stream is online
+      $scope.streamIsOnline = Boolean(response.data.stream);
+    });
+  }
 });

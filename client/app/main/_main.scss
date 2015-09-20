@@ -1,5 +1,31 @@
 // styles for the main/"landing" page
 
+.stream-status__wrapper {
+  overflow: hidden;
+  text-align: center;
+
+  .twitch-logo {
+    float: left;
+    width: 200px;
+    margin: 0 auto;
+    display: inline-block;
+  }
+
+  .stream-status__indicator--live,
+  .stream-status__indicator {
+    border: 0;
+    display: inline-block;
+    padding: 15px;
+    margin: 20px 0 0 0;
+    box-sizing: border-box;
+    float: left;
+
+    background-color: darken($hilight-color, 10%);
+  }
+  .stream-status__indicator--live {
+    background-color: $red;
+  }
+}
 
 
 // abuse logo design for this badge
