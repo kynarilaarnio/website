@@ -1,0 +1,58 @@
+// styles for the main/"landing" page
+
+
+
+// abuse logo design for this badge
+.finals-badge__wrapper {
+  background-color: $color-secondary-1-4;
+  padding: 10px;
+  margin-bottom: 10px;
+
+  .finals-title__wrapper {
+    position: relative;
+  }
+
+  .finals-title__short {
+    margin-bottom: 0;
+    display: inline-block;
+    line-height: 1;
+
+    border-left: none;
+    background-color: transparent;
+    font-style: italic;
+    font-weight: bold;
+  }
+  .finals-title__full--top,
+  .finals-title__full--bottom {
+  }
+  .finals-title__full--top,
+  .finals-title__full--bottom {
+    position: absolute;
+    left: 230px;
+
+    margin-bottom: 0;
+
+    display: inline-block;
+    background-color: transparent;
+    border-left: none;
+    font-size: 20px;
+
+    text-transform: uppercase;
+  }
+  .finals-title__full--top { top: 0; }
+  .finals-title__full--bottom { bottom: 0; }
+
+  @include viewports(small medium) {
+    .finals-title__full--top,
+    .finals-title__full--bottom {
+      display: none;
+    }
+  }
+}
+
+
+
+.main-page__schedule {
+  li { margin-bottom: 0px; }
+}
+
