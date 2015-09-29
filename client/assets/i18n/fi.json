@@ -45,8 +45,7 @@
 
   "main": {
     "wat": {
-      "title": "Mikä?",
-      "content": "No menokynyy! TiTen vanhat ja nuoremmat kynärijanarit pistää kuudentoista joukkueen kynäriturnauksen pystyyn. Pelit alkaa toukokuussa ja offline-finaalit pelataan Tampereella syksyllä."
+      "title": "Mikä?"
     },
     "news": {
       "title": "Tiedotteet"
@@ -105,5 +104,9 @@
     "codesSearchString": "Hakusana",
     "showRedeemed": "Näytä aktivoidut",
     "codeAmountUnit": "koodia"
+  },
+
+  "footer": {
+    "sponsoredBy": "AKL:ää toteuttamassa:"
   }
 }

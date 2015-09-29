@@ -1,49 +1,49 @@
-<div class="row">
+<div class="row" ng-init="init()">
   <div class="six columns">
     <h5 translate>main.wat.title</h5>
-    <p translate>main.wat.content</p>
+    <p>Tampereen Teknillisen Yliopiston tietotekniikan opiskelijoiden ainejärjestö TietoTeekkarikilta (TiTe) järjestää Suomen ensimmäisen korkeakouluopiskelijoille tarkoitetun Counter-Strike: Global Offensive liigan. Keväällä TiTe lähetti turnaukseen avoimen kutsun eri korkeakouluihin ympäri Suomen. Mukaan lähti 40 joukkuetta.</p>
+
+    <p>Kesällä pelattiin lohkovaihe, josta 16 parasta joukkuetta eteni nyt pelattavaan pudotuspelivaiheeseen. Pudotuspelivaihe huipentuu Tampereen Hervannassa pelattavaan offline-finaaliin. 17.10. elokuvateatteri Cinolassa pelataan Winners Bracketin finaali, Losers Bracketin finaali ja tietysti Grand Finaali. Ovet auki yleisölle klo 13 ja ensimmäinen peli alkaa klo 14:00. Tapahtuma on ilmainen ja tapahtumaa voi seurata myös streamista.</p>
+
+    <p>Kaikkien otteluiden VODit ja demot löytyvät osoitteesta <a href="http://titeen.it/akl/">titeen.it/akl/</a>.</p>
   </div>
 
   <div class="six columns">
-    <h5 translate>main.news.title</h5>
-    <p>
-      Juuh elicks. Saitti on vielä pahasti kesken, mutta rekisteröityminen on nyt auki niin saadaan lohkot tehtyä ja turnaus käyntiin.
-    </p>
-    <p>
-      Homma toimii näin:
-      <ol>
-        <li>Kapteenit saavat sähköposteihinsa uniikin kutsukoodinsa</li>
-        <li>Kapteeni käy rekisteröitymässä steamin avulla saitille ja syöttää kutsukoodinsa</li>
-        <li>Kapteeni täyttää omat tietonsa ja tallentaa ne</li>
-        <li>Kapteeni täyttää joukkueensa tiedot ja tallentaa ne</li>
-        <li>Kapteeni jakaa joukkueensa pelaajille heidän kutsukoodinsa (näkyy asetukset sivulla)</li>
-        <li>Muut pelaajat rekisteröityvät ja syöttävät koodinsa ja täyttävät tietonsa jne.</li>
-        <li>Lohkot arvotaan jossain välissä ennen sunnuntain 7.6. kello kuutta</li>
-      </ol>
-    </p>
+    <h5>Seuraa matseja</h5>
+    <div class="stream-status__wrapper">
+      <a href="http://www.twitch.tv/tietoteekkarikilta">
+        <img class="twitch-logo" src="twitch-logo.png" alt="Twitch">
+      </a>
+      <h5 class="stream-status__indicator--live" ng-show="streamIsOnline">LIVE!</h5>
+      <h5 class="stream-status__indicator" ng-hide="streamIsOnline">OFFLINE</h5>
+    </div>
+    <p>Kaikki loput playoff-vaiheen ottelut pelataan keskiviikkoisin ja sunnuntaisin alkaen kello 18. Streami katsottavissa aina osoitteesta <a href="http://www.twitch.tv/tietoteekkarikilta">twitch.tv/tietoteekkarikilta</a>.</p>
+
+    <p>Turnauksen ensimmäinen epävirallinen fragipotpuri on myös julkaistu, ABG.Brown -joukkueen onnistumisia voi käydä ihmettelemässä heidän tuottamastaan <a href="https://www.youtube.com/watch?v=Tgb6OhK7iOo">highlight-reelistä.</a></p>
+
+
+    <h5>Finaalitapahtuma</h5>
+    <div class="finals-badge__wrapper">
+      <a href="https://www.facebook.com/events/490253244474072/">
+        <div class="finals-title__wrapper">
+          <h1 class="finals-title__short" >FINAALIT</h1>
+          <h4 class="finals-title__full--top">Cinola</h4>
+          <h4 class="finals-title__full--bottom">17.10.</h4>
+        </div>
+      </a>
+    </div>
+    <p>Finaalit tulevat! Cinolassa ratkotaan LIVENÄ 17.10. molempien bracketien voittajatiimit, ja tämän jälkeen koko turnauksen voittaja. Kaikille avoimet jälkipelit järjestetään Teekkarisaunalla.</p>
+
+    <strong>Alustava aikataulu:</strong>
+    <ul class="main-page__schedule">
+      <li>13:00 Ovet auki</li>
+      <li>14:00 Winners Final</li>
+      <li>17:00 (arvioitu aika) Losers Final</li>
+      <li>20:00 (arvioitu aika) Grand Final</li>
+      <li>23:00 (arvioitu aika) Palkintoseremonia, siirtyminen jatkoille.</li>
+    </ul>
+
+    <p>Ajantasaisin info finaalitapahtumasta löytyy <a href="https://www.facebook.com/events/490253244474072/">Facebook-eventistä</a>.</p>
+
   </div>
 </div>
-
-<!--
-    <div class="six columns">
-      <h5 translate>main.news.title</h5>
-      <div ng-repeat="newsheet in newssheets">
-        <newssheet content="newsheet"></newssheet>
-      </div>
-    </div>
--->
-<!--
-  <div class="row">
-    <div class="six columns">
-      <h5 translate>main.latest_matches.title</h5>
-      <div ng-repeat="match in matches">
-        <match content="match" template="mini"></match>
-      </div>
-    </div>
-
-    <div class="six columns">
-      <h5 translate>main.next_event.title</h5>
-      <p></p>
-    </div>
-  </div>
--->

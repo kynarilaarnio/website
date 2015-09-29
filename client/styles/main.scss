@@ -1,5 +1,6 @@
 // "global" styles
 @import 'variables';
+@import 'viewports'; // responsive microlibrary
 
 @import 'general';
 @import 'utility';
@@ -9,6 +10,7 @@
 @import '../app/hero/hero';
 
 // "view specific" styles
+@import '../app/main/main';
 @import '../app/admin/admin';
 @import '../app/group/group';
 @import '../app/invitation-code/invitation-code';

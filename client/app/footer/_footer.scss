@@ -4,22 +4,49 @@ footer {
 
   border-top: 10px solid $color-secondary-1-4;
   background-color: $black;
+
+  color: $color-secondary-1-1;
+  a { color: $color-secondary-1-1; }
 }
+
 
 .footer__content {
   margin: 0 auto;
   width: $content-width;
   max-width: $content-max-width;
 
-  position: relative;
+  .footer__sponsored-by {
+    text-align: center;
+    margin: 5px 0 0 0;
+    font-size: 14px;
+  }
+
+  .sponsor__wrap {
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+
+    a { display: inline-block; }
+    .sponsor__image {
+      height: 35px;
+      margin: 10px 15px;
+
+      background-color: lighten($black, 57%);
+      border-radius: 3px;
+      padding: 10px;
+
+      @include viewports(up-to small) {
+        height: 20px;
+        margin: 10px;
+      }
+
+      @include viewports(up-to tiny) {
+        height: 15px;
+        padding: 5px;
+        margin: 5px;
+      }
+
+    }
+  }
 }
 
-.footer__copyright {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-
-  color: $color-secondary-1-1;
-
-  a { color: $color-secondary-1-1; }
-}
